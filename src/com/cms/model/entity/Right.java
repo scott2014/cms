@@ -3,6 +3,7 @@ package com.cms.model.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,8 @@ import javax.persistence.Table;
 @Table(name="_right",catalog="cms")
 public class Right {
 	private Integer id;
+	private int rightCode;
+	private String rightName;
 	private List<User> users;
 	
 	@Id
@@ -38,4 +41,22 @@ public class Right {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
+	
+	@Column(name="rightCode",length=4)
+	public int getRightCode() {
+		return rightCode;
+	}
+	public void setRightCode(int rightCode) {
+		this.rightCode = rightCode;
+	}
+	
+	@Column(name="rightName",length=16)
+	public String getRightName() {
+		return rightName;
+	}
+	public void setRightName(String rightName) {
+		this.rightName = rightName;
+	}
+	
+	
 }
