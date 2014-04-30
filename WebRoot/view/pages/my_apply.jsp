@@ -12,14 +12,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="<%=basePath %>/view/pages/find_repo.css" rel="stylesheet" type="text/css" />
-<link href="<%=basePath %>/view/assets/jPaginate/css/style.css" rel="stylesheet" type="text/css" />
+<%--<link href="<%=basePath %>/view/assets/jPaginate/css/style.css" rel="stylesheet" type="text/css" />
+
+--%>
 
 <script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/find_shiji.js"></script>
-<script type="text/javascript" src="<%=basePath %>/view/assets/jPaginate/jquery.paginate.js"></script>
+<%--<script type="text/javascript" src="<%=basePath %>/view/assets/jPaginate/jquery.paginate.js"></script>
 
-<script type="text/javascript">
+--%><%--<script type="text/javascript">
 	$(function() {
 		$("#pagination").paginate({
 			count : parseInt($("#pagecount").html().trim()),
@@ -42,7 +44,7 @@
 </script>
 
 
-<title>无标题文档</title>
+--%><title>无标题文档</title>
 </head>
 
 <body>
@@ -95,7 +97,7 @@
  		</a>
  	</td>
  </tr>
- </s:iterator>
+ </s:iterator><%--
   <tr bgcolor="#FFFFFF">
  	<td colspan="5" >
  		<div id="mypage">
@@ -103,7 +105,7 @@
  		</div>
  	</td>
  </tr>
-</tbody>
+--%></tbody>
  </table>
 </body>
 </html>
