@@ -1,5 +1,7 @@
 package com.cms.model.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +26,9 @@ public class UserMedicinalService {
 	@Transactional
 	public void update(UserMedicinal um) {
 		this.userMedicinalDAO.update(um);
+	}
+	
+	public List<UserMedicinal> findAll() {
+		return this.userMedicinalDAO.findAll();
 	}
 }

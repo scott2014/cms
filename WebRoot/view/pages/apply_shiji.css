@@ -1,0 +1,29 @@
+table {
+	text-align: right;
+}
+
+tr {
+	height: 37px;
+}
+th {
+	color: #FFFFFF;
+}
+
+.hoverclass {
+	background-color: #BCD6EF;
+}
+
+.head {
+	font:  30px 微软雅黑;
+}
+
+input {
+	height: 26px;
+	width: 56%;
+}
+
+textarea {
+	margin: 2px;
+    height: 160px;
+    width: 366px;
+}

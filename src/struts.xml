@@ -64,6 +64,14 @@
 			<result name="toDetail" type="dispatcher">
 				/view/pages/detail_shiji.jsp
 			</result>
+			
+			<result name="toApply" type="dispatcher">
+				/view/pages/apply_shiji.jsp
+			</result>
+			
+			<result name="myApply" type="dispatcher">
+				/view/pages/apply_shiji.jsp
+			</result>
 		</action>
 		
 		<action name="favorite" class="com.cms.control.struts.action.FavoriteAction">

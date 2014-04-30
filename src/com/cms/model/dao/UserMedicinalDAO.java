@@ -1,5 +1,7 @@
 package com.cms.model.dao;
 
+import java.util.List;
+
 import com.cms.model.entity.UserMedicinal;
 
 public interface UserMedicinalDAO {
@@ -10,4 +12,6 @@ public interface UserMedicinalDAO {
 	public void update(UserMedicinal um);
 	
 	public UserMedicinal findById(long id);
+	
+	public List<UserMedicinal> findAll();
 }

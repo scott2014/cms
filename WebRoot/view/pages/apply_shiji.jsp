@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="<%=basePath%>/view/pages/create_shiji.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/view/pages/apply_shiji.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
@@ -28,9 +28,9 @@
 			align="center" border="0" class="tablect" style="padding:3px">
 			<tbody>
 				<tr bgcolor="#FFFFFF">
-					<td>图片：</td>
+					<td width="20%">图片：</td>
 					<td align="left">
-						<input type="file" name="photo" />
+						<img src="<%=basePath%>/<s:property value='mVO.medicinal.photo' />"/>
 					</td>
 					<td align="left">
 					    <span></span>
@@ -39,7 +39,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>产品编号：</td>
 					<td align="left">
-						<input type="text" name="medicinal.no"/>
+						<s:property value='mVO.medicinal.no' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -48,13 +48,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>所属试剂库：</td>
 					<td align="left">
-						<select name="medicinal.repositoryId" id="shiji_select" style="height:26px;">
-        					<s:iterator value="myrepos">
-        						<option value='<s:property value="id"/>'>
-        							<s:property value="repoName"/>
-        						</option>
-        				</s:iterator>
-        				</select>	
+						<s:property value='mVO.repository.repoName' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -63,7 +57,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 分子式：</td>
 					<td align="left">
-						 <input type="text" name="medicinal.formula"/>
+						<s:property value='mVO.medicinal.formula' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -73,7 +67,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 中文名称：</td>
 					<td align="left">
-						 <input type="text" name="medicinal.name"/>
+						<s:property value='mVO.medicinal.name' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -83,7 +77,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> CAS：</td>
 					<td align="left">
-						  <input type="text" name="medicinal.cas"/>
+						<s:property value='mVO.medicinal.cas' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -93,7 +87,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 规格：</td>
 					<td align="left">
-						 <input type="text" name="medicinal.standard"/>
+						<s:property value='mVO.medicinal.standard' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -103,7 +97,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 用途：</td>
 					<td align="left">
-						  <textarea name="medicinal.musage"></textarea>
+						<s:property value='mVO.medicinal.musage' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -113,7 +107,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 危险性：</td>
 					<td align="left">
-						  <textarea name="medicinal.security"></textarea>
+						<s:property value='mVO.medicinal.security' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -123,7 +117,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>形状：</td>
 					<td align="left">
-						  <textarea name="medicinal.shape"></textarea>
+						<s:property value='mVO.medicinal.shape' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -133,7 +127,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>说明：</td>
 					<td align="left">
-						  <textarea name="medicinal.description"></textarea>
+						<s:property value='mVO.medicinal.description' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -143,7 +137,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>试剂管理员：</td>
 					<td align="left">
-						  <textarea name="medicinal.description"></textarea>
+						<s:property value='mVO.user.username' />
         			</td>
         			<td align="left">
 					    <span></span>
@@ -151,7 +145,27 @@
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
-					<td align="center" colspan="2">
+					<td>剩余数量：</td>
+					<td align="left">
+						<s:property value='mVO.medicinal.left' />
+        			</td>
+        			<td align="left">
+					    <span></span>
+					</td>
+				</tr>
+				
+				<tr bgcolor="#FFFFFF">
+					<td>申请数量：</td>
+					<td align="left">
+						<input type="text"/>
+        			</td>
+        			<td align="left">
+					    <span></span>
+					</td>
+				</tr>
+				
+				<tr bgcolor="#FFFFFF">
+					<td align="center" colspan="3">
 						<input type="submit" value="提交申请" style="width:60px;"/> 
 						<input type="reset" value="重置"  style="width:60px;"/>
         			</td>

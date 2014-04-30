@@ -1,6 +1,7 @@
 package com.cms.control.struts.action;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,8 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.cms.model.entity.Medicinal;
 import com.cms.model.entity.Repository;
 import com.cms.model.entity.User;
+import com.cms.model.entity.UserMedicinal;
 import com.cms.model.service.MedicinalService;
 import com.cms.model.service.RepositoryService;
+import com.cms.model.service.UserMedicinalService;
+import com.cms.model.service.UserService;
+import com.cms.model.vo.ApplyMedicinalVO;
 import com.cms.model.vo.MedicinalVO;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
@@ -29,6 +34,14 @@ public class MedicinalAction extends ActionSupport {
 	@Autowired
 	@Resource(name="repositoryService")
 	private RepositoryService repositoryService;
+	
+	@Autowired
+	@Resource(name="userService")
+	private UserService userService;
+	
+	@Autowired
+	@Resource(name="userMedicinalService")
+	private UserMedicinalService userMedicinalService;
 	
 	private long id;
 	
@@ -52,6 +65,9 @@ public class MedicinalAction extends ActionSupport {
 	private List<MedicinalVO> myme;
 	
 	private MedicinalVO mVO = new MedicinalVO();
+	
+	//申请的试剂
+	private List<ApplyMedicinalVO> applys = new ArrayList<ApplyMedicinalVO>();
 	
 	public String execute() throws Exception {
 		System.out.println(medicinal);
@@ -127,6 +143,34 @@ public class MedicinalAction extends ActionSupport {
 		this.mVO.setUser(user);
 		
 		return "toDetail";
+	}
+	
+	public String toApply() throws Exception {
+		Medicinal m = this.medicinalService.findById(id);
+		Repository p = this.repositoryService.findById(m.getRepositoryId());
+		User u = this.userService.findById(m.getUserId());
+		
+		mVO.setMedicinal(m);
+		mVO.setRepository(p);
+		mVO.setUser(u);
+		
+		return "toApply";
+	}
+	
+	public String myApply() throws Exception {
+		List<UserMedicinal> ums = this.userMedicinalService.findAll();
+		
+		for (UserMedicinal um : ums) {
+			Medicinal m  = this.medicinalService.findById(um.getMedicinalId());
+			
+			ApplyMedicinalVO umVO = new ApplyMedicinalVO();
+			umVO.setMedicinal(m);
+			umVO.setUserMedicinal(um);
+			
+			applys.add(umVO);
+		}
+		
+		return "myApply";
 	}
 	
 	public String update() throws Exception {
@@ -243,5 +287,13 @@ public class MedicinalAction extends ActionSupport {
 
 	public void setMVO(MedicinalVO mVO) {
 		this.mVO = mVO;
+	}
+
+	public List<ApplyMedicinalVO> getApplys() {
+		return applys;
+	}
+
+	public void setApplys(List<ApplyMedicinalVO> applys) {
+		this.applys = applys;
 	}
 }

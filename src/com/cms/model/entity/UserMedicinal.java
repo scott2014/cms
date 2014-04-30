@@ -17,6 +17,7 @@ public class UserMedicinal {
 	private long medicinalId;
 	private int status;
 	private Date checkTime;
+	private Date applyTime;
 	
 	@Id
 	@GeneratedValue
@@ -57,5 +58,13 @@ public class UserMedicinal {
 	}
 	public void setCheckTime(Date checkTime) {
 		this.checkTime = checkTime;
+	}
+	
+	@Column(name="applyTime")
+	public Date getApplyTime() {
+		return applyTime;
+	}
+	public void setApplyTime(Date applyTime) {
+		this.applyTime = applyTime;
 	}
 }

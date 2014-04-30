@@ -1,5 +1,7 @@
 package com.cms.model.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,10 @@ public class UserMedicinalDAOImpl implements UserMedicinalDAO {
 
 	public UserMedicinal findById(long id) {
 		return this.hibernateTemplate.get(UserMedicinal.class, id);
+	}
+
+	public List<UserMedicinal> findAll() {
+		return this.hibernateTemplate.loadAll(UserMedicinal.class);
 	}
 
 }
