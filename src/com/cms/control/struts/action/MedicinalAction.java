@@ -1,6 +1,7 @@
 package com.cms.control.struts.action;
 
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -65,6 +66,7 @@ public class MedicinalAction extends ActionSupport {
 		long userId = ((User)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
 		
 		this.medicinal.setUserId(userId);
+		this.medicinal.setCreateTime(new Date());
 		
 		this.medicinalService.save(medicinal);
 		

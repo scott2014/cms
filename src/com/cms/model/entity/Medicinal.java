@@ -32,10 +32,10 @@ public class Medicinal implements java.io.Serializable {
 	//试剂编号
 	private String no;
 	private String description;
-	private long userId;
+	private Long userId;
 	private Date createTime;
 	
-	private int left;
+	private Integer left;
 
 	// Constructors
 
@@ -172,11 +172,11 @@ public class Medicinal implements java.io.Serializable {
 	}
 	
 	@Column(name="userId",length=64)
-	public long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	
@@ -189,12 +189,12 @@ public class Medicinal implements java.io.Serializable {
 		this.createTime = createTime;
 	}
 
-	@Column(name="left",length=32)
-	public int getLeft() {
+	@Column(name="_left",length=32)
+	public Integer getLeft() {
 		return left;
 	}
 
-	public void setLeft(int left) {
+	public void setLeft(Integer left) {
 		this.left = left;
 	}
 	
