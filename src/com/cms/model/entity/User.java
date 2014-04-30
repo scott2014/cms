@@ -1,8 +1,8 @@
 package com.cms.model.entity;
 
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -33,7 +32,6 @@ public class User implements java.io.Serializable {
 	private String realName;
 	private String phone;
 	private List<Right> rights;
-
 	// Constructors
 
 	/** default constructor */
@@ -130,4 +128,6 @@ public class User implements java.io.Serializable {
 	public void setRights(List<Right> rights) {
 		this.rights = rights;
 	}
+	
+	
 }

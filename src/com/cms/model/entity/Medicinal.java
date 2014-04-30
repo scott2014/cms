@@ -1,10 +1,13 @@
 package com.cms.model.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -30,6 +33,7 @@ public class Medicinal implements java.io.Serializable {
 	private String no;
 	private String description;
 	private long userId;
+	private Date createTime;
 
 	// Constructors
 
@@ -174,5 +178,12 @@ public class Medicinal implements java.io.Serializable {
 		this.userId = userId;
 	}
 	
-	
+	@Column(name="createTime")
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 }

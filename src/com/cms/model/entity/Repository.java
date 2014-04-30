@@ -1,10 +1,13 @@
 package com.cms.model.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -23,6 +26,7 @@ public class Repository implements java.io.Serializable {
 	private Long userId;
 	
 	private String repoName;
+	private Date createTime;
 
 	// Constructors
 
@@ -95,5 +99,14 @@ public class Repository implements java.io.Serializable {
 
 	public void setRepoName(String repoName) {
 		this.repoName = repoName;
+	}
+
+	@Column(name="createTime")
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 }
