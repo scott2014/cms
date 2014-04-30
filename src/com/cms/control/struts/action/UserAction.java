@@ -1,12 +1,17 @@
 package com.cms.control.struts.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cms.model.entity.Right;
 import com.cms.model.entity.User;
+import com.cms.model.service.RightService;
 import com.cms.model.service.UserService;
 import com.cms.model.util.MDEncode;
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,6 +22,10 @@ public class UserAction extends ActionSupport {
 	@Resource(name="userService")
 	private UserService userService;
 	
+	@Autowired
+	@Resource(name="rightService")
+	private RightService rightService;
+	
 	private String username;
 	private String password;
 	
@@ -26,6 +35,11 @@ public class UserAction extends ActionSupport {
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(MDEncode.encode(password));
+		
+		List<Right> rs = new ArrayList<Right>();
+		Right r = this.rightService.findById(1);
+		rs.add(r);
+		user.setRights(rs);
 		
 		this.userService.save(user);
 		return "register";
