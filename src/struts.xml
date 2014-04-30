@@ -70,7 +70,7 @@
 			</result>
 			
 			<result name="myApply" type="dispatcher">
-				/view/pages/apply_shiji.jsp
+				/view/pages/my_apply.jsp
 			</result>
 		</action>
 		

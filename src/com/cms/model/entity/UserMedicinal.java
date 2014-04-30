@@ -18,6 +18,7 @@ public class UserMedicinal {
 	private int status;
 	private Date checkTime;
 	private Date applyTime;
+	private Float applyNumber;
 	
 	@Id
 	@GeneratedValue
@@ -67,4 +68,14 @@ public class UserMedicinal {
 	public void setApplyTime(Date applyTime) {
 		this.applyTime = applyTime;
 	}
+	
+	@Column(name="applyNumber",length=10)
+	public Float getApplyNumber() {
+		return applyNumber;
+	}
+	public void setApplyNumber(Float applyNumber) {
+		this.applyNumber = applyNumber;
+	}
+	
+	
 }

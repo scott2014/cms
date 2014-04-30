@@ -162,10 +162,12 @@ public class MedicinalAction extends ActionSupport {
 		
 		for (UserMedicinal um : ums) {
 			Medicinal m  = this.medicinalService.findById(um.getMedicinalId());
+			User u = this.userService.findById(m.getUserId());
 			
 			ApplyMedicinalVO umVO = new ApplyMedicinalVO();
 			umVO.setMedicinal(m);
 			umVO.setUserMedicinal(um);
+			umVO.setUser(u);
 			
 			applys.add(umVO);
 		}
