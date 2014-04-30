@@ -1,5 +1,7 @@
 package com.cms.model.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ public class UserMedicinal {
 	private long userId;
 	private long medicinalId;
 	private int status;
+	private Date checkTime;
 	
 	@Id
 	@GeneratedValue
@@ -48,5 +51,11 @@ public class UserMedicinal {
 		this.status = status;
 	}
 	
-	
+	@Column(name="checkTime")
+	public Date getCheckTime() {
+		return checkTime;
+	}
+	public void setCheckTime(Date checkTime) {
+		this.checkTime = checkTime;
+	}
 }
