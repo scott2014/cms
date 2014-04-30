@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
+Source Server         : localhost
 Source Server Version : 50536
 Source Host           : localhost:3306
 Source Database       : cms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50536
 File Encoding         : 65001
 
-Date: 2014-04-30 08:34:45
+Date: 2014-04-30 18:00:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -72,13 +72,15 @@ CREATE TABLE `medicinal` (
   `no` varchar(100) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `userId` bigint(64) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
+  `left` int(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of medicinal
 -- ----------------------------
-INSERT INTO `medicinal` VALUES ('1', 'CH4', '甲烷', 'CC01', '无色、无味', null, '远离易燃物', '0.53kg/包', '1', '/upload/1398573314780.gif', 'm01', '低温存放', '1');
+INSERT INTO `medicinal` VALUES ('1', 'CH4', '甲烷', 'CC01', '无色、无味', null, '远离易燃物', '0.53kg/包', '1', '/upload/1398573314780.gif', 'm01', '低温存放', '1', null, null);
 
 -- ----------------------------
 -- Table structure for repository
@@ -91,15 +93,16 @@ CREATE TABLE `repository` (
   `address` varchar(100) DEFAULT NULL,
   `userId` bigint(64) DEFAULT NULL,
   `repoName` varchar(64) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of repository
 -- ----------------------------
-INSERT INTO `repository` VALUES ('1', 'A01', '西北大学化学系', '西北大学', '1', '西北大学化学实验室');
-INSERT INTO `repository` VALUES ('2', 'A02', '西北大学物理系', '西北大学', '1', '西北大学物理实验室');
-INSERT INTO `repository` VALUES ('3', 'dssc1', 'FUDAN', '713药品柜', '4', '713');
+INSERT INTO `repository` VALUES ('1', 'A01', '西北大学化学系', '西北大学', '1', '西北大学化学实验室', null);
+INSERT INTO `repository` VALUES ('2', 'A02', '西北大学物理系', '西北大学', '1', '西北大学物理实验室', null);
+INSERT INTO `repository` VALUES ('3', 'dssc1', 'FUDAN', '713药品柜', '4', '713', null);
 
 -- ----------------------------
 -- Table structure for user
@@ -114,7 +117,7 @@ CREATE TABLE `user` (
   `realName` varchar(16) DEFAULT NULL,
   `phone` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -126,3 +129,59 @@ INSERT INTO `user` VALUES ('4', 'lam713', 'e10adc3949ba59abbe56e057f20f883e', 'y
 INSERT INTO `user` VALUES ('5', 'abc', '900150983cd24fb0d6963f7d28e17f72', null, null, null, null);
 INSERT INTO `user` VALUES ('6', 'nayangnianhua', '50f1725279347cd1e04bf016026ae1b9', null, null, null, null);
 INSERT INTO `user` VALUES ('7', '李王娜', '202cb962ac59075b964b07152d234b70', null, null, null, null);
+INSERT INTO `user` VALUES ('8', 'xuesheng', '81dc9bdb52d04dc20036dbd8313ed055', null, null, null, null);
+INSERT INTO `user` VALUES ('9', 'admin2010', '81dc9bdb52d04dc20036dbd8313ed055', null, null, null, null);
+INSERT INTO `user` VALUES ('10', 'a2', '0cc175b9c0f1b6a831c399e269772661', null, null, null, null);
+
+-- ----------------------------
+-- Table structure for user_medicinal
+-- ----------------------------
+DROP TABLE IF EXISTS `user_medicinal`;
+CREATE TABLE `user_medicinal` (
+  `id` bigint(64) NOT NULL AUTO_INCREMENT,
+  `userId` bigint(64) DEFAULT NULL,
+  `medicinalId` bigint(64) DEFAULT NULL,
+  `status` int(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_medicinal
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for user_right
+-- ----------------------------
+DROP TABLE IF EXISTS `user_right`;
+CREATE TABLE `user_right` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `userId` bigint(64) DEFAULT NULL,
+  `rightId` int(4) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userId` (`userId`),
+  KEY `rightId` (`rightId`),
+  CONSTRAINT `user_right_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
+  CONSTRAINT `user_right_ibfk_2` FOREIGN KEY (`rightId`) REFERENCES `_right` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_right
+-- ----------------------------
+INSERT INTO `user_right` VALUES ('1', '10', '1');
+
+-- ----------------------------
+-- Table structure for _right
+-- ----------------------------
+DROP TABLE IF EXISTS `_right`;
+CREATE TABLE `_right` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `rightCode` int(4) DEFAULT NULL,
+  `rightName` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of _right
+-- ----------------------------
+INSERT INTO `_right` VALUES ('1', '1', '学生');
+INSERT INTO `_right` VALUES ('2', '2', '管理员');
