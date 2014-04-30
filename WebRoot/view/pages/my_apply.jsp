@@ -65,36 +65,38 @@
 <tbody>
  <tr bgcolor="#1C80B7">
  	<th width="15%">图片说明</th>
- 	<th width="20%">分子式</th>
- 	<th width="20%">试剂名称</th>
- 	<th width="20%">所属试剂库</th>
- 	<th width="20%">操作</th>
+ 	<th width="15%">分子式</th>
+ 	<th width="15%">试剂名称</th>
+ 	<th width="15%">申请数量</th>
+ 	<th width="15%">审核状态</th>
+ 	<th width="15%">试剂管理员</th>
  </tr>
  
- <s:iterator value="medicinals" var="m">
+ <s:iterator value="applys">
  <tr bgcolor="#FFFFFF">
  	<td>
-		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>">
-			<img src="<%=basePath %>/<s:property value='#m.medicinal.photo' />" alt="" />
+		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='medicinal.id'/>">
+			<img src="<%=basePath %>/<s:property value='medicinal.photo' />" alt="" />
 		</a>
 	</td>
- 	<td width="20%">
- 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>">
- 			<s:property value="#m.medicinal.formula"/>
+ 	<td>
+ 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='medicinal.id'/>">
+ 			<s:property value="medicinal.formula"/>
  		</a>
  	</td>
- 	<td width="20%">
- 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>"><s:property value="#m.medicinal.name"/></a>
+ 	<td>
+ 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>"><s:property value="medicinal.name"/></a>
  	</td>
- 	<td width="20%">
- 		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='#m.repository.id'/>">
- 			<s:property value="#m.repository.repoName"/>
- 		</a>
+ 	<td>
+		<s:property value="userMedicinal.applyNumber"/>
  	</td>
- 	<td width="20%">
+ 	<td>
  		<a href="<%=basePath %>/medicinal!toApply?id=<s:property value='#m.medicinal.id'/>">
  			试剂申请
  		</a>
+ 	</td>
+ 	<td>
+ 		<s:property value="user.username"/>
  	</td>
  </tr>
  </s:iterator><%--
