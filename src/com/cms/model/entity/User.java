@@ -1,10 +1,14 @@
 package com.cms.model.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -23,6 +27,7 @@ public class User implements java.io.Serializable {
 	private String qq;
 	private String realName;
 	private String phone;
+	private List<Right> rights;
 
 	// Constructors
 
@@ -108,4 +113,12 @@ public class User implements java.io.Serializable {
 		this.phone = phone;
 	}
 
+	@ManyToMany(targetEntity=com.cms.model.entity.Right.class,mappedBy="users")
+	public List<Right> getRights() {
+		return rights;
+	}
+
+	public void setRights(List<Right> rights) {
+		this.rights = rights;
+	}
 }
