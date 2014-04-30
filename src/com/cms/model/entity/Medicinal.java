@@ -34,6 +34,8 @@ public class Medicinal implements java.io.Serializable {
 	private String description;
 	private long userId;
 	private Date createTime;
+	
+	private int left;
 
 	// Constructors
 
@@ -186,4 +188,15 @@ public class Medicinal implements java.io.Serializable {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+
+	@Column(name="left",length=32)
+	public int getLeft() {
+		return left;
+	}
+
+	public void setLeft(int left) {
+		this.left = left;
+	}
+	
+	
 }
