@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	
+	<package name="user" namespace="/" extends="struts-default">
+		<action name="user" class="com.cms.control.struts.action.UserAction">
+			<result name="register" type="redirect">
+				/login/login.jsp
+			</result>
+			<result name="login" type="redirect">
+				repository!toCreate
+			</result>
+			<result name="fail" type="redirect">
+				/login/login.jsp
+			</result>
+		</action>
+		
+		<action name="repository" class="com.cms.control.struts.action.RepositoryAction">
+			<result name="success" type="redirect">
+				repository!load
+			</result>
+			<result name="load" type="dispatcher">
+				/view/pages/find_repo.jsp
+			</result>
+			<result name="loadById" type="dispatcher">
+				/view/pages/update_repo.jsp
+			</result>
+			<result name="update" type="redirect">
+				repository!load
+			</result>
+			<result name="myrepo" type="dispatcher">
+				/view/pages/my_repo.jsp
+			</result>
+			<result name="showDetail" type="dispatcher">
+				/view/pages/detail_repo.jsp
+			</result>
+			<result name="toCreate" type="dispatcher">
+				/view/pages/create_repo.jsp
+			</result>
+		</action>
+		
+		<action name="medicinal" class="com.cms.control.struts.action.MedicinalAction">
+			<result name="success" type="redirect">
+				medicinal!load
+			</result>
+			
+			<result name="toCreate" type="dispatcher">
+				/view/pages/create_shiji.jsp
+			</result>
+			
+			<result name="load" type="dispatcher">
+				/view/pages/find_shiji.jsp
+			</result>
+			
+			<result name="loadMe" type="dispatcher">
+				/view/pages/shiji_mgr.jsp
+			</result>
+			
+			<result name="toUpdate" type="dispatcher">
+				/view/pages/update_shiji.jsp
+			</result>
+			
+			<result name="toDetail" type="dispatcher">
+				/view/pages/detail_shiji.jsp
+			</result>
+		</action>
+		
+		<action name="favorite" class="com.cms.control.struts.action.FavoriteAction">
+			<result name="load" type="dispatcher">
+				/view/pages/favorite.jsp
+			</result>
+		</action>
+		
+		<action name="history" class="com.cms.control.struts.action.HistoryAction">
+			<result name="load" type="dispatcher">
+				/view/pages/history.jsp
+			</result>
+		</action>
+		
+	</package>
+
+	<package name="userajax" namespace="/userajax" extends="json-default">
+		<action name="user" class="com.cms.control.ajax.action.UserAction">
+			<result name="check" type="json" />
+			<result name="login" type="json" />
+		</action>
+		
+		<action name="repository" class="com.cms.control.ajax.action.RepositoryAction">
+			<result name="delete" type="json" />
+		</action>
+		
+		<action name="favorite" class="com.cms.control.ajax.action.FavoriteAction">
+			<result name="success" type="json" />
+			<result name="delete" type="json" />
+		</action>
+		
+		<action name="medicinal" class="com.cms.control.ajax.action.MedicinalAction">
+			<result name="upload" type="json"/>
+			<result name="delete" type="json"/>
+		</action>
+		
+	</package>
+</struts>    

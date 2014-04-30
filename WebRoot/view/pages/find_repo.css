@@ -1,0 +1,34 @@
+#search {
+	margin:0 auto;
+	width:70%;
+	padding: 10px;
+	}
+	
+/* #mypage {
+	text-align: center;
+	width: 16%;
+	text-align: right;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-left: 625px;
+} */
+
+table {
+	text-align: center;
+}
+
+tr {
+	height: 37px;
+}
+th {
+	color: #FFFFFF;
+}
+
+.hoverclass {
+	background-color: #BCD6EF;
+}
+
+.head {
+	font:  30px 微软雅黑;
+}
