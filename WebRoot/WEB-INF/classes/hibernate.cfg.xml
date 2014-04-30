@@ -23,6 +23,7 @@
 	   	<mapping class="com.cms.model.entity.Medicinal"/>
 	   	<mapping class="com.cms.model.entity.Repository"/>
 	   	<mapping class="com.cms.model.entity.User"/>
+	   	<mapping class="com.cms.model.entity.Right"/>
     </session-factory>
 
 </hibernate-configuration>

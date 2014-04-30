@@ -66,6 +66,7 @@
  	<th width="20%">分子式</th>
  	<th width="20%">试剂名称</th>
  	<th width="20%">所属试剂库</th>
+ 	<th width="20%">操作</th>
  </tr>
  
  <s:iterator value="medicinals" var="m">
@@ -86,6 +87,11 @@
  	<td width="20%">
  		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='#m.repository.id'/>">
  			<s:property value="#m.repository.repoName"/>
+ 		</a>
+ 	</td>
+ 	<td width="20%">
+ 		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='#m.repository.id'/>">
+ 			试剂申请
  		</a>
  	</td>
  </tr>
