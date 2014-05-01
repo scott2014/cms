@@ -32,7 +32,7 @@ public class UserMedicinalAction extends ActionSupport {
 	
 	private List<ApplyMedicinalVO> amVOs = new ArrayList<ApplyMedicinalVO>();
 	
-	public String toCheck() throws Exception {
+	public String check() throws Exception {
 		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
 		List<UserMedicinal> ums = this.userMedicinalService.findByAppId(user.getId());
 		
@@ -46,7 +46,7 @@ public class UserMedicinalAction extends ActionSupport {
 			amvo.setUserMedicinal(um);
 			this.amVOs.add(amvo);
 		}
-		return "toCheck";
+		return "check";
 	}
 
 	public List<ApplyMedicinalVO> getAmVOs() {
