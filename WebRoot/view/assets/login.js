@@ -2,6 +2,7 @@ $(function() {
 	login.toRegister();
 	login.login();
 	login.bindKeyDown();
+	login.loginOut();
 });
 
 
@@ -94,6 +95,14 @@ var login = {
 				}
 				
 				login.tijiao();
+			}
+		});
+	},
+	loginOut : function() {
+		$("#loginOut").bind("click",function() {
+			var ok = window.confirm("确定退出系统吗？");
+			if (ok) {
+				location.href = getRootPath() + "/user!loginOut";
 			}
 		});
 	}

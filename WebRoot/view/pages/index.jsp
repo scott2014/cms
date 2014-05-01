@@ -15,9 +15,11 @@
 <title>实验室管理系统</title>
 <link href="index.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript"
-	src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/hover.js"></script>
+<script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
+<script type="text/javascript" src="<%=basePath %>/view/assets/login.js"></script>
+
 </head>
 
 <body>
@@ -132,7 +134,7 @@
 								</a>
 							</li>
 						</s:if>
-						<li><a href="#"><img
+						<li><a href="javascript:;" id="loginOut"><img
 								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;退出系统</a>
 						</li>
 					</ul>

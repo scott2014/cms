@@ -17,6 +17,9 @@
 			<result name="mgr" type="dispatcher">
 				/view/pages/account_mgr.jsp
 			</result>
+			<result name="loginOut" type="redirect">
+				/login/login.jsp
+			</result>
 		</action>
 		
 		<action name="repository" class="com.cms.control.struts.action.RepositoryAction">
