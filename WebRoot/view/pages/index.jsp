@@ -72,6 +72,8 @@
 							<li><a href="<%=basePath%>/medicinal!loadMe"
 								target="main_frame"> <img
 									src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;试剂管理 </a></li>
+							<li><a href="<%=basePath%>/userMedicinal!check" target="main_frame">
+							 <img src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;请求审核</a></li>
 						</s:if>
 
 
@@ -79,18 +81,22 @@
 							target="main_frame"><img
 								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;查找试剂</a>
 						</li>
-						<li><a href="<%=basePath%>/medicinal!myApply"
+						
+						
+						<s:if test="#flag != 1">
+							<li><a href="<%=basePath%>/medicinal!myApply"
 							target="main_frame"><img
 								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;我的申请</a>
-						</li>
-						<li><a href="<%=basePath%>/medicinal!tgApply"
-							target="main_frame"><img
-								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;审核通过</a>
-						</li>
-						<li><a href="<%=basePath%>/medicinal!tgApply"
-							target="main_frame"><img
-								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;审核拒绝</a>
-						</li>
+							</li>
+							<li><a href="<%=basePath%>/medicinal!tgApply"
+								target="main_frame"><img
+									src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;审核通过</a>
+							</li>
+							<li><a href="<%=basePath%>/medicinal!tgApply"
+								target="main_frame"><img
+									src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;审核拒绝</a>
+							</li>
+						</s:if>
 					</ul>
 				</div>
 			</div>

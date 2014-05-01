@@ -90,6 +90,12 @@
 			</result>
 		</action>
 		
+		<action name="userMedicinal" class="com.cms.control.struts.action.UserMedicinalAction">
+			<result name="check" type="dispatcher">
+				/view/pages/apply_check.jsp
+			</result>
+		</action>
+		
 	</package>
 
 	<package name="userajax" namespace="/userajax" extends="json-default">

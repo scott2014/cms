@@ -48,13 +48,13 @@
 </head>
 
 <body>
-<div id="search">
+<%--<div id="search">
  	关键词:
  	<input name="keys" type="text" value="<s:property value='key'/>" size="30" />
     <input type="button" value="搜索试剂库" id="search_btn"/>
 </div>
 
-<div id="hideprops" style="display: none;">
+--%><div id="hideprops" style="display: none;">
 	<div id="pagecount"><s:property value='pageCount'/></div>
 	<div id="pagenum"><s:property value='pageNum'/></div>
 	<div id="totalcount"><s:property value='totalCount'/></div>
@@ -64,7 +64,7 @@
 <table cellspacing="1" cellpadding="0" bgcolor="#1C80B7" width="98%" align="center" border="0" class="tablect" style="padding:3px">
 <tbody>
  <tr bgcolor="#1C80B7">
- 	<th width="15%">图片说明</th>
+	<th width="15%">图片说明</th>
  	<th width="15%">分子式</th>
  	<th width="15%">试剂名称</th>
  	<th width="10%">申请数量</th>
