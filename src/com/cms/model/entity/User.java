@@ -117,7 +117,7 @@ public class User implements java.io.Serializable {
 	}
 
 	@ManyToMany(targetEntity=com.cms.model.entity.Right.class,
-		    fetch=FetchType.LAZY)
+		    fetch=FetchType.EAGER)
     @JoinTable(name="user_right",
 	joinColumns=@JoinColumn(name="userId"),
 	inverseJoinColumns=@JoinColumn(name="rightId"))
