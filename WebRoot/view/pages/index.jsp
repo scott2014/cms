@@ -30,27 +30,71 @@
       	试剂库管理
         </div>
          <ul>
-              <li style="background-color:#BCD6EF;" ><a href="<%=basePath %>/repository!toCreate" target="main_frame">
-              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;创建试剂库</a></li>
-              <li><a href="<%=basePath %>/repository!load" target="main_frame">
-              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;查找试剂库</a></li>
-              <li><a href="<%=basePath %>/repository!myrepo" target="main_frame">
-              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;我的试剂库</a></li>
-              <li><a href="<%=basePath %>/favorite!load" target="main_frame">
-              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;我的收藏</a></li>
-              <li><a href="<%=basePath %>/history!load" target="main_frame">
-              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;历史浏览</a></li>
+         	<s:iterator value="#session.user.rights">
+      			<s:if test="rightCode == @com.cms.model.constant.UserRight@ADMINISTRATOR">
+					<s:set name="flag" value="1" />
+      			</s:if>
+      		</s:iterator>
+         	<s:if test="#flag == 1">
+       			<li style="background-color:#BCD6EF;" >
+           			<a href="<%=basePath %>/repository!toCreate" target="main_frame">
+           				<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;创建试剂库
+           			</a>
+            	</li>
+            	<li>
+           			<a href="<%=basePath %>/repository!myrepo" target="main_frame">
+           				<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;我的试剂库
+           			</a>
+            	</li>
+            	<li>
+	              	<a href="<%=basePath %>/repository!load" target="main_frame">
+	              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;查找试剂库
+	              	</a>
+	             </li>
+         	</s:if>
+            <s:else>
+	              <li style="background-color:#BCD6EF;">
+	              	<a href="<%=basePath %>/repository!load" target="main_frame">
+	              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;查找试剂库
+	              	</a>
+	              </li>
+            </s:else>
+              
+              <li>
+              	<a href="<%=basePath %>/favorite!load" target="main_frame">
+              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;我的收藏
+              	</a>
+              </li>
+              
+              <li>
+              	<a href="<%=basePath %>/history!load" target="main_frame">
+              		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;历史浏览
+              	</a>
+              </li>
          </ul>
       
       <div id="shiji">
           <div class="left_top">
-             试库管理
+            	 试库管理
           </div>
           <div class="left_cont">
               <ul>
-                  <li><a href="<%=basePath %>/medicinal!toCreate" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;添加试剂</a></li>
+				 <s:if test="#flag == 1">
+					<li>
+         		    	<a href="<%=basePath %>/medicinal!toCreate" target="main_frame">
+         		    		<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;添加试剂
+         		    	</a>
+	         		 </li>
+
+	              	<li>
+              			<a href="<%=basePath %>/medicinal!loadMe" target="main_frame">
+              				<img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;试剂管理
+              			</a>
+	              	</li>
+				  </s:if>
+	         		    
+	              		
                   <li><a href="<%=basePath %>/medicinal!load" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;查找试剂</a></li>
-                  <li><a href="<%=basePath %>/medicinal!loadMe" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;试剂管理</a></li>
              	  <li><a href="<%=basePath %>/medicinal!myApply" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;我的申请</a></li>
               	  <li><a href="<%=basePath %>/medicinal!tgApply" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;审核通过</a></li>
              	  <li><a href="<%=basePath %>/medicinal!tgApply" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;审核拒绝</a></li>
@@ -60,7 +104,7 @@
       
        <div id="setting">
           <div class="left_top">
-            系统设置
+        	   系统设置
           </div>
           <div class="left_cont">
               <ul>
@@ -75,7 +119,17 @@
   
   <!--右侧内容页-->
   <div id="main_frame">
-	   <iframe name="main_frame" width="100%" height="100%" scrolling="auto" marginwidth="0" framespacing="0" marginheight="0" frameborder="0" src="create_repo.jsp"></iframe>
+	 	<s:iterator value="#session.user.rights">
+      		<s:if test="rightCode == @com.cms.model.constant.UserRight@ADMINISTRATOR">
+				<s:set name="flag" value="1" />
+      		</s:if>
+      	</s:iterator>
+      	<s:if test="#flag == 1">
+      		<iframe name="main_frame" width="100%" height="100%" scrolling="auto" marginwidth="0" framespacing="0" marginheight="0" frameborder="0" src="create_repo.jsp" />
+      	</s:if> 
+      	<s:else>
+      		<iframe name="main_frame" width="100%" height="100%" scrolling="auto" marginwidth="0" framespacing="0" marginheight="0" frameborder="0" src="find_repo.jsp" />
+      	</s:else>
   </div>
   </div>
   </body>
