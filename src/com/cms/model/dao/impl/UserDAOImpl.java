@@ -1,5 +1,6 @@
 package com.cms.model.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,7 +10,9 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.cms.model.dao.UserDAO;
+import com.cms.model.dao.UserMedicinalDAO;
 import com.cms.model.entity.User;
+import com.cms.model.entity.UserMedicinal;
 
 @Repository("userDAO")
 public class UserDAOImpl implements UserDAO {
@@ -17,6 +20,14 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	@Resource(name="hibernateTemplate")
 	private HibernateTemplate hibernateTemplate;
+	
+	@Autowired
+	@Resource(name="userMedicinalDAO")
+	private UserMedicinalDAO userMedicinalDAO;
+	
+	@Autowired
+	@Resource(name="userDAO")
+	private UserDAO userDAO;
 	
 	public void save(User user) {
 		this.hibernateTemplate.save(user);
@@ -41,7 +52,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public List<User> loadAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.hibernateTemplate.loadAll(User.class);
 	}
 
 	public User findByUsername(String username) {
@@ -56,4 +67,15 @@ public class UserDAOImpl implements UserDAO {
 		return result != null && result.size() > 0 ? result.get(0) : null;
 	}
 	
+	public List<User> findByRightCode(int rightCode) {
+		List<User> users = new ArrayList<User>();
+		
+		List<UserMedicinal> ums = this.userMedicinalDAO.findByRightCode(rightCode);
+		for (UserMedicinal um : ums) {
+			User u = this.userDAO.findById(um.getId());
+			users.add(u);
+		}
+		
+		return users;
+	}
 }

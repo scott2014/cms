@@ -14,6 +14,9 @@
 			<result name="fail" type="redirect">
 				/login/login.jsp
 			</result>
+			<result name="mgr" type="dispatcher">
+				/view/pages/account_mgr.jsp
+			</result>
 		</action>
 		
 		<action name="repository" class="com.cms.control.struts.action.RepositoryAction">

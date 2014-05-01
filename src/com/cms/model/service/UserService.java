@@ -1,5 +1,7 @@
 package com.cms.model.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +36,10 @@ public class UserService {
 	@Transactional
 	public User findById(long id) {
 		return this.userDAO.findById(id);
+	}
+	
+	@Transactional
+	public List<User> findAll() {
+		return this.userDAO.loadAll();
 	}
 }

@@ -31,6 +31,8 @@ public class UserAction extends ActionSupport {
 	
 	private String errorCode;
 	
+	private List<User> users;
+	
 	public String register() {
 		User user = new User();
 		user.setUsername(username);
@@ -57,6 +59,11 @@ public class UserAction extends ActionSupport {
 		}
 		
 	}
+	
+	public String mgr() throws Exception {
+		this.users = this.userService.findAll();
+		return "mgr";
+	}
 
 	public String getUsername() {
 		return username;
@@ -80,5 +87,13 @@ public class UserAction extends ActionSupport {
 
 	public void setErrorCode(String errorCode) {
 		this.errorCode = errorCode;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 }
