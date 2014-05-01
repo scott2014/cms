@@ -11,26 +11,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="<%=basePath%>/view/pages/apply_shiji.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/view/pages/apply_shiji.css" rel="stylesheet"
+	type="text/css" />
 
-<script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
-<script type="text/javascript" src="<%=basePath %>/view/assets/create_shiji.js"></script>
+<script type="text/javascript"
+	src="<%=basePath %>/view/assets/create_shiji.js"></script>
 
 
 <title>无标题文档</title>
 </head>
 
 <body>
-<div id="create_shiji">
-<form id="form1" name="form1" method="post" action="<%=basePath %>/medicinal" enctype="multipart/form-data">
-<table cellspacing="0" cellpadding="0" bgcolor="#1C80B7" width="98%"
-			align="center" border="0" class="tablect" style="padding:3px">
-			<tbody>
-				<tr bgcolor="#FFFFFF">
-					<td width="20%">图片：</td>
-					<td align="left">
-						<img src="<%=basePath%>/<s:property value='mVO.medicinal.photo' />"/>
+	<div id="create_shiji">
+		<form id="form1" name="form1" method="post"
+			action="<%=basePath%>/medicinal!apply">
+			<input type="hidden" name="id"
+				value="<s:property value='mVO.medicinal.id'/>" />
+			<table cellspacing="0" cellpadding="0" bgcolor="#1C80B7" width="98%"
+				align="center" border="0" class="tablect" style="padding:3px">
+				<tbody>
+					<tr bgcolor="#FFFFFF">
+						<td width="20%">图片：</td>
+						<td align="left"><img src="<%=basePath%>/<s:property value='mVO.medicinal.photo' />"/>
 					</td>
 					<td align="left">
 					    <span></span>
@@ -157,7 +162,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>申请数量：</td>
 					<td align="left">
-						<input type="text"/>
+						<input type="text" name="applyNumber"/>
         			</td>
         			<td align="left">
 					    <span></span>

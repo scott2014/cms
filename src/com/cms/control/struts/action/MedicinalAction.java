@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cms.model.constant.Check;
 import com.cms.model.entity.Medicinal;
 import com.cms.model.entity.Repository;
 import com.cms.model.entity.User;
@@ -68,6 +69,9 @@ public class MedicinalAction extends ActionSupport {
 	
 	//申请的试剂
 	private List<ApplyMedicinalVO> applys = new ArrayList<ApplyMedicinalVO>();
+	
+	//申请的试剂数量
+	private float applyNumber;
 	
 	public String execute() throws Exception {
 		System.out.println(medicinal);
@@ -177,6 +181,21 @@ public class MedicinalAction extends ActionSupport {
 	
 	public String update() throws Exception {
 		return "update";
+	}
+	
+	public String apply() throws Exception {
+		UserMedicinal um = new UserMedicinal();
+		
+		um.setApplyNumber(applyNumber);
+		um.setApplyTime(new Date());
+		um.setMedicinalId(id);
+		um.setStatus(Check.NOT_APPROVE);
+		
+		User u = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
+		um.setUserId(u.getId());
+		this.userMedicinalService.save(um);
+		
+		return "apply";
 	}
 	
 	public long getId() {
@@ -297,5 +316,13 @@ public class MedicinalAction extends ActionSupport {
 
 	public void setApplys(List<ApplyMedicinalVO> applys) {
 		this.applys = applys;
+	}
+
+	public float getApplyNumber() {
+		return applyNumber;
+	}
+
+	public void setApplyNumber(float applyNumber) {
+		this.applyNumber = applyNumber;
 	}
 }

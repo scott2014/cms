@@ -72,6 +72,10 @@
 			<result name="myApply" type="dispatcher">
 				/view/pages/my_apply.jsp
 			</result>
+			
+			<result name="apply" type="dispatcher">
+				/view/pages/my_apply.jsp
+			</result>
 		</action>
 		
 		<action name="favorite" class="com.cms.control.struts.action.FavoriteAction">

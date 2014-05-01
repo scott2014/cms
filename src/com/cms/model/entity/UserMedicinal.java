@@ -29,7 +29,7 @@ public class UserMedicinal {
 		this.id = id;
 	}
 	
-	@Column(name="useId",length=64)
+	@Column(name="userId",length=64)
 	public long getUserId() {
 		return userId;
 	}
