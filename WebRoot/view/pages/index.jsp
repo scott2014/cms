@@ -52,6 +52,8 @@
                   <li><a href="<%=basePath %>/medicinal!load" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;查找试剂</a></li>
                   <li><a href="<%=basePath %>/medicinal!loadMe" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;试剂管理</a></li>
              	  <li><a href="<%=basePath %>/medicinal!myApply" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;我的申请</a></li>
+              	  <li><a href="<%=basePath %>/medicinal!tgApply" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;审核通过</a></li>
+             	  <li><a href="<%=basePath %>/medicinal!tgApply" target="main_frame"><img src="<%=basePath %>/view/pages/icon1.gif"/>&nbsp;审核拒绝</a></li>
               </ul>
           </div>
       </div>
