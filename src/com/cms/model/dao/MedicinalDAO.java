@@ -2,6 +2,8 @@ package com.cms.model.dao;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.cms.model.entity.Medicinal;
 import com.cms.model.vo.MedicinalVO;
 
@@ -27,4 +29,8 @@ public interface MedicinalDAO {
 	public List<Medicinal> findByRepoId(int pageSize,int pageNum,long repoId);
 	
 	public int countByRepoId(long repoId);
+	
+	public List<MedicinalVO> findByCondition(int pageSize,int pageNum,String key);
+	
+	public int countByCondition(String key);
 }
