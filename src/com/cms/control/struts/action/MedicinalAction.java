@@ -100,13 +100,13 @@ public class MedicinalAction extends ActionSupport {
 	}
 	
 	public String load() throws Exception {
-		long userId = ((User)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
+		//long userId = ((User)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
 		
-		this.totalCount = this.medicinalService.countByCondition(key,userId);
+		this.totalCount = this.medicinalService.countByCondition(key);
 		
 		this.pageCount = this.totalCount % pageSize == 0 ? this.totalCount / pageSize : this.totalCount / pageSize + 1;
 		
-		this.medicinals = this.medicinalService.findByCondition(pageSize, pageNum, key,userId);
+		this.medicinals = this.medicinalService.findByCondition(pageSize, pageNum, key);
 		
 		return "load";
 	}
@@ -193,6 +193,9 @@ public class MedicinalAction extends ActionSupport {
 		
 		User u = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
 		um.setUserId(u.getId());
+		
+		Medicinal m = this.medicinalService.findById(um.getMedicinalId());
+		um.setAppId(m.getUserId());
 		this.userMedicinalService.save(um);
 		
 		return "apply";

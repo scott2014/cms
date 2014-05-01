@@ -118,6 +118,65 @@ public class MedicinalDAOImpl implements MedicinalDAO {
 		return count;
 	}
 
+	
+	public List<MedicinalVO> findByCondition(int pageSize, int pageNum, String key) {
+		List<MedicinalVO> result = new ArrayList<MedicinalVO>();
+		
+		List<Medicinal> all = this.loadAll();
+		
+		if (all != null && all.size() > 0) {
+			for (Medicinal m : all) {
+				Repository p = this.repositoryDAO.findById(m.getRepositoryId());
+				if (key != null && !key.trim().equals("")) {
+					if ((m.getName() != null && m.getName().contains(key)) || (p.getRepoName() != null && p.getRepoName().contains(key))) {
+						MedicinalVO mv = new MedicinalVO(); 
+						mv.setMedicinal(m);
+						mv.setRepository(p);
+						result.add(mv);
+					}
+				}
+				if (key == null || key.trim().equals("")) {
+					MedicinalVO mv = new MedicinalVO(); 
+					mv.setMedicinal(m);
+					mv.setRepository(p);
+					result.add(mv);
+				}
+			}
+		}
+		
+		
+		List<MedicinalVO> res = new ArrayList<MedicinalVO>();
+		if (result.size() > 0) {
+			int temp = (pageNum-1)*pageSize+pageSize;
+			int length = result.size();
+			int end = temp > length ? length : temp ;
+			for (int i=(pageNum-1)*pageSize;i<end;i++) {
+				res.add(result.get(i));
+			}
+		}
+		
+		return res;
+	}
+
+	public int countByCondition(String key) {
+		int count = 0;
+		
+		List<Medicinal> all = this.loadAll();
+		
+		if (all != null && all.size() > 0) {
+			for (Medicinal m : all) {
+				Repository p = this.repositoryDAO.findById(m.getRepositoryId());
+				if (key != null && !key.trim().equals("")) {
+					if ((m.getName() != null && m.getName().contains(key)) || (p.getRepoName() != null && p.getRepoName().contains(key)))  count ++;
+				}
+				if (key == null || key.trim().equals("")) {
+					count ++;
+				}
+			}
+		}
+		return count;
+	}
+	
 	public List<Medicinal> findByUserId(long userId) {
 		String hql = "from Medicinal where userId = ?";
 		return this.hibernateTemplate.find(hql,userId);

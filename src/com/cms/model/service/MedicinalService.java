@@ -58,4 +58,14 @@ public class MedicinalService {
 	public int countByRepoId(long id) {
 		return this.medicinalDAO.countByRepoId(id);
 	}
+	
+	@Transactional
+	public List<MedicinalVO> findByCondition(int pageSize,int pageNum,String key) {
+		return this.medicinalDAO.findByCondition(pageSize, pageNum, key);
+	}
+	
+	@Transactional
+	public int countByCondition(String key) {
+		return this.medicinalDAO.countByCondition(key);
+	}
 }
