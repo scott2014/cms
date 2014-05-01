@@ -83,12 +83,17 @@
  			<s:property value="realName"/>
  		</a>
  	  </td>
-	  <td width="25%"><s:property value='department'/></td>
-	  	<td width="23%">
-	 		<a href="javascript:;" repo_id="<s:property value='id'/>" del="ok">删除</a>
-	 			&nbsp;|&nbsp;
-	 		<a href="javascript:;" repo_id="<s:property value='id'/>" update="ok">冻结</a>
- 		</td>
+ 	  <td width="20%">
+			注册日期
+ 	  </td>
+ 	  <td width="20%">
+			最后一次登录
+ 	  </td>
+  	  <td width="23%">
+ 		<a href="javascript:;" repo_id="<s:property value='id'/>" del="ok">删除</a>
+ 			|
+ 		<a href="javascript:;" repo_id="<s:property value='id'/>" update="ok">冻结</a>
+	  </td>
   	</tr>
  </s:iterator>	
 
