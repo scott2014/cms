@@ -32,6 +32,7 @@ public class User implements java.io.Serializable {
 	private String realName;
 	private String phone;
 	private List<Right> rights;
+	private Integer status;
 	// Constructors
 
 	/** default constructor */
@@ -129,5 +130,12 @@ public class User implements java.io.Serializable {
 		this.rights = rights;
 	}
 	
-	
+	@Column(name="status",length=4)
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 }

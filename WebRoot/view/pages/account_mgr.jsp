@@ -17,7 +17,7 @@
 
 <script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
-<script type="text/javascript" src="<%=basePath %>/view/assets/myrepo.js"></script>
+<script type="text/javascript" src="<%=basePath %>/view/assets/account.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/jPaginate/jquery.paginate.js"></script>
 
 <script type="text/javascript">
@@ -90,9 +90,12 @@
 			最后一次登录
  	  </td>
   	  <td width="23%">
- 		<a href="javascript:;" repo_id="<s:property value='id'/>" del="ok">删除</a>
+ 		<a href="javascript:;" user_id="<s:property value='id'/>" del="ok">删除</a>
  			|
- 		<a href="javascript:;" repo_id="<s:property value='id'/>" update="ok">冻结</a>
+ 		<a href="javascript:;" user_id="<s:property value='id'/>" update="ok">
+ 			<s:if test="status == @com.cms.model.constant.Account@FREEZE">解冻</s:if>
+ 			<s:else>冻结</s:else>
+ 		</a>
 	  </td>
   	</tr>
  </s:iterator>	

@@ -42,4 +42,14 @@ public class UserService {
 	public List<User> findRyRightCode(int rightCode) {
 		return this.userDAO.findByRightCode(rightCode);
 	}
+	
+	@Transactional
+	public void update(User user) {
+		this.userDAO.update(user);
+	}
+	
+	@Transactional
+	public void delete(User user) {
+		this.userDAO.del(user);
+	}
 }

@@ -35,7 +35,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public void del(User user) {
-		
+		this.hibernateTemplate.delete(user);
 	}
 
 	public void update(User user) {

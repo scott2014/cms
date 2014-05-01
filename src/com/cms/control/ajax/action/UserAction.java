@@ -7,6 +7,7 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.json.annotations.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cms.model.constant.Account;
 import com.cms.model.entity.User;
 import com.cms.model.service.UserService;
 import com.cms.model.util.MDEncode;
@@ -21,6 +22,7 @@ public class UserAction extends ActionSupport {
 	private String username;
 	private String password;
 	
+	private long id;
 	
 	private boolean isExist = false;
 	
@@ -41,7 +43,26 @@ public class UserAction extends ActionSupport {
 		}
 		return "login";
 	}
-
+	
+	public String freeze() throws Exception {
+		User u = this.userService.findById(id);
+		u.setStatus(Account.FREEZE);
+		this.userService.update(u);
+		return "freeze";
+	}
+	
+	public String release() throws Exception {
+		User u = this.userService.findById(id);
+		u.setStatus(Account.NORMAL);
+		this.userService.update(u);
+		return "release";
+	}
+	
+	public String delete() throws Exception {
+		User u = this.userService.findById(id);
+		this.userService.delete(u);
+		return "delete";
+	}
 	
 	@JSON(serialize=false)
 	public String getUsername() {
@@ -76,4 +97,11 @@ public class UserAction extends ActionSupport {
 		this.password = password;
 	}
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 }

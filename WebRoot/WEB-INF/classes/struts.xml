@@ -111,6 +111,9 @@
 		<action name="user" class="com.cms.control.ajax.action.UserAction">
 			<result name="check" type="json" />
 			<result name="login" type="json" />
+			<result name="freeze" type="json" />
+			<result name="release" type="json" />
+			<result name="delete" type="json" />
 		</action>
 		
 		<action name="repository" class="com.cms.control.ajax.action.RepositoryAction">
