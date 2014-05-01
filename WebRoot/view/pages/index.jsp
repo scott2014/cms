@@ -24,7 +24,21 @@
 
 	<div id="main">
 
-		<div id="top">实验室药品管理系统</div>
+		<div id="top">
+			实验室药品管理系统
+			<div id="info">
+				<s:iterator value="#session.user.rights">
+					<s:if test="rightCode == @com.cms.model.constant.UserRight@ADMINISTRATOR">
+						<s:set name="flag" value="1">
+							
+						</s:set>
+					</s:if>
+				</s:iterator>
+				当前用户：<s:property value="#session.user.username"/>
+				权限：<s:if test="#flag == 1">管理员</s:if>
+					<s:else>学生</s:else>
+			</div>
+		</div>
 
 		<div id="leftBar">
 

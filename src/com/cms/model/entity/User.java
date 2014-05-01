@@ -34,6 +34,14 @@ public class User implements java.io.Serializable {
 	private List<Right> rights;
 	private Integer status;
 	// Constructors
+	
+	private Integer gender;
+	private String address;
+	private String university;
+	private String department;
+	private String faculty;
+	private String description;
+	private String photo;
 
 	/** default constructor */
 	public User() {
@@ -138,4 +146,69 @@ public class User implements java.io.Serializable {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
+	
+	@Column(name="gender",length=4)
+	public Integer getGender() {
+		return gender;
+	}
+
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
+	
+	@Column(name="address",length=255)
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	@Column(name="university",length=255)
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+
+	@Column(name="department",length=255)
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	
+	@Column(name="faculty",length=255)
+	public String getFaculty() {
+		return faculty;
+	}
+
+	public void setFaculty(String faculty) {
+		this.faculty = faculty;
+	}
+	
+	@Column(name="description",length=255)
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	@Column(name="photo",length=255)
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
+	
 }

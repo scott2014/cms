@@ -12,10 +12,21 @@
 	font-family:"黑体";
 	font-style:inherit;
 	font-size:36px;
-	text-align:center;
+	text-align:right;
 	line-height:60px;
 	color:#FFF;
 	}
+
+#info {
+	width : 292px;
+	font-family:"黑体";
+	font-style:inherit;
+	font-size:16px;
+	text-align:center;
+	color:#FFF;
+	float: right;
+}
+	
 #leftBar {
 	width: 20%;
 	height: 700px;
@@ -89,3 +100,4 @@ li a {
 .hoverclass {
 	background-color: #BCD6EF;
 }
+
