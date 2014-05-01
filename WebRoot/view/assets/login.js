@@ -33,6 +33,30 @@ var login = {
 			}
 			
 			login.tijiao();
+		}).bind("keydown",function(event) {
+			if (event.which == 13) {
+				var username = $("#username").val();
+				var password = $("#password").val();
+				
+				$("#username_tip span").html("");
+				$("#password_tip span").html("");
+				
+				if (username.trim() == "") {
+					$("#username_tip span").html("*请输入用户名");
+					return;
+				} else {
+					$("#username_tip span").html("");
+				}
+				
+				if (password.trim() == "") {
+					$("#password_tip span").html("*请输入用户密码");
+					return;
+				} else {
+					$("#password_tip span").html("");
+				}
+				
+				login.tijiao();
+			}
 		});
 		
 		$("#username").bind("input propertychange",function() {
