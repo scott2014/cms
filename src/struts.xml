@@ -94,6 +94,9 @@
 			<result name="check" type="dispatcher">
 				/view/pages/apply_check.jsp
 			</result>
+			<result name="toCheck" type="dispatcher">
+				/view/pages/check_detail.jsp
+			</result>
 		</action>
 		
 	</package>

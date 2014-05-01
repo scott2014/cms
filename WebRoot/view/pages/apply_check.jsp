@@ -73,7 +73,7 @@
  	<th width="15%">操作</th>
  </tr>
  
- <s:iterator value="applys">
+ <s:iterator value="amVOs">
  <tr bgcolor="#FFFFFF">
  	<td>
 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='medicinal.id'/>">
@@ -92,15 +92,13 @@
 		<s:property value="userMedicinal.applyNumber"/>
  	</td>
  	<td>
- 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@APPROVED">审核通过</s:if>
- 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@REFUSED">审核拒绝</s:if>
- 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@NOT_APPROVE">未审核</s:if>
+ 		<s:date name="userMedicinal.applyTime" format="yyyy-MM-dd HH:mm:ss"/>
  	</td>
  	<td>
  		<s:property value="user.username"/>
  	</td>
  	<td>
- 		<s:date name="userMedicinal.applyTime" format="yyyy-MM-dd HH:mm:ss"/>
+ 		<a href="<%=basePath %>/userMedicinal!toCheck?id=<s:property value='userMedicinal.id' />">审核</a>
  	</td>
  </tr>
  </s:iterator><%--
