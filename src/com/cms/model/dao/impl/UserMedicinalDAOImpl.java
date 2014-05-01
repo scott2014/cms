@@ -38,4 +38,9 @@ public class UserMedicinalDAOImpl implements UserMedicinalDAO {
 		return this.hibernateTemplate.loadAll(UserMedicinal.class);
 	}
 
+	public List<UserMedicinal> findByAppId(long appId) {
+		String hql = "from UserMedicinal where appId = ?";
+		return this.hibernateTemplate.find(hql,appId);
+	}
+
 }

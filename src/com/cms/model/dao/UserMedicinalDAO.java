@@ -14,4 +14,6 @@ public interface UserMedicinalDAO {
 	public UserMedicinal findById(long id);
 	
 	public List<UserMedicinal> findAll();
+	
+	public List<UserMedicinal> findByAppId(long appId);
 }

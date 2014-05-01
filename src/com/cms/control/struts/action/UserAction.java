@@ -37,7 +37,7 @@ public class UserAction extends ActionSupport {
 		user.setPassword(MDEncode.encode(password));
 		
 		List<Right> rs = new ArrayList<Right>();
-		Right r = this.rightService.findById(1);
+		Right r = this.rightService.findById(2);
 		rs.add(r);
 		user.setRights(rs);
 		

@@ -31,4 +31,8 @@ public class UserMedicinalService {
 	public List<UserMedicinal> findAll() {
 		return this.userMedicinalDAO.findAll();
 	}
+	
+	public List<UserMedicinal> findByAppId(long appId) {
+		return this.userMedicinalDAO.findByAppId(appId);
+	}
 }

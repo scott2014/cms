@@ -19,6 +19,7 @@ public class UserMedicinal {
 	private Date checkTime;
 	private Date applyTime;
 	private Float applyNumber;
+	private Long appId;
 	
 	@Id
 	@GeneratedValue
@@ -77,5 +78,11 @@ public class UserMedicinal {
 		this.applyNumber = applyNumber;
 	}
 	
-	
+	@Column(name="appId",length=64)
+	public Long getAppId() {
+		return appId;
+	}
+	public void setAppId(Long appId) {
+		this.appId = appId;
+	}
 }
