@@ -111,6 +111,13 @@
 						<li><a href="#"><img
 								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;偏好设置</a>
 						</li>
+						<s:if test="#flag == 1">
+							<li>
+								<a href="<%=basePath %>/user!mgr" target="main_frame">
+									<img src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;账户管理
+								</a>
+							</li>
+						</s:if>
 						<li><a href="#"><img
 								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;退出系统</a>
 						</li>

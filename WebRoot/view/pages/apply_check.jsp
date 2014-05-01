@@ -104,7 +104,12 @@
  		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@NOT_APPROVE">未审核</s:if>
  	</td>
  	<td>
- 		<a href="<%=basePath %>/userMedicinal!toCheck?id=<s:property value='userMedicinal.id' />">审核</a>
+ 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@NOT_APPROVE">
+ 			<a href="<%=basePath %>/userMedicinal!toCheck?id=<s:property value='userMedicinal.id' />">审核</a>
+ 		</s:if>
+ 		<s:else>
+ 			已审核
+ 		</s:else>
  	</td>
  </tr>
  </s:iterator><%--

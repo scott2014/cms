@@ -9,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.cms.model.constant.UserRight;
 import com.cms.model.dao.UserDAO;
 import com.cms.model.dao.UserMedicinalDAO;
+import com.cms.model.entity.Right;
 import com.cms.model.entity.User;
-import com.cms.model.entity.UserMedicinal;
 
 @Repository("userDAO")
 public class UserDAOImpl implements UserDAO {
@@ -68,14 +69,18 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	public List<User> findByRightCode(int rightCode) {
-		List<User> users = new ArrayList<User>();
+		List<User> users = this.userDAO.loadAll();
 		
-		List<UserMedicinal> ums = this.userMedicinalDAO.findByRightCode(rightCode);
-		for (UserMedicinal um : ums) {
-			User u = this.userDAO.findById(um.getId());
-			users.add(u);
+		List<User> result = new ArrayList<User>();
+		
+		for (User user : users) {
+			List<Right> rights = user.getRights();
+			for (Right r : rights) {
+				if (r.getRightCode() == UserRight.STUDENT) {
+					result.add(user);
+				}
+			}
 		}
-		
-		return users;
+		return result;
 	}
 }
