@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cms.model.constant.Check;
+import com.cms.model.constant.UserRight;
 import com.cms.model.entity.Right;
 import com.cms.model.entity.User;
 import com.cms.model.service.RightService;
@@ -61,7 +63,7 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String mgr() throws Exception {
-		this.users = this.userService.findAll();
+		this.users = this.userService.findRyRightCode(UserRight.STUDENT);
 		return "mgr";
 	}
 

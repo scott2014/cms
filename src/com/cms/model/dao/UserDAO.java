@@ -1,8 +1,10 @@
 package com.cms.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.cms.model.entity.User;
+import com.cms.model.entity.UserMedicinal;
 
 public interface UserDAO {
 	public void save(User user);
@@ -21,4 +23,6 @@ public interface UserDAO {
 	public User findByUsername(String username);
 	
 	public User checkUser(String username,String password);
+	
+	public List<User> findByRightCode(int rightCode);
 }

@@ -39,7 +39,7 @@ public class UserService {
 	}
 	
 	@Transactional
-	public List<User> findAll() {
-		return this.userDAO.loadAll();
+	public List<User> findRyRightCode(int rightCode) {
+		return this.userDAO.findByRightCode(rightCode);
 	}
 }
