@@ -67,9 +67,10 @@
  	<th width="15%">图片说明</th>
  	<th width="15%">分子式</th>
  	<th width="15%">试剂名称</th>
- 	<th width="15%">申请数量</th>
+ 	<th width="10%">申请数量</th>
  	<th width="15%">审核状态</th>
  	<th width="15%">试剂管理员</th>
+ 	<th width="15%">申请日期</th>
  </tr>
  
  <s:iterator value="applys">
@@ -91,12 +92,15 @@
 		<s:property value="userMedicinal.applyNumber"/>
  	</td>
  	<td>
- 		<a href="<%=basePath %>/medicinal!toApply?id=<s:property value='#m.medicinal.id'/>">
- 			试剂申请
- 		</a>
+ 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@APPROVED">审核通过</s:if>
+ 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@REFUSED">审核拒绝</s:if>
+ 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@NOT_APPROVE">未审核</s:if>
  	</td>
  	<td>
  		<s:property value="user.username"/>
+ 	</td>
+ 	<td>
+ 		<s:date name="userMedicinal.applyTime" format="yyyy-MM-dd HH:mm:ss"/>
  	</td>
  </tr>
  </s:iterator><%--
