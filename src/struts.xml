@@ -97,6 +97,9 @@
 			<result name="toCheck" type="dispatcher">
 				/view/pages/check_detail.jsp
 			</result>
+			<result name="update" type="redirect">
+				/userMedicinal!check
+			</result>
 		</action>
 		
 	</package>

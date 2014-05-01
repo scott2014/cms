@@ -44,6 +44,8 @@ public class UserMedicinalAction extends ActionSupport {
 	
 	private long id;
 	
+	private int status;
+	
 	public String check() throws Exception {
 		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
 		List<UserMedicinal> ums = this.userMedicinalService.findByAppId(user.getId());
@@ -74,6 +76,14 @@ public class UserMedicinalAction extends ActionSupport {
 		return "toCheck";
 	}
 
+	public String update() throws Exception {
+		UserMedicinal um = this.userMedicinalService.findById(id);
+		
+		um.setStatus(status);
+		this.userMedicinalService.update(um);
+		return "update";
+	}
+	
 	public List<ApplyMedicinalVO> getAmVOs() {
 		return amVOs;
 	}
@@ -96,5 +106,13 @@ public class UserMedicinalAction extends ActionSupport {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 }

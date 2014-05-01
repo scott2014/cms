@@ -69,8 +69,9 @@
  	<th width="15%">试剂名称</th>
  	<th width="10%">申请数量</th>
  	<th width="15%">申请日期</th>
- 	<th width="15%">申请人</th>
- 	<th width="15%">操作</th>
+ 	<th width="10%">申请人</th>
+ 	<th width="10%">审核状态</th>
+ 	<th width="10%">操作</th>
  </tr>
  
  <s:iterator value="amVOs">
@@ -96,6 +97,11 @@
  	</td>
  	<td>
  		<s:property value="user.username"/>
+ 	</td>
+ 	<td>
+ 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@APPROVED">审核通过</s:if>
+ 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@REFUSED">审核拒绝</s:if>
+ 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@NOT_APPROVE">未审核</s:if>
  	</td>
  	<td>
  		<a href="<%=basePath %>/userMedicinal!toCheck?id=<s:property value='userMedicinal.id' />">审核</a>

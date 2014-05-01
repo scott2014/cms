@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="<%=basePath%>/view/pages/create_shiji.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/view/pages/check_detail.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
@@ -23,8 +23,9 @@
 
 <body>
 <div id="create_shiji">
-<form id="form1" name="form1" method="post" action="<%=basePath %>/medicinal" enctype="multipart/form-data">
-<table cellspacing="0" cellpadding="0" bgcolor="#1C80B7" width="98%"
+<form id="form1" name="form1" method="post" action="<%=basePath %>/userMedicinal!update">
+<input type="hidden" name="id" value='${id}'/>"/>
+<table cellspacing="1" cellpadding="0" bgcolor="#1C80B7" width="98%"
 			align="center" border="0" class="tablect" style="padding:3px">
 			<tbody>
 				<tr bgcolor="#FFFFFF">
@@ -32,36 +33,24 @@
 					<td align="left">
 						<img src="<%=basePath %>/<s:property value='mVO.medicinal.photo'/>"/>
 					</td>
-					<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				<tr bgcolor="#FFFFFF">
 					<td>产品编号：</td>
 					<td align="left">
 						<s:property value='mVO.medicinal.no'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				<tr bgcolor="#FFFFFF">
 					<td>所属试剂库：</td>
 					<td align="left">
 						<s:property value='mVO.repository.repoName'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				<tr bgcolor="#FFFFFF">
 					<td> 分子式：</td>
 					<td align="left">
 						<s:property value='mVO.medicinal.formula'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
@@ -69,9 +58,6 @@
 					<td align="left">
 						<s:property value='mVO.medicinal.name'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
@@ -79,9 +65,6 @@
 					<td align="left">
 						<s:property value='mVO.medicinal.cas'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
@@ -89,9 +72,6 @@
 					<td align="left">
 						<s:property value='mVO.medicinal.standard'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
@@ -99,9 +79,6 @@
 					<td align="left">
 						<s:property value='mVO.medicinal.musage'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
@@ -109,9 +86,6 @@
 					<td align="left">
 						<s:property value='mVO.medicinal.security'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
@@ -119,9 +93,6 @@
 					<td align="left">
 						  <s:property value='mVO.medicinal.shape'/>
         			</td>
-        			<td align="left">
-					    <span></span>
-					</td>
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
@@ -129,8 +100,20 @@
 					<td align="left">
 						 <s:property value='mVO.medicinal.description'/>
         			</td>
-        			<td align="left">
-					    <span></span>
+				</tr>
+				
+				<tr bgcolor="#FFFFFF">
+					<td colspan="2" align="center">
+						<div style="width: 200px;height: 20px;">
+								<input type="radio" name="status" value="1" checked="checked"/>审核通过&nbsp;
+					    		<input type="radio" name="status" value="2"/>审核拒绝&nbsp;
+						</div>
+					</td>
+				</tr>
+				
+				<tr bgcolor="#FFFFFF">
+					<td colspan="2" align="center">
+						<input type="submit" value="确定"/>
 					</td>
 				</tr>
 				
