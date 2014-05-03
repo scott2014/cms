@@ -34,13 +34,19 @@ public class LoginInterceptor implements Interceptor {
 		String actionName = invocation.getAction().getClass().getSimpleName();
 		String methodName = invocation.getProxy().getMethod();
 		
-		if (actionName.equals("UserAction") && methodName.equals("login")) {
-			invocation.invoke();
-			return null;
-		} else {
-			response.sendRedirect(request.getContextPath() + "/login/login.jsp");
-			return null;
+		if (u == null) {
+			if (actionName.equals("UserAction") && (   methodName.equals("login") 
+													   || methodName.equals("register")
+													   || methodName.equals("check"))) {
+				invocation.invoke();
+				return null;
+			} else {
+				response.sendRedirect(request.getContextPath() + "/login/login.jsp");
+				return null;
+			}
 		}
+		invocation.invoke();
+		return null;
 	}
 
 	

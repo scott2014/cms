@@ -31,11 +31,15 @@ public class LoginFilter implements Filter {
 		
 		User u = (User) session.getAttribute("user");
 		if (requestUrl.contains(".jsp") && !requestUrl.contains("login.jsp") && u == null) {
-			try {
-				res.sendRedirect(req.getContextPath() + "/login/login.jsp");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if (requestUrl.contains("register.jsp")) {
+				chain.doFilter(req, res);
+			} else {
+				try {
+					res.sendRedirect(req.getContextPath() + "/login/login.jsp");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		} else {
 			chain.doFilter(req, res);

@@ -1,16 +1,16 @@
 package com.cms.control.struts.action;
 
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.cms.model.constant.Check;
 import com.cms.model.constant.UserRight;
 import com.cms.model.entity.Right;
 import com.cms.model.entity.User;
@@ -35,6 +35,12 @@ public class UserAction extends ActionSupport {
 	private String errorCode;
 	
 	private List<User> users;
+	
+	private User user = null;
+	
+	private File photo;
+	private String photoFileName;
+	private String photoContentType;
 	
 	public String register() {
 		User user = new User();
@@ -85,7 +91,34 @@ public class UserAction extends ActionSupport {
 		session.invalidate();
 		return "loginOut";
 	}
-
+	
+	public String updateInfo() throws Exception {
+		User u = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
+		
+		if (photo != null) {
+			String rootPath = ServletActionContext.getRequest().getRealPath("/upload");
+			String newFileName = System.currentTimeMillis() + "." + this.photoFileName.split("[.]")[1];
+			FileUtils.copyFile(photo, new File(rootPath + "/" + newFileName));
+			u.setPhoto("/upload/" + newFileName);
+		}
+		
+		u.setRealName(user.getRealName());
+		u.setEmail(user.getEmail());
+		u.setQq(user.getQq());
+		u.setPhone(user.getPhone());
+		u.setUniversity(user.getUniversity());
+		u.setDepartment(user.getDepartment());
+		u.setFaculty(user.getFaculty());
+		u.setDescription(user.getDescription());
+		u.setAddress(user.getAddress());
+		
+		this.userService.update(u);
+		
+		User uu = this.userService.findById(u.getId());
+		ServletActionContext.getRequest().getSession().setAttribute("user", uu);
+		return "updateInfo";
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -116,5 +149,37 @@ public class UserAction extends ActionSupport {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public File getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(File photo) {
+		this.photo = photo;
+	}
+
+	public String getPhotoFileName() {
+		return photoFileName;
+	}
+
+	public void setPhotoFileName(String photoFileName) {
+		this.photoFileName = photoFileName;
+	}
+
+	public String getPhotoContentType() {
+		return photoContentType;
+	}
+
+	public void setPhotoContentType(String photoContentType) {
+		this.photoContentType = photoContentType;
 	}
 }

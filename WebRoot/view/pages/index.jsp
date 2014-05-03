@@ -121,7 +121,7 @@
 				<div class="left_top">系统设置</div>
 				<div class="left_cont">
 					<ul>
-						<li><a href="#"><img
+						<li><a href="<%=basePath %>/view/pages/my_info.jsp" target="main_frame"><img
 								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;个人信息</a>
 						</li>
 						<li><a href="#"><img
