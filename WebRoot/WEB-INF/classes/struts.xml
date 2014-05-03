@@ -4,6 +4,16 @@
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
 	
 	<package name="user" namespace="/" extends="struts-default">
+	
+		<!-- <interceptors>
+			<interceptor name="loginInterceptor" class="com.cms.control.struts.interceptor.LoginInterceptor"></interceptor>
+			<interceptor-stack name="myInterceptor">
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myInterceptor"></default-interceptor-ref> -->
+	
 		<action name="user" class="com.cms.control.struts.action.UserAction">
 			<result name="register" type="redirect">
 				/login/login.jsp
@@ -111,6 +121,14 @@
 	</package>
 
 	<package name="userajax" namespace="/userajax" extends="json-default">
+		<!-- <interceptors>
+			<interceptor name="loginInterceptor" class="com.cms.control.struts.interceptor.LoginInterceptor"></interceptor>
+			<interceptor-stack name="myInterceptor">
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myInterceptor"></default-interceptor-ref> -->
 		<action name="user" class="com.cms.control.ajax.action.UserAction">
 			<result name="check" type="json" />
 			<result name="login" type="json" />

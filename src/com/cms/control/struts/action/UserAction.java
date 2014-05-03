@@ -1,6 +1,7 @@
 package com.cms.control.struts.action;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -65,6 +66,24 @@ public class UserAction extends ActionSupport {
 	public String mgr() throws Exception {
 		this.users = this.userService.findRyRightCode(UserRight.STUDENT);
 		return "mgr";
+	}
+	
+	public String loginOut() throws Exception {
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		
+		/*Enumeration em = session.getAttributeNames();
+		
+		while (em.hasMoreElements()) {
+			if (em.nextElement().toString().equals("user")) {
+				session.removeAttribute("user");
+			}
+		}*/
+		
+		session.removeAttribute("user");
+		session.setAttribute("user", null);
+		
+		session.invalidate();
+		return "loginOut";
 	}
 
 	public String getUsername() {

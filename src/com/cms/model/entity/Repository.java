@@ -27,6 +27,11 @@ public class Repository implements java.io.Serializable {
 	
 	private String repoName;
 	private Date createTime;
+	
+	private String university;
+	private String faculty;
+	private String team;
+	private String fields;
 
 	// Constructors
 
@@ -109,4 +114,43 @@ public class Repository implements java.io.Serializable {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+
+	@Column(name="university",length=255)
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+	
+	@Column(name="faculty",length=255)
+	public String getFaculty() {
+		return faculty;
+	}
+
+	public void setFaculty(String faculty) {
+		this.faculty = faculty;
+	}
+	
+	@Column(name="team",length=255)
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	
+	@Column(name="fields",length=100)
+	public String getFields() {
+		return fields;
+	}
+
+	public void setFields(String fields) {
+		this.fields = fields;
+	}
+	
+	
+	
 }
