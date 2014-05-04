@@ -28,13 +28,34 @@
 				</tr>
 				<tr bgcolor="#1C80B7">
 					<th>试剂库编号</th>
-					<th>试剂库所在部门</th>
-					<th>试剂库存放地址</th>
+					<th>试剂库名称</th>
+					<th>试剂库所在单位</th>
 				</tr>
 				<tr bgcolor="#FFFFFF">
 					<td><s:property value="nRepoVO.repository.repoNo" /></td>
+					<td><s:property value="nRepoVO.repository.repoName" /></td>
+					<td><s:property value="nRepoVO.repository.university" /></td>
+				</tr>
+				
+				<tr bgcolor="#1C80B7">
+					<th>试剂库所在学院</th>
+					<th>试剂库所在系</th>
+					<th>试剂库所在团队</th>
+				</tr>
+				<tr bgcolor="#FFFFFF">
 					<td><s:property value="nRepoVO.repository.department" /></td>
-					<td><s:property value="nRepoVO.repository.address" /></td>
+					<td><s:property value="nRepoVO.repository.faculty" /></td>
+					<td><s:property value="nRepoVO.repository.team" /></td>
+				</tr>
+				<tr bgcolor="#1C80B7">
+					<th>试剂库属性</th>
+					<th>相关建议</th>
+					<th>创建日期</th>
+				</tr>
+				<tr bgcolor="#FFFFFF">
+					<td><s:property value="nRepoVO.repository.fields" /></td>
+					<td><s:property value="nRepoVO.repository.advice" /></td>
+					<td><s:date name="nRepoVO.repository.createTime" format="yyyy-MM-dd HH:mm"/></td>
 				</tr>
 
 				<tr bgcolor="#FFFFFF">
