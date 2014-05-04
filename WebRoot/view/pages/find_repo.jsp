@@ -93,8 +93,10 @@
  				  |
  			<a href="javascript:;" repo_id="<s:property value='#repo.repoId'/>" update="ok">修改</a>
  		</s:if>
- 		<s:if test="#repo.userId != #session.user.id">
- 			<a href="javascript:;" repo_id="<s:property value='#repo.repoId'/>" save="ok">收藏</a>
+ 		<s:if test="#repo.stored == @com.cms.model.constant.RepositoryConst@NOT_STORED">
+	 		<s:if test="#repo.userId != #session.user.id">
+	 			<a href="javascript:;" repo_id="<s:property value='#repo.repoId'/>" save="ok">收藏</a>
+	 		</s:if>
  		</s:if>
  	</td>
  </tr>

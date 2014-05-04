@@ -12,6 +12,7 @@ public class RepositoryVO {
 	private long userId;
 	private String username;
 	private String realName;
+	private int stored = 0;
 	
 	public long getRepoId() {
 		return repoId;
@@ -79,4 +80,11 @@ public class RepositoryVO {
 	public void setRealName(String realName) {
 		this.realName = realName;
 	}
+	public int getStored() {
+		return stored;
+	}
+	public void setStored(int stored) {
+		this.stored = stored;
+	}
+	
 }

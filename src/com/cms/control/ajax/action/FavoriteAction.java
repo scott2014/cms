@@ -31,7 +31,7 @@ public class FavoriteAction extends ActionSupport {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		
-		Favorite f = this.favoriteService.findByRepoId(repositoryId);
+		Favorite f = this.favoriteService.find(repositoryId, user.getId());
 		
 		if (f == null) {
 			Favorite f1 = new Favorite();

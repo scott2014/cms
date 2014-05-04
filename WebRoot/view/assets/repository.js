@@ -49,6 +49,8 @@ var repository = {
 	},
 	save : function() {
 		$("a[save='ok']").bind("click",function() {
+			var curr = $(this);
+			
 			var ok = window.confirm("确定加入收藏吗？");
 			if (ok) {
 				var repoId = $(this).attr("repo_id");
@@ -60,7 +62,10 @@ var repository = {
 					data : {repositoryId : repoId},
 					dataType : "json" ,
 					success : function(res) {
-						alert(res.errorCode);
+						if (res.errorCode.trim() == "成功加入收藏夹") {
+							curr.html("");
+							alert(res.errorCode);
+						}
 					}
 				});
 			}

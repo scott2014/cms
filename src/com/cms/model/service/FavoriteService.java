@@ -59,4 +59,8 @@ public class FavoriteService {
 	public void delete(Favorite favorite) {
 		this.favoriteDAO.del(favorite);
 	}
+	
+	public Favorite find(long repoId,long userId) {
+		return this.favoriteDAO.find(repoId, userId);
+	}
 }

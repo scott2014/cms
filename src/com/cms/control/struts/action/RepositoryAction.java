@@ -10,10 +10,13 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cms.model.constant.RepositoryConst;
+import com.cms.model.entity.Favorite;
 import com.cms.model.entity.History;
 import com.cms.model.entity.Medicinal;
 import com.cms.model.entity.Repository;
 import com.cms.model.entity.User;
+import com.cms.model.service.FavoriteService;
 import com.cms.model.service.HistoryService;
 import com.cms.model.service.MedicinalService;
 import com.cms.model.service.RepositoryService;
@@ -40,6 +43,10 @@ public class RepositoryAction extends ActionSupport {
 	@Autowired
 	@Resource(name="historyService")
 	private HistoryService historyService;
+	
+	@Autowired
+	@Resource(name="favoriteService")
+	private FavoriteService favoriteService;
 	
 	private RepositoryVO repositoryVO;
 	
@@ -92,6 +99,20 @@ public class RepositoryAction extends ActionSupport {
 			this.key = new String(key.getBytes("iso8859-1"),"utf-8");
 		}
 		this.repos = this.repositoryService.load(pageNum, pageSize, key);
+		
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		User u = (User) session.getAttribute("user");
+		
+		for (RepositoryVO r : repos) {
+			Favorite f = this.favoriteService.find(r.getRepoId(), u.getId());
+			System.out.println(r.getRepoId());
+			System.out.println(u.getId());
+			if (f != null) {
+				r.setStored(RepositoryConst.STORED);
+			} else {
+				r.setStored(RepositoryConst.NOT_STORED);
+			}
+		}
 		
 		this.totalCount = this.repositoryService.totalCount(key);
 		

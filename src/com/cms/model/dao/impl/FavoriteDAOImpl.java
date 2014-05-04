@@ -166,5 +166,10 @@ public class FavoriteDAOImpl implements FavoriteDAO {
 		List<Long> result = this.hibernateTemplate.find(hql,userId);
 		return result != null && result.size() > 0 ? result.get(0).intValue() : null;
 	}
-
+	
+	public Favorite find(long repoId,long userId) {
+		String hql = "from Favorite where repositoryId = ? and userId = ?";
+		List<Favorite> result = this.hibernateTemplate.find(hql,repoId,userId);
+		return result != null && result.size() > 0 ? result.get(0) : null;
+	}
 }

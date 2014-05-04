@@ -28,4 +28,6 @@ public interface FavoriteDAO {
 	public List<MedicinalVO> findMedByCondition(int pageSize,int pageNum,long userId);
 	
 	public int countMedByCondition(long userId);
+	
+	public Favorite find(long repoId,long userId);
 }
