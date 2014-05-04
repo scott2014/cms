@@ -104,24 +104,27 @@ var repo = {
 	},
 	reset : function() {
 		$("#reset").bind("click",function() {
-			$("input[name='repositoryVO.repoNo']").val("");
-			$("input[name='repositoryVO.repoName']").val("");
-			$("input[name='repositoryVO.department']").val("");
-			$("input[name='repositoryVO.address']").val("");
-			$("input[name='repositoryVO.email']").val("");
-			$("input[name='repositoryVO.phone']").val("");
-			$("input[name='repositoryVO.qq']").val("");
+			$("input[name='repository.repoNo']").val("");
+			$("input[name='repository.repoName']").val("");
+			$("input[name='repository.department']").val("");
+			$("input[name='repository.address']").val("");
+			$("input[name='repository.university']").val("");
+			$("input[name='repository.faculty']").val("");
+			$("input[name='repository.team']").val("");
+			$("textarea[name='repository.advice']").html("");
 			
 			
 			$("#tip_repoNo").html("");
 		    $("#tip_repoName").html("");
 			$("#tip_address").html("");
-			$("#tip_email").html("");
-			$("#tip_phone").html("");
-			$("#tip_qq").html("");
 			$("#tip_department").html("");
+			$("#tip_university").html("");
+			$("#tip_faculty").html("");
+			$("#tip_team").html("");
+			$("#tip_advice").html("");
+
 			
-			$("input[name='repositoryVO.repoNo']").focus();
+			$("input[name='repository.repoNo']").focus();
 		});
 	}
 };
