@@ -24,7 +24,8 @@
 
 <body>
 <div id="create_shiji">
-<form id="form1" name="form1" method="post" action="<%=basePath %>/medicinal" enctype="multipart/form-data">
+<form id="form1" name="form1" method="post" action="<%=basePath %>/medicinal!update" enctype="multipart/form-data">
+<input type="hidden" name="id" value="<s:property value='mVO.medicinal.id'/>" />
 <table cellspacing="0" cellpadding="0" bgcolor="#1C80B7" width="98%"
 			align="center" border="0" class="tablect" style="padding:3px">
 			<tbody>
@@ -115,7 +116,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 用途：</td>
 					<td align="left">
-						  <textarea name="medicinal.mUsage"><s:property value='mVO.medicinal.musage'/></textarea>
+						  <textarea name="medicinal.musage"><s:property value='mVO.medicinal.musage'/></textarea>
         			</td>
         			<td align="left">
 					    <span></span>

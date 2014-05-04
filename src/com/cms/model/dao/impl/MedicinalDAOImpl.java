@@ -40,8 +40,7 @@ public class MedicinalDAOImpl implements MedicinalDAO {
 	}
 
 	public void update(Medicinal m) {
-		// TODO Auto-generated method stub
-		
+		this.hibernateTemplate.update(m);
 	}
 
 	public Medicinal findById(long id) {

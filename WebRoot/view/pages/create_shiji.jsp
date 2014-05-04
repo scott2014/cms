@@ -101,6 +101,16 @@
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
+					<td> 数量：</td>
+					<td align="left">
+						 <input type="text" name="medicinal.left"/>
+        			</td>
+        			<td align="left">
+					    <span></span>
+					</td>
+				</tr>
+				
+				<tr bgcolor="#FFFFFF">
 					<td> 用途：</td>
 					<td align="left">
 						  <textarea name="medicinal.musage"></textarea>

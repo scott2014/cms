@@ -76,12 +76,14 @@ public class MedicinalAction extends ActionSupport {
 	public String execute() throws Exception {
 		System.out.println(medicinal);
 		
-		String rootPath = ServletActionContext.getRequest().getRealPath("/upload");
-		String newFileName = System.currentTimeMillis() + "." + photoFileName.split("[.]")[1];
-		
-		FileUtils.copyFile(photo, new File(rootPath + "/" + newFileName));
-		
-		this.medicinal.setPhoto("/upload/" + newFileName);
+		if (photo != null) {
+			String rootPath = ServletActionContext.getRequest().getRealPath("/upload");
+			String newFileName = System.currentTimeMillis() + "." + photoFileName.split("[.]")[1];
+			
+			FileUtils.copyFile(photo, new File(rootPath + "/" + newFileName));
+			
+			this.medicinal.setPhoto("/upload/" + newFileName);
+		}
 		
 		long userId = ((User)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
 		
@@ -180,6 +182,30 @@ public class MedicinalAction extends ActionSupport {
 	}
 	
 	public String update() throws Exception {
+		Medicinal m = this.medicinalService.findById(id);
+		
+		m.setFormula(medicinal.getFormula());
+		m.setName(medicinal.getName());
+		m.setCas(medicinal.getCas());
+		m.setShape(medicinal.getShape());
+		m.setMusage(medicinal.getMusage());
+		m.setSecurity(medicinal.getMusage());
+		m.setStandard(medicinal.getStandard());
+		m.setNo(medicinal.getNo());
+		m.setDescription(medicinal.getDescription());
+		m.setLeft(medicinal.getLeft());
+		
+		if (photo != null) {
+			String rootPath = ServletActionContext.getRequest().getRealPath("/upload");
+			String newFileName = System.currentTimeMillis() + "." + photoFileName.split("[.]")[1];
+			
+			FileUtils.copyFile(photo, new File(rootPath + "/" + newFileName));
+			
+			m.setPhoto("/upload/" + newFileName);
+		}
+		
+		this.medicinalService.update(m);
+		
 		return "update";
 	}
 	
