@@ -36,8 +36,12 @@ public class UserAction extends ActionSupport {
 	public String login() throws Exception {
 		User user = this.userService.checkUser(username, MDEncode.encode(password));
 		if (user != null) {
-			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("user", user);
+			if (user.getStatus() != null && user.getStatus() == Account.NORMAL) {
+				HttpSession session = ServletActionContext.getRequest().getSession();
+				session.setAttribute("user", user);
+			} else {
+				errorCode = "*该账户已冻结";
+			}
 		} else {
 			this.errorCode = "*用户名或者密码错误";
 		}

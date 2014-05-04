@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cms.model.constant.Account;
 import com.cms.model.constant.UserRight;
 import com.cms.model.entity.Right;
 import com.cms.model.entity.User;
@@ -51,6 +52,8 @@ public class UserAction extends ActionSupport {
 		Right r = this.rightService.findById(2);
 		rs.add(r);
 		user.setRights(rs);
+		
+		user.setStatus(Account.NORMAL);
 		
 		this.userService.save(user);
 		return "register";
