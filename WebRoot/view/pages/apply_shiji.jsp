@@ -18,7 +18,7 @@
 	src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
 <script type="text/javascript"
-	src="<%=basePath %>/view/assets/create_shiji.js"></script>
+	src="<%=basePath %>/view/assets/apply_shiji.js"></script>
 
 
 <title>无标题文档</title>
@@ -151,7 +151,7 @@
 				
 				<tr bgcolor="#FFFFFF">
 					<td>剩余数量：</td>
-					<td align="left">
+					<td align="left" id="left_td">
 						<s:property value='mVO.medicinal.left' />
         			</td>
         			<td align="left">
@@ -171,7 +171,7 @@
 				
 				<tr bgcolor="#FFFFFF">
 					<td align="center" colspan="3">
-						<input type="submit" value="提交申请" style="width:60px;"/> 
+						<input type="button" value="提交申请" style="width:60px;" id="apply"/> 
 						<input type="reset" value="重置"  style="width:60px;"/>
         			</td>
 				</tr>

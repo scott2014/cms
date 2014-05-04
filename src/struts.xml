@@ -99,6 +99,10 @@
 			<result name="update" type="redirect">
 				/medicinal!loadMe
 			</result>
+			
+			<result name="tgApply" type="dispatcher">
+				/view/pages/apply_approved.jsp
+			</result>
 		</action>
 		
 		<action name="favorite" class="com.cms.control.struts.action.FavoriteAction">

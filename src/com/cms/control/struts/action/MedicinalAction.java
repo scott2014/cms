@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -225,6 +226,26 @@ public class MedicinalAction extends ActionSupport {
 		this.userMedicinalService.save(um);
 		
 		return "apply";
+	}
+	
+	public String tgApply() throws Exception {
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		User u1 = (User) session.getAttribute("user");
+		
+		List<UserMedicinal> ums = this.userMedicinalService.find(u1.getId(), Check.APPROVED);
+		
+		for (UserMedicinal um : ums) {
+			Medicinal m  = this.medicinalService.findById(um.getMedicinalId());
+			User u = this.userService.findById(m.getUserId());
+			
+			ApplyMedicinalVO umVO = new ApplyMedicinalVO();
+			umVO.setMedicinal(m);
+			umVO.setUserMedicinal(um);
+			umVO.setUser(u);
+			
+			applys.add(umVO);
+		}
+		return "tgApply";
 	}
 	
 	public long getId() {

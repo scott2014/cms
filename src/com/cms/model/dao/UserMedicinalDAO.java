@@ -18,4 +18,6 @@ public interface UserMedicinalDAO {
 	public List<UserMedicinal> findByAppId(long appId);
 	
 	public List<UserMedicinal> findByRightCode(int rightCode);
+	
+	public List<UserMedicinal> find(long userId,int status);
 }

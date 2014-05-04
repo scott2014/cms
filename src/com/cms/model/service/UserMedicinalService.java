@@ -39,4 +39,8 @@ public class UserMedicinalService {
 	public UserMedicinal findById(long id) {
 		return this.userMedicinalDAO.findById(id);
 	}
+	
+	public List<UserMedicinal> find(long userId,int status) {
+		return this.userMedicinalDAO.find(userId, status);
+	}
 }

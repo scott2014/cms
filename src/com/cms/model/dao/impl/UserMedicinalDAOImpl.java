@@ -48,4 +48,9 @@ public class UserMedicinalDAOImpl implements UserMedicinalDAO {
 		return this.hibernateTemplate.find(hql,rightCode);
 	}
 
+	public List<UserMedicinal> find(long userId, int status) {
+		String hql = "from UserMedicinal where userId = ? and status = ?";
+		return this.hibernateTemplate.find(hql,userId,status);
+	}
+
 }

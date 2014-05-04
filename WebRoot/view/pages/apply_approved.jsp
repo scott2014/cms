@@ -65,15 +65,16 @@
 <tbody>
  <tr bgcolor="#1C80B7">
  	<th width="15%">图片说明</th>
- 	<th width="15%">分子式</th>
+ 	<th width="10%">分子式</th>
  	<th width="15%">试剂名称</th>
  	<th width="10%">申请数量</th>
  	<th width="15%">申请日期</th>
- 	<th width="15%">申请人</th>
- 	<th width="15%">操作</th>
+ 	<th width="15%">审核日期</th>
+ 	<th width="10%">审核结果</th>
+ 	<th width="10%">审批人</th>
  </tr>
  
- <s:iterator value="applys">
+<s:iterator value="applys">
  <tr bgcolor="#FFFFFF">
  	<td>
 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='medicinal.id'/>">
@@ -92,15 +93,15 @@
 		<s:property value="userMedicinal.applyNumber"/>
  	</td>
  	<td>
- 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@APPROVED">审核通过</s:if>
- 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@REFUSED">审核拒绝</s:if>
- 		<s:if test="userMedicinal.status == @com.cms.model.constant.Check@NOT_APPROVE">未审核</s:if>
+ 		<s:date name="userMedicinal.applyTime" format="yyyy-MM-dd HH:mm"/>
  	</td>
  	<td>
- 		<s:property value="user.username"/>
+		<s:date name="userMedicinal.checkTime" format="yyyy-MM-dd HH:mm"/> 	</td>
+ 	<td>
+		审核通过
  	</td>
  	<td>
- 		<s:date name="userMedicinal.applyTime" format="yyyy-MM-dd HH:mm:ss"/>
+		<s:property value="user.username"/>
  	</td>
  </tr>
  </s:iterator><%--
