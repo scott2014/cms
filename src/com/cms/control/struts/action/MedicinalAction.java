@@ -269,6 +269,27 @@ public class MedicinalAction extends ActionSupport {
 		return "rfApply";
 	}
 	
+	//审核通过后获取到的所有试剂
+	public String appliedMedicinal() throws Exception {
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		User u1 = (User) session.getAttribute("user");
+		
+		List<UserMedicinal> ums = this.userMedicinalService.find(u1.getId(), Check.APPROVED);
+		
+		for (UserMedicinal um : ums) {
+			Medicinal m  = this.medicinalService.findById(um.getMedicinalId());
+			User u = this.userService.findById(m.getUserId());
+			
+			ApplyMedicinalVO umVO = new ApplyMedicinalVO();
+			umVO.setMedicinal(m);
+			umVO.setUserMedicinal(um);
+			umVO.setUser(u);
+			
+			applys.add(umVO);
+		}
+		return "appliedMedicinal";
+	} 
+	
 	public long getId() {
 		return id;
 	}

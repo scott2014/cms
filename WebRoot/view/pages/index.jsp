@@ -112,6 +112,10 @@
 								target="main_frame"><img
 									src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;审核拒绝</a>
 							</li>
+							<li><a href="<%=basePath%>/medicinal!rfApply"
+								target="main_frame"><img
+									src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;我的试剂</a>
+							</li>
 						</s:if>
 					</ul>
 				</div>

@@ -12,14 +12,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="<%=basePath %>/view/pages/find_repo.css" rel="stylesheet" type="text/css" />
-<link href="<%=basePath %>/view/assets/jPaginate/css/style.css" rel="stylesheet" type="text/css" />
+<%--<link href="<%=basePath %>/view/assets/jPaginate/css/style.css" rel="stylesheet" type="text/css" />
+
+--%>
 
 <script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/find_shiji.js"></script>
-<script type="text/javascript" src="<%=basePath %>/view/assets/jPaginate/jquery.paginate.js"></script>
+<%--<script type="text/javascript" src="<%=basePath %>/view/assets/jPaginate/jquery.paginate.js"></script>
 
-<script type="text/javascript">
+--%><%--<script type="text/javascript">
 	$(function() {
 		$("#pagination").paginate({
 			count : parseInt($("#pagecount").html().trim()),
@@ -42,19 +44,10 @@
 </script>
 
 
-<title>无标题文档</title>
+--%><title>无标题文档</title>
 </head>
 
 <body>
-
-<s:iterator value="#session.user.rights">
-	<s:if test="rightCode == @com.cms.model.constant.UserRight@ADMINISTRATOR">
-		<s:set name="flag" value="1">
-			
-		</s:set>
-	</s:if>
-</s:iterator>
-
 <div id="search">
  	关键词:
  	<input name="keys" type="text" value="<s:property value='key'/>" size="30" />
@@ -72,57 +65,51 @@
 <tbody>
  <tr bgcolor="#1C80B7">
  	<th width="15%">图片说明</th>
- 	<th width="15%">分子式</th>
+ 	<th width="10%">分子式</th>
  	<th width="15%">试剂名称</th>
- 	<th width="15%">所属试剂库</th>
- 	<th width="15%">剩余数量</th>
- 	<s:if test="#flag == 1"></s:if>
- 	<s:else>
- 		<th width="25%">操作</th>
- 	</s:else>
+ 	<th width="10%">规格</th>
+ 	<th width="15%">数量</th>
+ 	<th width="15%">审核日期</th>
+ 	<th width="10%">审批人</th>
  </tr>
  
- <s:iterator value="medicinals" var="m">
+<s:iterator value="applys">
  <tr bgcolor="#FFFFFF">
  	<td>
-		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>">
-			<img src="<%=basePath %>/<s:property value='#m.medicinal.photo' />" alt="" />
+		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='medicinal.id'/>">
+			<img src="<%=basePath %>/<s:property value='medicinal.photo' />" alt="" />
 		</a>
 	</td>
  	<td>
- 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>">
- 			<s:property value="#m.medicinal.formula"/>
+ 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='medicinal.id'/>">
+ 			<s:property value="medicinal.formula"/>
  		</a>
  	</td>
  	<td>
- 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>"><s:property value="#m.medicinal.name"/></a>
+ 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>"><s:property value="medicinal.name"/></a>
  	</td>
  	<td>
- 		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='#m.repository.id'/>">
- 			<s:property value="#m.repository.repoName"/>
- 		</a>
+		<s:property value="medicinal.standard"/>
  	</td>
  	<td>
- 		 <s:property value="#m.medicinal.left"/>
+		<s:property value="userMedicinal.applyNumber"/>
  	</td>
- 	<s:if test="#flag == 1"></s:if>
- 	<s:else>
-	 	<td>
-	 		<a href="<%=basePath %>/medicinal!toApply?id=<s:property value='#m.medicinal.id'/>">
-	 			试剂申请
-	 		</a>
-	 	</td>
- 	</s:else>
+ 	<td>
+ 		<s:date name="userMedicinal.checkTime" format="yyyy-MM-dd HH:mm"/>
+ 	</td>
+ 	<td>
+ 		<s:property value="user.username"/>
+	</td>
  </tr>
- </s:iterator>
+ </s:iterator><%--
   <tr bgcolor="#FFFFFF">
- 	<td colspan="6" >
+ 	<td colspan="5" >
  		<div id="mypage">
  			<div id="pagination"></div>
  		</div>
  	</td>
  </tr>
-</tbody>
+--%></tbody>
  </table>
 </body>
 </html>
