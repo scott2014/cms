@@ -32,4 +32,6 @@ public interface HistoryDAO {
 	public List<MedicinalVO> findMedByCondition(int pageSize,int pageNum,long userId);
 	
 	public int countMedByCondition(long userId);
+	
+	public History find(long repoId,long userId);
 }

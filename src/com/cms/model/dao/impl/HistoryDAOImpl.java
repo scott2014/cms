@@ -174,4 +174,11 @@ public class HistoryDAOImpl implements HistoryDAO {
 		return result != null && result.size() > 0 ? result.get(0).intValue() : null;
 	}
 
+	public History find(long repoId, long userId) {
+		String hql = "from History where repositoryId = ? and userId = ?";
+		
+		List<History> result = this.hibernateTemplate.find(hql,repoId,userId);
+		return result != null && result.size() > 0 ? result.get(0) : null;
+	}
+
 }

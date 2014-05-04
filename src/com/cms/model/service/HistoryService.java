@@ -65,4 +65,8 @@ public class HistoryService {
 	public int countMedByCondition(long userId) {
 		return this.historyDAO.countMedByCondition(userId);
 	}
+	
+	public History find(long repoId,long userId) {
+		return this.historyDAO.find(repoId,userId);
+	}
 }

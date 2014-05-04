@@ -46,7 +46,7 @@
 				/view/pages/update_repo.jsp
 			</result>
 			<result name="update" type="redirect">
-				repository!load
+				repository!myrepo
 			</result>
 			<result name="myrepo" type="dispatcher">
 				/view/pages/my_repo.jsp

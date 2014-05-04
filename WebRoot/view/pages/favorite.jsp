@@ -89,7 +89,7 @@
  	</td>
  </tr>
  
-<tr bgcolor="#FFFFFF">
+<%--<tr bgcolor="#FFFFFF">
  	<td colspan="5" class="head">
  		收藏的试剂
  	</td>
@@ -125,7 +125,7 @@
  		</div>
  	</td>
  </tr>
-</tbody>
+--%></tbody>
  </table>
 </body>
 </html>

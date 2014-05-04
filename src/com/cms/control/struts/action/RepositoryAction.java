@@ -171,7 +171,10 @@ public class RepositoryAction extends ActionSupport {
 		this.nRepoVO.setRepository(p);
 		this.nRepoVO.setUser(u);
 		
-		History h = this.historyService.findByRepoId(id);
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		User u1 = (User) session.getAttribute("user");
+		
+		History h = this.historyService.find(id,u1.getId());
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date d = new Date();
 		Date nd = formatter.parse(formatter.format(d));
@@ -180,9 +183,6 @@ public class RepositoryAction extends ActionSupport {
 			History history = new History();
 			history.setRepositoryId(p.getId());
 			history.setLastViewTime(nd);
-			
-			HttpSession session = ServletActionContext.getRequest().getSession();
-			User u1 = (User) session.getAttribute("user");
 			
 			history.setUserId(u1.getId());
 			this.historyService.save(history);
