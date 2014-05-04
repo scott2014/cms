@@ -223,6 +223,7 @@ public class MedicinalAction extends ActionSupport {
 		
 		Medicinal m = this.medicinalService.findById(um.getMedicinalId());
 		um.setAppId(m.getUserId());
+		um.setCheckTime(new Date());
 		this.userMedicinalService.save(um);
 		
 		return "apply";
@@ -246,6 +247,26 @@ public class MedicinalAction extends ActionSupport {
 			applys.add(umVO);
 		}
 		return "tgApply";
+	}
+	
+	public String rfApply() throws Exception {
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		User u1 = (User) session.getAttribute("user");
+		
+		List<UserMedicinal> ums = this.userMedicinalService.find(u1.getId(), Check.REFUSED);
+		
+		for (UserMedicinal um : ums) {
+			Medicinal m  = this.medicinalService.findById(um.getMedicinalId());
+			User u = this.userService.findById(m.getUserId());
+			
+			ApplyMedicinalVO umVO = new ApplyMedicinalVO();
+			umVO.setMedicinal(m);
+			umVO.setUserMedicinal(um);
+			umVO.setUser(u);
+			
+			applys.add(umVO);
+		}
+		return "rfApply";
 	}
 	
 	public long getId() {

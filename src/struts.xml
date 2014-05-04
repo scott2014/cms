@@ -103,6 +103,10 @@
 			<result name="tgApply" type="dispatcher">
 				/view/pages/apply_approved.jsp
 			</result>
+			
+			<result name="rfApply" type="dispatcher">
+				/view/pages/apply_refused.jsp
+			</result>
 		</action>
 		
 		<action name="favorite" class="com.cms.control.struts.action.FavoriteAction">

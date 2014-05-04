@@ -108,7 +108,7 @@
 								target="main_frame"><img
 									src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;审核通过</a>
 							</li>
-							<li><a href="<%=basePath%>/medicinal!tgApply"
+							<li><a href="<%=basePath%>/medicinal!rfApply"
 								target="main_frame"><img
 									src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;审核拒绝</a>
 							</li>
