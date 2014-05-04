@@ -64,8 +64,9 @@
   <tr bgcolor="#1C80B7">
 	  <th width="15%">试剂库编号</th>
 	  <th width="20%">试剂库名称</th>
-	  <th width="25%">所属单位</th>
-	  <th width="40%">操作</th>
+	  <th width="20%">所在单位</th>
+	   <th width="20%">创建时间</th>
+	  <th width="25%">操作</th>
   </tr>
 
  <s:iterator value="myrepos" status="st">
@@ -76,14 +77,15 @@
 	 	bgcolor="#EEF7FF"
 	 </s:else>
      desc="content">
-	  <td width="15%"><s:property value='repoNo'/></td>
-	  <td width="20%">
+	  <td><s:property value='repoNo'/></td>
+	  <td>
  		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='id'/>">
  			<s:property value="repoName"/>
  		</a>
  	  </td>
-	  <td width="25%"><s:property value='department'/></td>
-	  	<td width="23%">
+	  <td><s:property value='university'/></td>
+	  <td><s:date name="createTime" format="yyyy-MM-dd HH:mm"/></td>
+	  	<td>
  		<a href="javascript:;" repo_id="<s:property value='id'/>" del="ok">删除</a>
  			&nbsp;|&nbsp;
  		<a href="javascript:;" repo_id="<s:property value='id'/>" update="ok">修改</a>

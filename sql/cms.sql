@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
+Source Server         : localhost
 Source Server Version : 50536
 Source Host           : localhost:3306
 Source Database       : cms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50536
 File Encoding         : 65001
 
-Date: 2014-05-04 08:18:19
+Date: 2014-05-04 14:20:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -99,13 +99,15 @@ CREATE TABLE `repository` (
   `faculty` varchar(255) DEFAULT NULL,
   `team` varchar(255) DEFAULT NULL,
   `fields` varchar(100) DEFAULT NULL,
+  `advice` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of repository
 -- ----------------------------
-INSERT INTO `repository` VALUES ('1', 'a01', '化学实验室', '西北大学老校区', '1', '我的试剂库', null, null, null, null, null);
+INSERT INTO `repository` VALUES ('1', 'a01', '化学实验室', '西北大学老校区', '1', '我的试剂库', null, null, null, null, null, null);
+INSERT INTO `repository` VALUES ('2', 'a', 'aa', 'a', '9', 'a', '2014-05-04 14:09:41', 'a', 'aa', 'a', 'a', 'aa');
 
 -- ----------------------------
 -- Table structure for user
@@ -187,7 +189,7 @@ CREATE TABLE `user_right` (
 -- ----------------------------
 INSERT INTO `user_right` VALUES ('2', '7', '1');
 INSERT INTO `user_right` VALUES ('3', '8', '1');
-INSERT INTO `user_right` VALUES ('4', '9', '2');
+INSERT INTO `user_right` VALUES ('4', '9', '1');
 
 -- ----------------------------
 -- Table structure for _right
