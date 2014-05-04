@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cms.model.constant.Check;
 import com.cms.model.entity.Medicinal;
 import com.cms.model.entity.Repository;
 import com.cms.model.entity.User;
@@ -80,6 +81,13 @@ public class UserMedicinalAction extends ActionSupport {
 		UserMedicinal um = this.userMedicinalService.findById(id);
 		
 		um.setStatus(status);
+		
+		if (status == Check.APPROVED) {
+			Medicinal m = this.medicinalService.findById(um.getMedicinalId());
+			m.setLeft(m.getLeft() - um.getApplyNumber());
+			this.medicinalService.update(m);
+		}
+		
 		this.userMedicinalService.update(um);
 		return "update";
 	}
