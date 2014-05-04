@@ -62,6 +62,11 @@ public class RepositoryAction extends ActionSupport {
 	private String repoName;
 	private String department;
 	private String address;
+	private String university;
+	private String faculty;
+	private String team;
+	private String fields;
+	private String advice;
 	
 	//我的试剂库
 	private List<Repository> myrepos;
@@ -109,6 +114,10 @@ public class RepositoryAction extends ActionSupport {
 		this.repository.setDepartment(department);
 		this.repository.setRepoName(repoName);
 		this.repository.setRepoNo(repoNo);
+		this.repository.setUniversity(university);
+		this.repository.setFaculty(faculty);
+		this.repository.setTeam(team);
+		this.repository.setAdvice(advice);
 		
 		this.repositoryService.update(repository);
 		return "update";
@@ -298,5 +307,44 @@ public class RepositoryAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+
+	public String getFaculty() {
+		return faculty;
+	}
+
+	public void setFaculty(String faculty) {
+		this.faculty = faculty;
+	}
+
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
+	}
+
+	public String getFields() {
+		return fields;
+	}
+
+	public void setFields(String fields) {
+		this.fields = fields;
+	}
+
+	public String getAdvice() {
+		return advice;
+	}
+
+	public void setAdvice(String advice) {
+		this.advice = advice;
+	}
 }
