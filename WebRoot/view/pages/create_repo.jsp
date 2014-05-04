@@ -48,7 +48,7 @@
 	    <tr>
 	      <td>所在系名称：</td>
 	      <td>&nbsp;<input type="text" name="repository.faculty"/></td>
-          <td class="tip" id="tip_email"><span></span></td>
+          <td class="tip" id="tip_faculty"><span></span></td>
         </tr>
 	    <tr>
 	      <td>所在团队名称：</td>
@@ -69,7 +69,7 @@
 	      <td height="38">建议：</td>
           <td>&nbsp;
           	<textarea rows="10" cols="50" name="repository.advice"></textarea>
-        <!--   <input type="" name="repository.advice"/></td> -->
+          </td>
           <td class="tip" id="tip_advice"><span></span></td>
         </tr>
 	    <tr>

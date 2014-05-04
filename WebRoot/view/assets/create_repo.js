@@ -13,7 +13,8 @@ var repo = {
 			var university = $("input[name='repository.university']").val();
 			var faculty = $("input[name='repository.faculty']").val();
 			var team = $("input[name='repository.team']").val();
-			var advice = $("textarea[name='repository.advice']").html();
+			var advice = $("textarea[name='repository.advice']").val();
+			var fields = $("input[name='repository.fields']").val();
 
 			
 			if (repoNo == null || repoNo.trim() == "") {
@@ -111,8 +112,8 @@ var repo = {
 			$("input[name='repository.university']").val("");
 			$("input[name='repository.faculty']").val("");
 			$("input[name='repository.team']").val("");
-			$("textarea[name='repository.advice']").html("");
-			
+			$("textarea[name='repository.advice']").text("");
+			$("input[name='repository.fields']").val("");
 			
 			$("#tip_repoNo").html("");
 		    $("#tip_repoName").html("");
