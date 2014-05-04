@@ -27,38 +27,50 @@
       	<table width="96%" border="0">
 	    <tr>
 	      <td width="15%">试剂库编号：</td>
-	      <td width="40%" align="center">&nbsp;<input type="text" name="repositoryVO.repoNo"/></td>
+	      <td width="40%" align="center">&nbsp;<input type="text" name="repository.repoNo"/></td>
           <td width="30%" class="tip" id="tip_repoNo"><span></span></td>
         </tr>
 	    <tr>
 	      <td>试剂库名称：</td>
-	      <td>&nbsp;<input type="text" name="repositoryVO.repoName"/></td>
+	      <td>&nbsp;<input type="text" name="repository.repoName"/></td>
            <td class="tip" id="tip_repoName"><span></span></td>
         </tr>
 	    <tr>
-	      <td>所在单位：</td>
-	      <td>&nbsp;<input type="text" name="repositoryVO.department"/></td>
+	      <td>所在单位名称：</td>
+	      <td>&nbsp;<input type="text" name="repository.university"/></td>
+          <td class="tip" id="tip_university"><span></span></td>
+        </tr>
+	    <tr>
+	      <td>所在学院名称：</td>
+	      <td>&nbsp;<input type="text" name="repository.department"/></td>
           <td class="tip" id="tip_department"><span></span></td>
         </tr>
 	    <tr>
-	      <td>存放地点：</td>
-	      <td>&nbsp;<input type="text" name="repositoryVO.address"/></td>
-          <td class="tip" id="tip_address"><span></span></td>
-        </tr>
-	    <tr>
-	      <td>邮箱：</td>
-	      <td>&nbsp;<input type="text" name="repositoryVO.email" value="<s:property value='user.email'/>"/></td>
+	      <td>所在系名称：</td>
+	      <td>&nbsp;<input type="text" name="repository.faculty"/></td>
           <td class="tip" id="tip_email"><span></span></td>
         </tr>
 	    <tr>
-	      <td>联系电话：</td>
-	      <td>&nbsp;<input type="text" name="repositoryVO.phone" value="<s:property value='user.phone'/>"/></td>
-          <td class="tip" id="tip_phone"><span></span></td>
+	      <td>所在团队名称：</td>
+	      <td>&nbsp;<input type="text" name="repository.team" /></td>
+          <td class="tip" id="tip_team"><span></span></td>
         </tr>
 	    <tr>
-	      <td height="38">QQ：</td>
-          <td>&nbsp;<input type="text" name="repositoryVO.qq" value="<s:property value='user.qq'/>"/></td>
-          <td class="tip" id="tip_qq"><span></span></td>
+	      <td height="38">存放地点：</td>
+          <td>&nbsp;<input type="text" name="repository.address"/></td>
+          <td class="tip" id="tip_address"><span></span></td>
+        </tr>
+        <tr>
+	      <td height="38">属性：</td>
+          <td>&nbsp;<input type="text" name="repository.fields" /></td>
+          <td class="tip" id="tip_fields"><span></span></td>
+        </tr>
+        <tr>
+	      <td height="38">建议：</td>
+          <td>&nbsp;
+          	<textarea rows="10" cols="50" name="repository.advice"></textarea>
+        <!--   <input type="" name="repository.advice"/></td> -->
+          <td class="tip" id="tip_advice"><span></span></td>
         </tr>
 	    <tr>
 	      <td height="40" colspan="3" bgcolor="#FFFFFF" class="btn">&nbsp;

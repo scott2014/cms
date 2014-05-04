@@ -75,13 +75,11 @@ public class RepositoryAction extends ActionSupport {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		
-		if (user != null) {
-			this.repositoryVO.setUserId(user.getId());
-			this.repositoryService.save(repositoryVO);
-			return Action.SUCCESS;
-		}
+		this.repository.setUserId(user.getId());
+		this.repository.setCreateTime(new Date());
+		this.repositoryService.save(repository);
 		
-		return Action.ERROR;
+		return Action.SUCCESS;
 	}
 
 	public String load() throws Exception {

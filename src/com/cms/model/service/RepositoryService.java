@@ -100,4 +100,9 @@ public class RepositoryService {
 	public int countByUserId(long userId,String key) {
 		return this.repositoryDAO.countByUserId(userId, key);
 	}
+	
+	@Transactional
+	public void save(Repository repository) {
+		this.repositoryDAO.save(repository);
+	}
 }

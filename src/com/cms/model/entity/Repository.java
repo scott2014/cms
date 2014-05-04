@@ -32,6 +32,7 @@ public class Repository implements java.io.Serializable {
 	private String faculty;
 	private String team;
 	private String fields;
+	private String advice;
 
 	// Constructors
 
@@ -150,7 +151,13 @@ public class Repository implements java.io.Serializable {
 	public void setFields(String fields) {
 		this.fields = fields;
 	}
-	
-	
-	
+
+	@Column(name="advice",length=255)
+	public String getAdvice() {
+		return advice;
+	}
+
+	public void setAdvice(String advice) {
+		this.advice = advice;
+	}
 }
