@@ -102,7 +102,7 @@
 				
 				<tr bgcolor="#FFFFFF">
 					<td align="center" colspan="2">
-						<input type="button" value="修改个人信息" style="width:60px;"/> 
+						<input type="button" value="修改个人信息" style="width:120px;"/> 
         			</td>
 				</tr>
 			</tbody>

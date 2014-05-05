@@ -104,6 +104,7 @@
 					<td> 数量：</td>
 					<td align="left">
 						 <input type="text" name="medicinal.left"/>
+						 <span  id="tip_left"></span>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -151,8 +152,8 @@
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
-					<td align="center" colspan="2">
-						<input type="submit" value="提交" style="width:60px;"/> 
+					<td align="center" colspan="3">
+						<input type="button" value="提交" style="width:60px;" id="tijiao"/> 
 						<input type="reset" value="重置"  style="width:60px;"/>
         			</td>
 				</tr>
