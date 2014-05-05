@@ -114,6 +114,16 @@
 				</tr>
 				
 				<tr bgcolor="#FFFFFF">
+					<td> 规格：</td>
+					<td align="left">
+						 <input type="text" name="medicinal.left" value="<s:property value='mVO.medicinal.left'/>"/>
+        			</td>
+        			<td align="left">
+					    <span></span>
+					</td>
+				</tr>
+				
+				<tr bgcolor="#FFFFFF">
 					<td> 用途：</td>
 					<td align="left">
 						  <textarea name="medicinal.musage"><s:property value='mVO.medicinal.musage'/></textarea>

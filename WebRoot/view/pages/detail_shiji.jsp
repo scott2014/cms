@@ -94,6 +94,16 @@
 					</td>
 				</tr>
 				
+					<tr bgcolor="#FFFFFF">
+					<td> 剩余量：</td>
+					<td align="left">
+						<s:property value='mVO.medicinal.left'/>
+        			</td>
+        			<td align="left">
+					    <span></span>
+					</td>
+				</tr>
+				
 				<tr bgcolor="#FFFFFF">
 					<td> 用途：</td>
 					<td align="left">
