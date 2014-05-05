@@ -192,6 +192,7 @@ public class RepositoryAction extends ActionSupport {
 			history.setUserId(u1.getId());
 			this.historyService.save(history);
 		} else {
+			h.setLastViewTime(new Date());
 			this.historyService.update(h);
 		}
 		

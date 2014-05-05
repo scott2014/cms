@@ -61,7 +61,7 @@
  	<th width="15%">试剂库编号</th>
  	<th width="20%">试剂库名称</th>
  	<th width="20%">所属单位</th>
- 	<th width="20%">创建人</th>
+ 	<th width="20%">上一次浏览时间</th>
  </tr>
  
  <s:iterator value="repos" status="st">
@@ -81,7 +81,7 @@
  		</a>
  	</td>
  	<td width="20%"><s:property value="repository.department"/></td>
- 	<td width="20%"><s:property value="user.username"/></td>
+ 	<td width="20%"><s:date name="lastViewTime" format="yyyy-MM-dd HH:mm"/></td>
  </tr>
  </s:iterator>
  

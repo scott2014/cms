@@ -1,5 +1,6 @@
 package com.cms.model.vo;
 
+import java.util.Date;
 import java.util.List;
 
 import com.cms.model.entity.Medicinal;
@@ -10,6 +11,7 @@ public class NewRepositoryVO {
 	private Repository repository;
 	private User user;
 	private List<Medicinal> medicinals;
+	private Date lastViewTime;
 	
 	public Repository getRepository() {
 		return repository;
@@ -28,5 +30,12 @@ public class NewRepositoryVO {
 	}
 	public void setMedicinals(List<Medicinal> medicinals) {
 		this.medicinals = medicinals;
+	}
+	
+	public Date getLastViewTime() {
+		return lastViewTime;
+	}
+	public void setLastViewTime(Date lastViewTime) {
+		this.lastViewTime = lastViewTime;
 	}
 }

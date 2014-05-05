@@ -2,6 +2,7 @@ package com.cms.model.dao.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -81,8 +82,8 @@ public class HistoryDAOImpl implements HistoryDAO {
 	}
 
 	public List<NewRepositoryVO> findRepoByCondition(final int pageSize, final int pageNum,final long userId) {
-		final String hql = "select repositoryId from History where userId = ? and repositoryId != '' order by lastViewTime desc";
-		List<Long> temp = this.hibernateTemplate.executeFind(new HibernateCallback<Object>() {
+		final String hql = "select repositoryId,lastViewTime from History where userId = ? and repositoryId != '' order by lastViewTime desc";
+		List<Object[]> temp = this.hibernateTemplate.executeFind(new HibernateCallback<Object>() {
 
 			public Object doInHibernate(Session session) throws HibernateException, SQLException {
 				Query query = session.createQuery(hql);
@@ -98,7 +99,9 @@ public class HistoryDAOImpl implements HistoryDAO {
 		List<NewRepositoryVO> result = new ArrayList<NewRepositoryVO>();
 		
 		if (temp != null && temp.size() > 0) {
-			for (Long id : temp) {
+			for (Object[] arr : temp) {
+				Long id = (Long) arr[0];
+				Date lastViewTime = (Date) arr[1];
 				if (id != null) {
 					NewRepositoryVO nr = new NewRepositoryVO();
 					
@@ -111,6 +114,7 @@ public class HistoryDAOImpl implements HistoryDAO {
 					nr.setRepository(r);
 					nr.setMedicinals(ms);
 					nr.setUser(u);
+					nr.setLastViewTime(lastViewTime);
 					
 					result.add(nr);
 				}
