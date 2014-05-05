@@ -19,6 +19,7 @@ import com.cms.model.entity.User;
 import com.cms.model.service.RightService;
 import com.cms.model.service.UserService;
 import com.cms.model.util.MDEncode;
+import com.cms.model.vo.UserVO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserAction extends ActionSupport {
@@ -45,6 +46,8 @@ public class UserAction extends ActionSupport {
 	private String photoContentType;
 	
 	private long id;
+	
+	private UserVO userVO = new UserVO();
 	
 	public String register() {
 		User user = new User();
@@ -116,7 +119,11 @@ public class UserAction extends ActionSupport {
 		u.setUniversity(user.getUniversity());
 		u.setDepartment(user.getDepartment());
 		u.setFaculty(user.getFaculty());
-		u.setDescription(user.getDescription());
+		
+		String desc = user.getDescription();
+		desc = desc.replaceAll("\n", "<br/>");
+		
+		u.setDescription(desc);
 		u.setAddress(user.getAddress());
 		
 		this.userService.update(u);
@@ -127,9 +134,25 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String showInfo() throws Exception {
-		this.user = this.userService.findById(id);
+		User u = this.userService.findById(id);
 		return "showInfo";
 	}
+	
+	public String toUpdateInfo() throws Exception {
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		User u = (User) session.getAttribute("user");
+		
+		this.userVO.setUser(u);
+		
+		String desc = u.getDescription();
+		if (desc != null && !desc.trim().equals("")) {
+			desc = desc.replaceAll("<br/>", "\n");
+		}
+		
+		this.userVO.setDescription(desc);
+		return "toUpdateInfo";
+	}
+	
 	
 	public String getUsername() {
 		return username;
@@ -202,5 +225,12 @@ public class UserAction extends ActionSupport {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
+	public UserVO getUserVO() {
+		return userVO;
+	}
+
+	public void setUserVO(UserVO userVO) {
+		this.userVO = userVO;
+	}
 }

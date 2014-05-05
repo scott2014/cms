@@ -36,6 +36,9 @@
 			<result name="showInfo" type="dispatcher">
 				/view/pages/show_info.jsp
 			</result>
+			<result name="toUpdateInfo" type="dispatcher">
+				/view/pages/update_info.jsp
+			</result>
 		</action>
 		
 		<action name="repository" class="com.cms.control.struts.action.RepositoryAction">

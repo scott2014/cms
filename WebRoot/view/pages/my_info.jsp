@@ -96,7 +96,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>个人简介：</td>
 					<td align="left">
-						<s:property value='#session.user.description'/>
+						<s:property value='#session.user.description' escapeHtml="false"/>
         			</td>
 				</tr>
 				

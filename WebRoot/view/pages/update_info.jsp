@@ -30,7 +30,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>头像：</td>
 					<td align="left">
-						<img src="<%=basePath %>/<s:property value='#session.user.photo'/>"/>
+						<img src="<%=basePath %>/<s:property value='userVO.user.photo'/>"/>
 						<input type="file" name="photo" />
 					</td>
 					<td align="left">
@@ -40,7 +40,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>真实姓名：</td>
 					<td align="left">
-						<input type="text" value="<s:property value='#session.user.realName'/>" name="user.realName"/>
+						<input type="text" value="<s:property value='userVO.user.realName'/>" name="user.realName"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -49,7 +49,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 邮箱：</td>
 					<td align="left">
-						 <input type="text" name="user.email" value="<s:property value='#session.user.email'/>"/>
+						 <input type="text" name="user.email" value="<s:property value='userVO.user.email'/>"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -59,7 +59,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> QQ：</td>
 					<td align="left">
-						 <input type="text" name="user.qq" value="<s:property value='#session.user.qq'/>"/>
+						 <input type="text" name="user.qq" value="<s:property value='userVO.user.qq'/>"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -69,7 +69,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 手机：</td>
 					<td align="left">
-						 <input type="text" name="user.phone" value="<s:property value='#session.user.phone'/>"/>
+						 <input type="text" name="user.phone" value="<s:property value='userVO.user.phone'/>"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -79,7 +79,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 地址：</td>
 					<td align="left">
-						 <input type="text" name="user.address" value="<s:property value='#session.user.address'/>"/>
+						 <input type="text" name="user.address" value="<s:property value='userVO.user.address'/>"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -89,7 +89,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 单位(大学)：</td>
 					<td align="left">
-						 <input type="text" name="user.university" value="<s:property value='#session.user.university'/>"/>
+						 <input type="text" name="user.university" value="<s:property value='userVO.user.university'/>"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -99,7 +99,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 学院(所)：</td>
 					<td align="left">
-						 <input type="text" name="user.department" value="<s:property value='#session.user.department'/>"/>
+						 <input type="text" name="user.department" value="<s:property value='userVO.user.department'/>"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -109,7 +109,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>系(部门)：</td>
 					<td align="left">
-						 <input type="text" name="user.faculty" value="<s:property value='#session.user.faculty'/>"/>
+						 <input type="text" name="user.faculty" value="<s:property value='userVO.user.faculty'/>"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -119,7 +119,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>个人简介：</td>
 					<td align="left">
-						  <textarea name="user.description"><s:property value='#session.user.description'/></textarea>
+						  <textarea name="user.description"><s:property value='userVO.description' escapeHtml="false"/></textarea>
         			</td>
         			<td align="left">
 					    <span></span>
