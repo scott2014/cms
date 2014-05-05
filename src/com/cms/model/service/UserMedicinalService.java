@@ -43,4 +43,17 @@ public class UserMedicinalService {
 	public List<UserMedicinal> find(long userId,int status) {
 		return this.userMedicinalDAO.find(userId, status);
 	}
+	
+	public List<UserMedicinal> findByMId(long mid) {
+		return this.userMedicinalDAO.findByMId(mid);
+	}
+	
+	@Transactional
+	public void delete(UserMedicinal um) {
+		this.userMedicinalDAO.del(um);
+	}
+	
+	public List<UserMedicinal> findByUserId(long userId) {
+		return this.userMedicinalDAO.findByUserId(userId);
+	}
 }

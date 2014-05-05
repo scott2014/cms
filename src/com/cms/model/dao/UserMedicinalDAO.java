@@ -20,4 +20,8 @@ public interface UserMedicinalDAO {
 	public List<UserMedicinal> findByRightCode(int rightCode);
 	
 	public List<UserMedicinal> find(long userId,int status);
+	
+	public List<UserMedicinal> findByMId(long mid);
+	
+	public List<UserMedicinal> findByUserId(long userId);
 }

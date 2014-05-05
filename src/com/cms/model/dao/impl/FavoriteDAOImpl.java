@@ -49,7 +49,7 @@ public class FavoriteDAOImpl implements FavoriteDAO {
 	}
 
 	public void update(Favorite favorite) {
-		
+		this.hibernateTemplate.update(favorite);
 	}
 
 	public Favorite findById(long id) {

@@ -14,8 +14,10 @@ import com.cms.model.constant.Account;
 import com.cms.model.entity.Favorite;
 import com.cms.model.entity.History;
 import com.cms.model.entity.User;
+import com.cms.model.entity.UserMedicinal;
 import com.cms.model.service.FavoriteService;
 import com.cms.model.service.HistoryService;
+import com.cms.model.service.UserMedicinalService;
 import com.cms.model.service.UserService;
 import com.cms.model.util.MDEncode;
 import com.opensymphony.xwork2.ActionSupport;
@@ -33,6 +35,10 @@ public class UserAction extends ActionSupport {
 	@Autowired
 	@Resource(name="favoriteService")
 	private FavoriteService favoriteService;
+	
+	@Autowired
+	@Resource(name="userMedicinalService")
+	private UserMedicinalService userMedicinalService;
 	
 	private String username;
 	private String password;
@@ -95,6 +101,14 @@ public class UserAction extends ActionSupport {
 		List<Favorite> fs = this.favoriteService.findByUserId(u.getId());
 		for (Favorite f : fs) {
 			this.favoriteService.delete(f);
+		}
+		
+		//删除该用户相关的申请
+		List<UserMedicinal> ums = this.userMedicinalService.findByUserId(u.getId());
+		if (ums != null && ums.size() > 0) {
+			for (UserMedicinal um : ums) {
+				this.userMedicinalService.delete(um);
+			}
 		}
 		
 		this.userService.delete(u);
