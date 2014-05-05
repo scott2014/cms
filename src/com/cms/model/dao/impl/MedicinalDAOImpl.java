@@ -107,7 +107,7 @@ public class MedicinalDAOImpl implements MedicinalDAO {
 			for (Medicinal m : all) {
 				Repository p = this.repositoryDAO.findById(m.getRepositoryId());
 				if (key != null && !key.trim().equals("")) {
-					if ((m.getName() != null && m.getName().contains(key)) || (p.getRepoName() != null && p.getRepoName().contains(key)))  count ++;
+					if ((m.getName() != null && m.getName().toLowerCase().contains(key.toLowerCase())) || (p.getRepoName() != null && p.getRepoName().toLowerCase().contains(key.toLowerCase())))  count ++;
 				}
 				if (key == null || key.trim().equals("")) {
 					count ++;
@@ -127,7 +127,9 @@ public class MedicinalDAOImpl implements MedicinalDAO {
 			for (Medicinal m : all) {
 				Repository p = this.repositoryDAO.findById(m.getRepositoryId());
 				if (key != null && !key.trim().equals("")) {
-					if ((m.getName() != null && m.getName().contains(key)) || (p.getRepoName() != null && p.getRepoName().contains(key))) {
+					if ((m.getName() != null && m.getName().toLowerCase().contains(key.toLowerCase())) 
+																		|| (p.getRepoName() != null && p.getRepoName().toLowerCase().contains(key.toLowerCase()))
+																		|| (m.getFormula() != null && m.getFormula().toLowerCase().contains(key.toLowerCase()))) {
 						MedicinalVO mv = new MedicinalVO(); 
 						mv.setMedicinal(m);
 						mv.setRepository(p);
@@ -166,7 +168,9 @@ public class MedicinalDAOImpl implements MedicinalDAO {
 			for (Medicinal m : all) {
 				Repository p = this.repositoryDAO.findById(m.getRepositoryId());
 				if (key != null && !key.trim().equals("")) {
-					if ((m.getName() != null && m.getName().contains(key)) || (p.getRepoName() != null && p.getRepoName().contains(key)))  count ++;
+					if ((m.getName() != null && m.getName().contains(key)) 
+							                                              || (p.getRepoName() != null && p.getRepoName().contains(key))
+							                                              || (m.getFormula() != null && m.getFormula().contains(key)))  count ++;
 				}
 				if (key == null || key.trim().equals("")) {
 					count ++;
