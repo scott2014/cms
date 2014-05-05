@@ -44,13 +44,10 @@ public class RepositoryAction extends ActionSupport {
 	
 	private boolean ok = false; 
 	
+	//这里的删除顺序很重要
 	public String delete() throws Exception {
 		Repository r = this.repositoryService.findById(id);
-		//同时删除在该试剂库下的所有试剂记录
-		List<Medicinal> ms = this.medicinalService.findByRepoId(Integer.MAX_VALUE, 1, r.getId());
-		for (Medicinal m : ms) {
-			this.medicinalService.delete(m);
-		}
+		
 		//删除相关的所有历史记录和收藏
 		List<History> hs = this.historyService.findByRepoId(id);
 		for (History h : hs) {
@@ -67,9 +64,15 @@ public class RepositoryAction extends ActionSupport {
 			for (UserMedicinal um : ums) {
 				Medicinal m = this.medicinalService.findById(um.getMedicinalId());
 				if (m.getRepositoryId() == id) {
-					this.medicinalService.delete(m);
+					this.userMedicinalService.delete(um);
 				}
 			}
+		}
+		
+		//同时删除在该试剂库下的所有试剂记录
+		List<Medicinal> ms = this.medicinalService.findByRepoId(Integer.MAX_VALUE, 1, r.getId());
+		for (Medicinal m : ms) {
+			this.medicinalService.delete(m);
 		}
 		
 		this.ok = this.repositoryService.delById(id);
