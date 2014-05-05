@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50536
 File Encoding         : 65001
 
-Date: 2014-05-05 09:50:39
+Date: 2014-05-05 10:26:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,8 +31,6 @@ CREATE TABLE `favorite` (
 -- ----------------------------
 -- Records of favorite
 -- ----------------------------
-INSERT INTO `favorite` VALUES ('1', '2', '1', null, '2014-04-27 14:16:55');
-INSERT INTO `favorite` VALUES ('2', '2', '2', null, '2014-04-27 14:16:58');
 
 -- ----------------------------
 -- Table structure for history
@@ -45,14 +43,12 @@ CREATE TABLE `history` (
   `medicinalId` bigint(64) DEFAULT NULL,
   `lastViewTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of history
 -- ----------------------------
-INSERT INTO `history` VALUES ('1', '1', '1', null, '2014-04-27 12:29:44');
-INSERT INTO `history` VALUES ('2', '1', '2', null, '2014-04-27 12:42:58');
-INSERT INTO `history` VALUES ('3', '1', '3', null, '2014-04-27 19:34:42');
+INSERT INTO `history` VALUES ('1', '1', '1', null, '2014-05-05 10:15:29');
 
 -- ----------------------------
 -- Table structure for medicinal
@@ -80,8 +76,8 @@ CREATE TABLE `medicinal` (
 -- ----------------------------
 -- Records of medicinal
 -- ----------------------------
-INSERT INTO `medicinal` VALUES ('1', '', '', '', '', '', '', '', '1', '/upload/1398878467809.gif', '', '', '1', '2014-05-01 01:21:07', null);
-INSERT INTO `medicinal` VALUES ('2', '', '', '', '', null, '', '', '1', '/upload/1398917162646.gif', '', '', '1', '2014-05-01 12:06:02', null);
+INSERT INTO `medicinal` VALUES ('1', 'CH4', '甲烷', 'jw01', '无色无味气体', '可以用作燃气', '可以用作燃气', '0.005g', '1', '/upload/1399256159218.jpg', 'hx01', '常温保存', '1', '2014-05-05 10:15:59', '10');
+INSERT INTO `medicinal` VALUES ('2', 'C2H2', '乙炔', 'yq01', '无色无味气体', '合成其它有机化合物', '易燃，易爆', '0.0005g/瓶', '1', '/upload/1399256309223.jpg', 'yq01', '常温保存', '1', '2014-05-05 10:18:29', '31');
 
 -- ----------------------------
 -- Table structure for repository
@@ -106,8 +102,7 @@ CREATE TABLE `repository` (
 -- ----------------------------
 -- Records of repository
 -- ----------------------------
-INSERT INTO `repository` VALUES ('1', 'a01', '化学实验室', '西北大学老校区', '1', '我的试剂库', null, null, null, null, null, null);
-INSERT INTO `repository` VALUES ('2', 'a1a', 'aa12e', null, '9', 'a1w', '2014-05-04 14:09:41', 'a1c', 'aa1ab', 'a1', 'a', '	      				      				      				      				      				      				      			\r\n	      	saa	  \r\n	      		  \r\n	      		  \r\n	      		  \r\n	      		  \r\n	      		  \r\n	      		  ');
+INSERT INTO `repository` VALUES ('1', '1', '化学研究所', '厦门大学化学系', '1', 'xdwl01', '2014-05-05 10:15:26', '厦门大学', '化学系', 'hx01', '干燥仓库', '及时更换室内干燥剂，保持室内干燥');
 
 -- ----------------------------
 -- Table structure for user
@@ -137,15 +132,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', null, null, '809113633@qq.com', '626306805', 'aa', '13572459570', null, null, 'aa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', '/upload/1399130701944.gif', null, null);
-INSERT INTO `user` VALUES ('2', 'scott', '50f1725279347cd1e04bf016026ae1b9', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('3', 'we', 'ff1ccf57e98c817df1efcd9fe44a8aeb', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('4', 'lam713', 'e10adc3949ba59abbe56e057f20f883e', 'ydy3128@126.com', '821836717', null, '18721323885', null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('5', 'abc', '900150983cd24fb0d6963f7d28e17f72', 'a', 'a', 'a', 'a', null, null, 'aa', 'aaaa', 'aa', 'aa', 'aa', '/upload/1399131290920.gif', null, null);
-INSERT INTO `user` VALUES ('6', 'nayangnianhua', '50f1725279347cd1e04bf016026ae1b9', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('7', 'admin2', '202cb962ac59075b964b07152d234b70', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('8', 'xuesheng', '202cb962ac59075b964b07152d234b70', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('9', 'admin', '21232f297a57a5a743894a0e4a801fc3', null, null, null, null, '2', null, null, null, null, null, null, null, '2014-05-05 09:49:36', null);
+INSERT INTO `user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '626306805@qq.com', '626306805', 'yuanhoujun', '13572459570', '2', null, '西安北池头', '西北大学', '物理所', '物理系', '计算机科学爱好者，喜欢编程，爬山，跑步，乒乓球等等', '/upload/1399255829535.jpg', '2014-05-05 10:12:37', '2014-05-05 10:07:27');
 
 -- ----------------------------
 -- Table structure for user_medicinal
@@ -166,10 +153,6 @@ CREATE TABLE `user_medicinal` (
 -- ----------------------------
 -- Records of user_medicinal
 -- ----------------------------
-INSERT INTO `user_medicinal` VALUES ('2', '1', '1', '3', null, '2014-05-01 08:20:15', '12', null);
-INSERT INTO `user_medicinal` VALUES ('3', '9', '1', '2', null, '2014-05-01 11:13:32', '13', '1');
-INSERT INTO `user_medicinal` VALUES ('4', '1', '2', '1', null, '2014-05-01 12:07:43', '0', '1');
-INSERT INTO `user_medicinal` VALUES ('5', '5', '1', '2', null, '2014-05-01 22:55:00', '10', '1');
 
 -- ----------------------------
 -- Table structure for user_right
@@ -184,14 +167,12 @@ CREATE TABLE `user_right` (
   KEY `rightId` (`rightId`),
   CONSTRAINT `user_right_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
   CONSTRAINT `user_right_ibfk_2` FOREIGN KEY (`rightId`) REFERENCES `_right` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_right
 -- ----------------------------
-INSERT INTO `user_right` VALUES ('2', '7', '1');
-INSERT INTO `user_right` VALUES ('3', '8', '1');
-INSERT INTO `user_right` VALUES ('4', '9', '1');
+INSERT INTO `user_right` VALUES ('5', '1', '1');
 
 -- ----------------------------
 -- Table structure for _right
