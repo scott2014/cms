@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50536
 File Encoding         : 65001
 
-Date: 2014-05-05 11:43:36
+Date: 2014-05-05 17:08:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,6 +31,7 @@ CREATE TABLE `favorite` (
 -- ----------------------------
 -- Records of favorite
 -- ----------------------------
+INSERT INTO `favorite` VALUES ('1', '2', '1', null, '2014-05-05 12:09:27');
 
 -- ----------------------------
 -- Table structure for history
@@ -48,8 +49,8 @@ CREATE TABLE `history` (
 -- ----------------------------
 -- Records of history
 -- ----------------------------
-INSERT INTO `history` VALUES ('1', '1', '1', null, '2014-05-05 11:15:07');
-INSERT INTO `history` VALUES ('2', '2', '1', null, '2014-05-05 11:36:51');
+INSERT INTO `history` VALUES ('1', '1', '1', null, '2014-05-05 16:35:48');
+INSERT INTO `history` VALUES ('2', '2', '1', null, '2014-05-05 16:37:06');
 
 -- ----------------------------
 -- Table structure for medicinal
@@ -61,7 +62,7 @@ CREATE TABLE `medicinal` (
   `name` varchar(32) DEFAULT NULL,
   `cas` varchar(16) DEFAULT NULL,
   `shape` varchar(16) DEFAULT NULL,
-  `mUsage` varchar(16) DEFAULT NULL,
+  `mUsage` varchar(255) DEFAULT NULL,
   `security` varchar(32) DEFAULT NULL,
   `standard` varchar(32) DEFAULT NULL,
   `repositoryId` bigint(64) DEFAULT NULL,
@@ -72,13 +73,14 @@ CREATE TABLE `medicinal` (
   `createTime` datetime DEFAULT NULL,
   `_left` int(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of medicinal
 -- ----------------------------
-INSERT INTO `medicinal` VALUES ('1', 'CH4', '甲烷', 'jw01', '无色无味气体', '可以用作燃气', '可以用作燃气', '0.005g', '1', '/upload/1399256159218.jpg', 'hx01', '常温保存', '1', '2014-05-05 10:15:59', '10');
+INSERT INTO `medicinal` VALUES ('1', 'CH4', '甲烷', 'jw01', '无色无味气体\r<br/>试试换行', '可以用作燃气\r<br/>试试换行', '可以用作燃气\r<br/>试试换行', '0.005g', '1', '/upload/1399256159218.jpg', 'hx01', '常温保存\r<br/>试试换行', '1', '2014-05-05 10:15:59', '10');
 INSERT INTO `medicinal` VALUES ('2', 'C2H2', '乙炔', 'yq01', '无色无味气体', '合成其它有机化合物', '易燃，易爆', '0.0005g/瓶', '1', '/upload/1399256309223.jpg', 'yq01', '常温保存', '1', '2014-05-05 10:18:29', '16');
+INSERT INTO `medicinal` VALUES ('4', 'C2H6', '乙烷', 'cc02', '无色无味\r<br/>气体', '我也不知道？\r<br/>可以合成其它有机物吧！', '安全\r<br/>很安全', '0.007g/袋', '1', '/upload/1399278762766.jpg', 'cc02', '气体\r<br/>气体\r<br/>气体', '1', '2014-05-05 16:32:42', '100');
 
 -- ----------------------------
 -- Table structure for repository
@@ -103,7 +105,7 @@ CREATE TABLE `repository` (
 -- ----------------------------
 -- Records of repository
 -- ----------------------------
-INSERT INTO `repository` VALUES ('1', '1', '化学研究所', '厦门大学化学系', '1', 'xdwl01', '2014-05-05 10:15:26', '厦门大学', '化学系', 'hx01', '干燥仓库', '及时更换室内干燥剂，保持室内干燥');
+INSERT INTO `repository` VALUES ('1', '1', '化学研究所', null, '1', 'xdwl01', '2014-05-05 10:15:26', '厦门大学', '化学系', 'hx01', '干燥仓库', '及时更换室内干燥剂，保持室内干燥\r<br/>测试一下\r<br/>可以吗\r<br/>	      		  \r<br/>	      		  ');
 
 -- ----------------------------
 -- Table structure for user
@@ -133,8 +135,8 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '626306805@qq.com', '626306805', 'yuanhoujun', '13572459570', '2', null, '西安北池头', '西北大学', '物理所', '物理系', '计算机科学爱好者，喜欢编程，爬山，跑步，乒乓球等等', '/upload/1399255829535.jpg', '2014-05-05 11:42:03', '2014-05-05 10:07:27');
-INSERT INTO `user` VALUES ('2', 'xs', '44d610b3325b4aa08f32d925bc693149', '809113633@qq.com', '809113633', '张靓颖', '13572459571', '2', null, '陕西西安', '西工大', '化学研究所', '化学系', '一个漂亮女生', '/upload/1399260147434.jpg', '2014-05-05 11:32:06', '2014-05-05 11:16:57');
+INSERT INTO `user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '626306805@qq.com', '626306805', 'yuanhoujun', '13572459570', '2', null, '西安北池头', '西北大学', '物理所', '物理系', '计算机科学爱好者，喜欢编程，爬山，跑步，乒乓球等等\r<br/>', '/upload/1399255829535.jpg', '2014-05-05 16:43:39', '2014-05-05 10:07:27');
+INSERT INTO `user` VALUES ('2', 'xs', '44d610b3325b4aa08f32d925bc693149', '809113633@qq.com', '809113633', '张靓颖', '13572459571', '2', null, '陕西西安', '西工大', '化学研究所', '化学系', '一个漂亮女生', '/upload/1399278993211.jpg', '2014-05-05 16:36:21', '2014-05-05 11:16:57');
 
 -- ----------------------------
 -- Table structure for user_medicinal
