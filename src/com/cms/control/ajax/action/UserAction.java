@@ -30,6 +30,9 @@ public class UserAction extends ActionSupport {
 	
 	private String errorCode;
 	
+	private String oldPass;
+	private String newPass;
+	
 	public String check() {
 		this.isExist = this.userService.exist(username);
 		return "check";
@@ -73,6 +76,19 @@ public class UserAction extends ActionSupport {
 		return "delete";
 	}
 	
+	public String updatePass() throws Exception {
+		User u = this.userService.findById(id);
+		
+		if (!u.getPassword().equals(MDEncode.encode(oldPass))) {
+			errorCode = "*原密码不正确";
+		} else {
+			u.setPassword(MDEncode.encode(newPass));
+			this.userService.update(u);
+			errorCode = "密码修改成功";
+		}
+		return "updatePass";
+	}
+	
 	@JSON(serialize=false)
 	public String getUsername() {
 		return username;
@@ -112,5 +128,21 @@ public class UserAction extends ActionSupport {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getOldPass() {
+		return oldPass;
+	}
+
+	public void setOldPass(String oldPass) {
+		this.oldPass = oldPass;
+	}
+
+	public String getNewPass() {
+		return newPass;
+	}
+
+	public void setNewPass(String newPass) {
+		this.newPass = newPass;
 	}
 }

@@ -1,0 +1,31 @@
+# repo {
+	width:100%;
+	height:100%;
+	}
+table {
+	text-align:right;
+	position:relative;
+	margin:auto;}
+
+.tip {
+	text-align: left;
+	color: red;
+}
+
+.btn {
+	text-align:center;
+	}
+.btn input {
+	width:60px;
+	height:26px;
+	font-family:"黑体";
+	margin-left:20px;
+	}
+table tr td input {
+	width:100%;
+	margin-bottom:17px;
+	height:26px;}
+table tr td {
+	margin:auto;}
+
+

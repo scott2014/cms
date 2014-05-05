@@ -128,8 +128,8 @@
 						<li><a href="<%=basePath %>/view/pages/my_info.jsp" target="main_frame"><img
 								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;个人信息</a>
 						</li>
-						<li><a href="#"><img
-								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;偏好设置</a>
+						<li><a href="<%=basePath %>/view/pages/update_pass.jsp" target="main_frame"><img
+								src="<%=basePath%>/view/pages/icon1.gif" />&nbsp;修改密码</a>
 						</li>
 						<s:if test="#flag == 1">
 							<li>

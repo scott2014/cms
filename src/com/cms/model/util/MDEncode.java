@@ -38,7 +38,7 @@ public class MDEncode {
 	
 	
 	public static void main(String[] args){
-		System.out.println(MDEncode.encode("123456789"));
+		System.out.println(MDEncode.encode(""));
 	
 	}
 }

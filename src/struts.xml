@@ -153,6 +153,7 @@
 			<result name="freeze" type="json" />
 			<result name="release" type="json" />
 			<result name="delete" type="json" />
+			<result name="updatePass" type="json" />
 		</action>
 		
 		<action name="repository" class="com.cms.control.ajax.action.RepositoryAction">
