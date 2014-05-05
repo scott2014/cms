@@ -110,6 +110,10 @@
 			<result name="rfApply" type="dispatcher">
 				/view/pages/apply_refused.jsp
 			</result>
+			
+			<result name="appliedMedicinal" type="dispatcher">
+				/view/pages/applied_shiji.jsp
+			</result>
 		</action>
 		
 		<action name="favorite" class="com.cms.control.struts.action.FavoriteAction">

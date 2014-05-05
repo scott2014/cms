@@ -86,7 +86,7 @@
  		</a>
  	</td>
  	<td>
- 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='#m.medicinal.id'/>"><s:property value="medicinal.name"/></a>
+ 		<a href="<%=basePath %>/medicinal!toDetail?id=<s:property value='medicinal.id'/>"><s:property value="medicinal.name"/></a>
  	</td>
  	<td>
 		<s:property value="medicinal.standard"/>
