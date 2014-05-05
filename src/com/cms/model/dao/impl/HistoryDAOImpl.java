@@ -69,10 +69,9 @@ public class HistoryDAOImpl implements HistoryDAO {
 		this.hibernateTemplate.saveOrUpdate(history);
 	}
 
-	public History findByRepoId(long repoId) {
+	public List<History> findByRepoId(long repoId) {
 		String hql = "from History where repositoryId = ?";
-		List<History> result = this.hibernateTemplate.find(hql,repoId);
-		return result != null && result.size() > 0 ? result.get(0) : null;
+		return this.hibernateTemplate.find(hql,repoId);
 	}
 
 	public History findByMedId(long mid) {
@@ -183,6 +182,11 @@ public class HistoryDAOImpl implements HistoryDAO {
 		
 		List<History> result = this.hibernateTemplate.find(hql,repoId,userId);
 		return result != null && result.size() > 0 ? result.get(0) : null;
+	}
+
+	public List<History> findByUserId(long userId) {
+		String hql = "from History where userId = ?";
+		return this.hibernateTemplate.find(hql,userId);
 	}
 
 }

@@ -37,7 +37,7 @@ public class HistoryService {
 		this.historyDAO.save(history);
 	}
 	
-	public History findByRepoId(long repoId) {
+	public List<History> findByRepoId(long repoId) {
 		return this.historyDAO.findByRepoId(repoId);
 	}
 	
@@ -68,5 +68,14 @@ public class HistoryService {
 	
 	public History find(long repoId,long userId) {
 		return this.historyDAO.find(repoId,userId);
+	}
+	
+	@Transactional
+	public void delete(History history) {
+		this.historyDAO.del(history);
+	}
+	
+	public List<History> findByUserId(long userId) {
+		return this.historyDAO.findByUserId(userId);
 	}
 }

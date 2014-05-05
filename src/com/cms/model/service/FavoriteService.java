@@ -63,4 +63,8 @@ public class FavoriteService {
 	public Favorite find(long repoId,long userId) {
 		return this.favoriteDAO.find(repoId, userId);
 	}
+	
+	public List<Favorite> findByUserId(long userId) {
+		return this.favoriteDAO.findByUserId(userId);
+	}
 }

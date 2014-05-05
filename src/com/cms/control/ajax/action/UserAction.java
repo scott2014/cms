@@ -1,6 +1,7 @@
 package com.cms.control.ajax.action;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -10,7 +11,11 @@ import org.apache.struts2.json.annotations.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cms.model.constant.Account;
+import com.cms.model.entity.Favorite;
+import com.cms.model.entity.History;
 import com.cms.model.entity.User;
+import com.cms.model.service.FavoriteService;
+import com.cms.model.service.HistoryService;
 import com.cms.model.service.UserService;
 import com.cms.model.util.MDEncode;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,6 +25,14 @@ public class UserAction extends ActionSupport {
 	@Autowired
 	@Resource(name="userService")
 	private UserService userService;
+	
+	@Autowired
+	@Resource(name="historyService")
+	private HistoryService historyService;
+	
+	@Autowired
+	@Resource(name="favoriteService")
+	private FavoriteService favoriteService;
 	
 	private String username;
 	private String password;
@@ -72,7 +85,21 @@ public class UserAction extends ActionSupport {
 	
 	public String delete() throws Exception {
 		User u = this.userService.findById(id);
+		
+		//同时删除该用户的收藏和历史记录
+		List<History> hs = this.historyService.findByUserId(u.getId());
+		for (History h : hs) {
+			this.historyService.delete(h);
+		}
+	
+		List<Favorite> fs = this.favoriteService.findByUserId(u.getId());
+		for (Favorite f : fs) {
+			this.favoriteService.delete(f);
+		}
+		
 		this.userService.delete(u);
+		
+	
 		return "delete";
 	}
 	

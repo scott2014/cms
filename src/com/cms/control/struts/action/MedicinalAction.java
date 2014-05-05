@@ -125,6 +125,10 @@ public class MedicinalAction extends ActionSupport {
 	public String load() throws Exception {
 		//long userId = ((User)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
 		
+		if (key != null && !key.trim().equals("")) {
+			key = new String(key.getBytes("iso8859-1"),"utf-8");
+		}
+		
 		this.totalCount = this.medicinalService.countByCondition(key);
 		
 		this.pageCount = this.totalCount % pageSize == 0 ? this.totalCount / pageSize : this.totalCount / pageSize + 1;

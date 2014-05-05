@@ -21,7 +21,7 @@ public interface HistoryDAO {
 	
 	public void saveOrUpdate(History history);
 	
-	public History findByRepoId(long repoId);
+	public List<History> findByRepoId(long repoId);
 	
 	public History findByMedId(long mid);
 	
@@ -34,4 +34,6 @@ public interface HistoryDAO {
 	public int countMedByCondition(long userId);
 	
 	public History find(long repoId,long userId);
+	
+	public List<History> findByUserId(long userId);
 }

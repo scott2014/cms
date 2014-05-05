@@ -134,7 +134,7 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String showInfo() throws Exception {
-		User u = this.userService.findById(id);
+		this.user = this.userService.findById(id);
 		return "showInfo";
 	}
 	

@@ -30,4 +30,6 @@ public interface FavoriteDAO {
 	public int countMedByCondition(long userId);
 	
 	public Favorite find(long repoId,long userId);
+	
+	public List<Favorite> findByUserId(long userId);
 }
