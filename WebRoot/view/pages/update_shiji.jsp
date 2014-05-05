@@ -126,7 +126,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 用途：</td>
 					<td align="left">
-						  <textarea name="medicinal.musage"><s:property value='mVO.medicinal.musage'/></textarea>
+						  <textarea name="medicinal.musage"><s:property value='mUsage'/></textarea>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -136,7 +136,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 危险性：</td>
 					<td align="left">
-						  <textarea name="medicinal.security"><s:property value='mVO.medicinal.security'/></textarea>
+						  <textarea name="medicinal.security"><s:property value='security'/></textarea>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -146,7 +146,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>形状：</td>
 					<td align="left">
-						  <textarea name="medicinal.shape"><s:property value='mVO.medicinal.shape'/></textarea>
+						  <textarea name="medicinal.shape"><s:property value='shape'/></textarea>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -156,7 +156,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>说明：</td>
 					<td align="left">
-						  <textarea name="medicinal.description"><s:property value='mVO.medicinal.description'/></textarea>
+						  <textarea name="medicinal.description"><s:property value='description'/></textarea>
         			</td>
         			<td align="left">
 					    <span></span>

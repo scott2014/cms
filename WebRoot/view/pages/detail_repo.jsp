@@ -54,7 +54,7 @@
 				</tr>
 				<tr bgcolor="#FFFFFF">
 					<td><s:property value="nRepoVO.repository.fields" /></td>
-					<td><s:property value="nRepoVO.repository.advice" /></td>
+					<td><s:property value="nRepoVO.repository.advice" escapeHtml="false"/></td>
 					<td><s:date name="nRepoVO.repository.createTime" format="yyyy-MM-dd HH:mm"/></td>
 				</tr>
 

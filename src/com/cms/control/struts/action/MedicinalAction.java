@@ -74,9 +74,12 @@ public class MedicinalAction extends ActionSupport {
 	//申请的试剂数量
 	private float applyNumber;
 	
+	private String mUsage;
+	private String security;
+	private String shape;
+	private String description;
+	
 	public String execute() throws Exception {
-		System.out.println(medicinal);
-		
 		if (photo != null) {
 			String rootPath = ServletActionContext.getRequest().getRealPath("/upload");
 			String newFileName = System.currentTimeMillis() + "." + photoFileName.split("[.]")[1];
@@ -90,6 +93,23 @@ public class MedicinalAction extends ActionSupport {
 		
 		this.medicinal.setUserId(userId);
 		this.medicinal.setCreateTime(new Date());
+		
+		String usage = this.medicinal.getMusage();
+		String sec = this.medicinal.getSecurity();
+		String sh = this.medicinal.getShape();
+		String desc = this.medicinal.getDescription();
+		
+		if (usage != null && !usage.trim().equals("")) {
+			usage = usage.replaceAll("\n", "<br/>");
+			sec = sec.replaceAll("\n", "<br/>");
+			sh = sh.replaceAll("\n", "<br/>");
+			desc = desc.replaceAll("\n", "<br/>");
+		}
+		
+		this.medicinal.setMusage(usage);
+		this.medicinal.setSecurity(sec);
+		this.medicinal.setShape(sh);
+		this.medicinal.setDescription(desc);
 		
 		this.medicinalService.save(medicinal);
 		
@@ -133,6 +153,27 @@ public class MedicinalAction extends ActionSupport {
 		
 		this.mVO.setMedicinal(m);
 		this.mVO.setRepository(p);
+		
+		String usage1 = m.getMusage();
+		String security1 = m.getSecurity();
+		String shape1 = m.getShape();
+		String desc1 = m.getDescription();
+		
+		if (usage1 != null && !usage1.trim().equals("")) {
+			this.mUsage = usage1.replaceAll("<br/>", "\n");
+		}
+		
+		if (security1 != null && !security1.trim().equals("")) {
+			this.security = security1.replaceAll("<br/>", "\n");
+		}
+		
+		if (shape1 != null && !shape1.trim().equals("")) {
+			this.shape = shape1.replace("<br/>", "\n");
+		}
+		
+		if (desc1 != null && !desc1.trim().equals("")) {
+			this.description = desc1.replaceAll("<br/>", "\n");
+		}
 		
 		long userId = ((User)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
 		this.myrepos = this.repositoryService.findByUserId(Integer.MAX_VALUE, 1, userId, null);
@@ -188,12 +229,35 @@ public class MedicinalAction extends ActionSupport {
 		m.setFormula(medicinal.getFormula());
 		m.setName(medicinal.getName());
 		m.setCas(medicinal.getCas());
-		m.setShape(medicinal.getShape());
-		m.setMusage(medicinal.getMusage());
-		m.setSecurity(medicinal.getMusage());
+		
+		String shape1 = medicinal.getShape();
+		String musage1 = medicinal.getMusage();
+		String security1 = medicinal.getSecurity();
+		String description1 = medicinal.getDescription();
+		
+		if (shape1 != null && !shape1.trim().equals("")) {
+			shape1 = shape1.replaceAll("\n", "<br/>");
+		}
+		
+		if (musage1 != null && !musage1.trim().equals("")) {
+			musage1 = musage1.replaceAll("\n", "<br/>");
+		}
+		
+		if (security1 != null && !security1.trim().equals("")) {
+			security1 = security1.replaceAll("\n", "<br/>");
+		}
+		
+		if (description1 != null && !description1.trim().equals("")) {
+			description1 = description1.replaceAll("\n", "<br/>");
+		}
+		
+		m.setShape(shape1);
+		m.setMusage(musage1);
+		m.setSecurity(security1);
+		m.setDescription(description1);
+		
 		m.setStandard(medicinal.getStandard());
 		m.setNo(medicinal.getNo());
-		m.setDescription(medicinal.getDescription());
 		m.setLeft(medicinal.getLeft());
 		
 		if (photo != null) {
@@ -417,4 +481,46 @@ public class MedicinalAction extends ActionSupport {
 	public void setApplyNumber(float applyNumber) {
 		this.applyNumber = applyNumber;
 	}
+
+	public MedicinalVO getmVO() {
+		return mVO;
+	}
+
+	public void setmVO(MedicinalVO mVO) {
+		this.mVO = mVO;
+	}
+
+	public String getMUsage() {
+		return mUsage;
+	}
+
+	public void setMUsage(String mUsage) {
+		this.mUsage = mUsage;
+	}
+
+	public String getSecurity() {
+		return security;
+	}
+
+	public void setSecurity(String security) {
+		this.security = security;
+	}
+
+	public String getShape() {
+		return shape;
+	}
+
+	public void setShape(String shape) {
+		this.shape = shape;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 }

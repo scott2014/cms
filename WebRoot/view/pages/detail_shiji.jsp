@@ -107,7 +107,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 用途：</td>
 					<td align="left">
-						<s:property value='mVO.medicinal.musage'/>
+						<s:property value='mVO.medicinal.musage' escapeHtml="false"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -117,7 +117,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td> 危险性：</td>
 					<td align="left">
-						<s:property value='mVO.medicinal.security'/>
+						<s:property value='mVO.medicinal.security' escapeHtml="false"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -127,7 +127,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>形状：</td>
 					<td align="left">
-						  <s:property value='mVO.medicinal.shape'/>
+						  <s:property value='mVO.medicinal.shape' escapeHtml="false"/>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -137,7 +137,7 @@
 				<tr bgcolor="#FFFFFF">
 					<td>说明：</td>
 					<td align="left">
-						 <s:property value='mVO.medicinal.description'/>
+						 <s:property value='mVO.medicinal.description' escapeHtml="false"/>
         			</td>
         			<td align="left">
 					    <span></span>

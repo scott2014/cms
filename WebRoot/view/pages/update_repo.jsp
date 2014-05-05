@@ -57,7 +57,7 @@
         <td>建议：</td>
 	      <td>
 	      	&nbsp;<textarea rows="10" cols="50" name="advice">
-	      			<s:property value='repository.advice'/>
+	      			<s:property value='adv'/>
 	      		  </textarea>
 	      </td>
            <td><span><span></td>

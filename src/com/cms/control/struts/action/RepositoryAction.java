@@ -83,12 +83,18 @@ public class RepositoryAction extends ActionSupport {
 	//试剂库详情对象
 	private NewRepositoryVO nRepoVO = new NewRepositoryVO();
 	
+	//替换过换行符的建议字符
+	private String adv;
+	
 	public String execute() throws Exception {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		
 		this.repository.setUserId(user.getId());
 		this.repository.setCreateTime(new Date());
+		
+		this.repository.setAdvice(this.repository.getAdvice().replaceAll("\n", "<br/>"));
+		
 		this.repositoryService.save(repository);
 		
 		return Action.SUCCESS;
@@ -126,6 +132,8 @@ public class RepositoryAction extends ActionSupport {
 	
 	public String loadById() throws Exception {
 		this.repository = this.repositoryService.findById(id);
+		
+		this.adv = this.repository.getAdvice().replaceAll("<br/>", "\n");
 		return "loadById";
 	}
 	
@@ -139,7 +147,7 @@ public class RepositoryAction extends ActionSupport {
 		this.repository.setUniversity(university);
 		this.repository.setFaculty(faculty);
 		this.repository.setTeam(team);
-		this.repository.setAdvice(advice);
+		this.repository.setAdvice(advice.replaceAll("\n", "<br/>"));
 		
 		this.repositoryService.update(repository);
 		return "update";
@@ -374,4 +382,14 @@ public class RepositoryAction extends ActionSupport {
 	public void setAdvice(String advice) {
 		this.advice = advice;
 	}
+
+	public String getAdv() {
+		return adv;
+	}
+
+	public void setAdv(String adv) {
+		this.adv = adv;
+	}
+	
+	
 }
