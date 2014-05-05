@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50536
 File Encoding         : 65001
 
-Date: 2014-05-04 14:20:47
+Date: 2014-05-05 09:50:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -107,7 +107,7 @@ CREATE TABLE `repository` (
 -- Records of repository
 -- ----------------------------
 INSERT INTO `repository` VALUES ('1', 'a01', '化学实验室', '西北大学老校区', '1', '我的试剂库', null, null, null, null, null, null);
-INSERT INTO `repository` VALUES ('2', 'a', 'aa', 'a', '9', 'a', '2014-05-04 14:09:41', 'a', 'aa', 'a', 'a', 'aa');
+INSERT INTO `repository` VALUES ('2', 'a1a', 'aa12e', null, '9', 'a1w', '2014-05-04 14:09:41', 'a1c', 'aa1ab', 'a1', 'a', '	      				      				      				      				      				      				      			\r\n	      	saa	  \r\n	      		  \r\n	      		  \r\n	      		  \r\n	      		  \r\n	      		  \r\n	      		  ');
 
 -- ----------------------------
 -- Table structure for user
@@ -129,21 +129,23 @@ CREATE TABLE `user` (
   `faculty` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
+  `lastLogin` datetime DEFAULT NULL,
+  `registerTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', null, null, '809113633@qq.com', '626306805', 'aa', '13572459570', null, null, 'aa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', '/upload/1399130701944.gif');
-INSERT INTO `user` VALUES ('2', 'scott', '50f1725279347cd1e04bf016026ae1b9', null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('3', 'we', 'ff1ccf57e98c817df1efcd9fe44a8aeb', null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('4', 'lam713', 'e10adc3949ba59abbe56e057f20f883e', 'ydy3128@126.com', '821836717', null, '18721323885', null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('5', 'abc', '900150983cd24fb0d6963f7d28e17f72', 'a', 'a', 'a', 'a', null, null, 'aa', 'aaaa', 'aa', 'aa', 'aa', '/upload/1399131290920.gif');
-INSERT INTO `user` VALUES ('6', 'nayangnianhua', '50f1725279347cd1e04bf016026ae1b9', null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('7', 'admin2', '202cb962ac59075b964b07152d234b70', null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('8', 'xuesheng', '202cb962ac59075b964b07152d234b70', null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('9', 'admin', '21232f297a57a5a743894a0e4a801fc3', null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('1', null, null, '809113633@qq.com', '626306805', 'aa', '13572459570', null, null, 'aa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', '/upload/1399130701944.gif', null, null);
+INSERT INTO `user` VALUES ('2', 'scott', '50f1725279347cd1e04bf016026ae1b9', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('3', 'we', 'ff1ccf57e98c817df1efcd9fe44a8aeb', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('4', 'lam713', 'e10adc3949ba59abbe56e057f20f883e', 'ydy3128@126.com', '821836717', null, '18721323885', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('5', 'abc', '900150983cd24fb0d6963f7d28e17f72', 'a', 'a', 'a', 'a', null, null, 'aa', 'aaaa', 'aa', 'aa', 'aa', '/upload/1399131290920.gif', null, null);
+INSERT INTO `user` VALUES ('6', 'nayangnianhua', '50f1725279347cd1e04bf016026ae1b9', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('7', 'admin2', '202cb962ac59075b964b07152d234b70', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('8', 'xuesheng', '202cb962ac59075b964b07152d234b70', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('9', 'admin', '21232f297a57a5a743894a0e4a801fc3', null, null, null, null, '2', null, null, null, null, null, null, null, '2014-05-05 09:49:36', null);
 
 -- ----------------------------
 -- Table structure for user_medicinal
