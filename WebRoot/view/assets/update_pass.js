@@ -1,5 +1,6 @@
 $(function() {
 	pass.update();
+	pass.reset();
 });
 
 var pass = {
@@ -11,6 +12,7 @@ var pass = {
 			var id = $("input[type='hidden']").val();
 
 			if (oldPass == null || oldPass.trim() == "") {
+				$("input[name='oldPass']").focus();
 				$("#tip_oldPass").html("*请输入原密码");
 				return;
 			} else {
@@ -18,6 +20,7 @@ var pass = {
 			}
 			
 			if (newPass == null || newPass.trim() == "") {
+				$("input[name='newPass']").focus();
 				$("#tip_newPass").html("*请输入新密码");
 				return;
 			} else {
@@ -25,6 +28,7 @@ var pass = {
 			}
 			
 			if (confirmPass == null || confirmPass.trim() == "") {
+				$("input[name='confirmPass']").focus();
 				$("#tip_confirmPass").html("*再次输入新密码");
 				return;
 			} else {
@@ -32,6 +36,7 @@ var pass = {
 			}
 			
 			if (confirmPass != newPass) {
+				$("input[name='confirmPass']").focus();
 				$("#tip_confirmPass").html("*两次密码输入不一致");
 				return;
 			} else {
@@ -64,6 +69,8 @@ var pass = {
 			$("#tip_oldPass").html("");
 			$("#tip_newPass").html("");
 			$("#tip_confirmPass").html("");
+			
+			$("input[name='oldPass']").focus();
 		});
 	}
 };

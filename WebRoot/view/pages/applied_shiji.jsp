@@ -48,11 +48,11 @@
 </head>
 
 <body>
-<div id="search">
+<%-- <div id="search">
  	关键词:
  	<input name="keys" type="text" value="<s:property value='key'/>" size="30" />
     <input type="button" value="搜索试剂库" id="search_btn"/>
-</div>
+</div> --%>
 
 <div id="hideprops" style="display: none;">
 	<div id="pagecount"><s:property value='pageCount'/></div>
