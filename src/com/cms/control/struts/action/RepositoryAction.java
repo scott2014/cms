@@ -95,6 +95,7 @@ public class RepositoryAction extends ActionSupport {
 	}
 
 	public String load() throws Exception {
+		System.out.println("key=" + key);
 		if (key != null && !key.trim().equals("")) {
 			this.key = new String(key.getBytes("iso8859-1"),"utf-8");
 		}
@@ -145,6 +146,10 @@ public class RepositoryAction extends ActionSupport {
 	}
 	
 	public String myrepo() throws Exception {
+		if (key != null && !key.trim().equals("")) {
+			this.key = new String(key.getBytes("iso8859-1"),"utf-8");
+		}
+		
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User u = (User) session.getAttribute("user");
 		this.myrepos = this.repositoryService.findByUserId(pageSize, pageNum, u.getId(), key);
