@@ -66,7 +66,7 @@ public class RepositoryDAOImpl implements RepositoryDAO {
 		String hql = "from Repository";
 		if (key != null && !key.trim().equals("")) {
 			hql += " where department like '%" + key + "%' or address like '%" + key + "%' or repoName like '%" + key + "%'"
-					+ " or repoNo like '%" + key + "%' ";
+					+ " or repoNo like '%" + key + "%' or university like '%" + key + "%'";
 		}
 		
 		final String hql1 = hql;
@@ -85,7 +85,7 @@ public class RepositoryDAOImpl implements RepositoryDAO {
 	public int totalCount(String key) {
 		String hql = "select count(id) from Repository";
 		if (key != null && !key.trim().equals("")) {
-			hql += " where department like '%" + key + "%' or address like '%" + key + "%' or repoName like '%" + key + "%'";
+			hql += " where department like '%" + key + "%' or address like '%" + key + "%' or repoName like '%" + key + "%' or university like '%" + key + "%'";
 		}
 		
 		return ((Long)this.hibernateTemplate.find(hql).get(0)).intValue();
@@ -94,7 +94,7 @@ public class RepositoryDAOImpl implements RepositoryDAO {
 	public List<Repository> findByUserId(final int pageSize,final int pageNum, String key,long userId) {
 		String hql = "from Repository where userId=" + userId;
 		if (key != null && !key.trim().equals("")) {
-			hql += " and (department like '%" + key + "%' or address like '%" + key + "%' or repoName like '%" + key + "%')";
+			hql += " and (university like '%" + key + "%' or address like '%" + key + "%' or repoName like '%" + key + "%' or repoNo like '%" + key + "%'" + ")";
 		}
 		final String hql1 = hql;
 		List<Repository> result = this.hibernateTemplate.executeFind(new HibernateCallback<Object>() {
@@ -112,7 +112,7 @@ public class RepositoryDAOImpl implements RepositoryDAO {
 	public int countByUserId(long userId, String key) {
 		String hql = "select count(id) from Repository where userId=" + userId;
 		if (key != null && !key.trim().equals("")) {
-			hql += " and (department like '%" + key + "%' or address like '%" + key + "%' or repoName like '%" + key + "%')";
+			hql += " and (university like '%" + key + "%' or address like '%" + key + "%' or repoName like '%" + key + "%' or repoNo like '%" + key + "%'" + ")";
 		}
 		return ((Long)this.hibernateTemplate.find(hql).get(0)).intValue();
 	}
