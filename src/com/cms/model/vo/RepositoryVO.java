@@ -1,5 +1,7 @@
 package com.cms.model.vo;
 
+import java.util.Date;
+
 public class RepositoryVO {
 	private long repoId;
 	private String repoNo;
@@ -13,6 +15,7 @@ public class RepositoryVO {
 	private String username;
 	private String realName;
 	private int stored = 0;
+	private Date createTime;
 	
 	public long getRepoId() {
 		return repoId;
@@ -85,6 +88,12 @@ public class RepositoryVO {
 	}
 	public void setStored(int stored) {
 		this.stored = stored;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 	
 }

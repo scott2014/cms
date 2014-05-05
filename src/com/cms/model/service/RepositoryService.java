@@ -58,6 +58,7 @@ public class RepositoryService {
 				repoVO.setDepartment(r.getDepartment());
 				repoVO.setRepoNo(r.getRepoNo());
 				repoVO.setRepoName(r.getRepoName());
+				repoVO.setCreateTime(r.getCreateTime());
 				
 				User u = this.userDAO.findById(r.getUserId());
 				repoVO.setUserId(u.getId());

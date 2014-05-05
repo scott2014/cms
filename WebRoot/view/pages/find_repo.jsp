@@ -65,7 +65,7 @@
  	<th width="15%">试剂库编号</th>
  	<th width="20%">试剂库名称</th>
  	<th width="20%">所属单位</th>
- 	<th width="15%">创建人</th>
+ 	<th width="15%">创建时间</th>
  	<th width="28%">操作</th>
  </tr>
  
@@ -86,7 +86,7 @@
  		</a>
  	</td>
  	<td><s:property value="#repo.department"/></td>
- 	<td><s:property value="#repo.username"/></td>
+ 	<td><s:date name="#repo.createTime" format="yyyy-MM-dd HH:mm"/></td>
  	<td>
  		<s:if test="#repo.userId == #session.user.id">
  			 <a href="javascript:;" repo_id="<s:property value='#repo.repoId'/>" del="ok">删除</a>
