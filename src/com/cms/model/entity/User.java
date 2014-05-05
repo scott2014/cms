@@ -42,6 +42,8 @@ public class User implements java.io.Serializable {
 	private String faculty;
 	private String description;
 	private String photo;
+	private Date lastLogin;
+	private Date registerTime;
 
 	/** default constructor */
 	public User() {
@@ -208,6 +210,24 @@ public class User implements java.io.Serializable {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	
+	@Column(name="lastLogin")
+	public Date getLastLogin() {
+		return lastLogin;
+	}
+
+	public void setLastLogin(Date lastLogin) {
+		this.lastLogin = lastLogin;
+	}
+	
+	@Column(name="registerTime")
+	public Date getRegisterTime() {
+		return registerTime;
+	}
+
+	public void setRegisterTime(Date registerTime) {
+		this.registerTime = registerTime;
 	}
 	
 	

@@ -36,7 +36,7 @@
 						</s:set>
 					</s:if>
 				</s:iterator>
-				当前用户：<s:property value="#session.user.username"/>
+				当前用户：<a href="<%=basePath %>/view/pages/my_info.jsp" target="main_frame"><s:property value="#session.user.username"/></a>
 				权限：<s:if test="#flag == 1">管理员</s:if>
 					<s:else>学生</s:else>
 			</div>

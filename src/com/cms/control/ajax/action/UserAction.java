@@ -1,5 +1,7 @@
 package com.cms.control.ajax.action;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -37,6 +39,9 @@ public class UserAction extends ActionSupport {
 		User user = this.userService.checkUser(username, MDEncode.encode(password));
 		if (user != null) {
 			if (user.getStatus() != null && user.getStatus() == Account.NORMAL) {
+				user.setLastLogin(new Date());
+				this.userService.update(user);
+				
 				HttpSession session = ServletActionContext.getRequest().getSession();
 				session.setAttribute("user", user);
 			} else {

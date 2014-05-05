@@ -2,6 +2,7 @@ package com.cms.control.struts.action;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -43,6 +44,8 @@ public class UserAction extends ActionSupport {
 	private String photoFileName;
 	private String photoContentType;
 	
+	private long id;
+	
 	public String register() {
 		User user = new User();
 		user.setUsername(username);
@@ -54,6 +57,7 @@ public class UserAction extends ActionSupport {
 		user.setRights(rs);
 		
 		user.setStatus(Account.NORMAL);
+		user.setRegisterTime(new Date());
 		
 		this.userService.save(user);
 		return "register";
@@ -122,6 +126,11 @@ public class UserAction extends ActionSupport {
 		return "updateInfo";
 	}
 	
+	public String showInfo() throws Exception {
+		this.user = this.userService.findById(id);
+		return "showInfo";
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -185,4 +194,13 @@ public class UserAction extends ActionSupport {
 	public void setPhotoContentType(String photoContentType) {
 		this.photoContentType = photoContentType;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 }

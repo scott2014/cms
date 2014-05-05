@@ -77,17 +77,21 @@
 	 	bgcolor="#EEF7FF"
 	 </s:else>
      desc="content">
-	  <td width="15%"><s:property value='username'/></td>
+	  <td width="15%">
+	  	<a href="<%=basePath %>/user!showInfo?id=<s:property value='id'/>">
+	  		<s:property value='username'/>
+	  	</a>
+	  </td>
 	  <td width="20%">
- 		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='id'/>">
+ 		<a href="<%=basePath %>/user!showInfo?id=<s:property value='id'/>">
  			<s:property value="realName"/>
  		</a>
  	  </td>
  	  <td width="20%">
-			注册日期
+			<s:date name="registerTime" format="yyyy-MM-dd HH:mm"/>
  	  </td>
  	  <td width="20%">
-			最后一次登录
+			<s:date name="lastLogin" format="yyyy-MM-dd HH:mm"/>
  	  </td>
   	  <td width="23%">
  		<a href="javascript:;" user_id="<s:property value='id'/>" del="ok">删除</a>
