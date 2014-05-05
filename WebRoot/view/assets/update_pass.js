@@ -46,7 +46,7 @@ var pass = {
 				data : {oldPass : oldPass,newPass : newPass,id : id},
 				dataType : "json",
 				success : function(res) {
-					if (res.errorCode = "密码修改成功") {
+					if (res.errorCode == "密码修改成功") {
 						alert(res.errorCode);
 					} else {
 						$("#tip_oldPass").html(res.errorCode);

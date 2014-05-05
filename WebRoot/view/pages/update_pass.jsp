@@ -32,12 +32,12 @@
 	        </tr>
 		    <tr>
 		      <td>新密码：</td>
-		      <td>&nbsp;<input type="text" name="newPass"/></td>
+		      <td>&nbsp;<input type="password" name="newPass"/></td>
 	           <td class="tip" id="tip_newPass"><span></span></td>
 	        </tr>
 		    <tr>
 		      <td>确认密码：</td>
-		      <td>&nbsp;<input type="text" name="confirmPass"/></td>
+		      <td>&nbsp;<input type="password" name="confirmPass"/></td>
 	          <td class="tip" id="tip_confirmPass"><span></span></td>
 	        </tr>
 		    <tr>
