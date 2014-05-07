@@ -8,6 +8,11 @@ var shiji = {
 			var number = $("input[name='applyNumber']").val();
 			var total = $("#left_td").html().trim();
 			
+			if (number == undefined || number.trim() == "") {
+				alert("请输入所需药品剂量！");
+				return;
+			}
+			
 			if (isNaN(number)) {
 				alert("请输入正确的数字！");
 				return;
