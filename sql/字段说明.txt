@@ -1,0 +1,75 @@
+用户表：
+username：用户名（账号）
+password: 用户密码
+email : 用户邮箱
+QQ : qq号
+realName : 真实姓名
+phone ；手机号码
+status : 账户状态(
+gender : 性别
+address ：地址
+university:
+department:
+faculty:
+description:
+photo:
+lastLogin:
+registerTime:
+
+
+用户权限表
+userId：用户id
+rightId：权限id
+
+
+权限表
+rightCode: 权限码
+rightName : 权限名称
+
+试剂表
+formula : 分子式
+name : 中文名称
+cas
+shape : 形状
+mUsage : 用途
+security : 安全性
+standard : 规格
+repositoryId :试剂库id
+photo : 试剂图片
+no : 试剂编号
+description : 描述
+userId ：用户id
+createTime : 创建时间
+_left : 剩余数量
+
+试剂库表
+repoNo:试剂库编号
+department : 所在学院
+university : 所在单位
+faculty : 所在系
+team : 所在团队
+address : 存放地点
+fields : 属性
+advice : 建议
+createTime : 创建时间
+userId : 创建人id
+
+
+用户试剂表
+userId ：用户id
+medicinalId : 试剂id
+status : 试剂审核状态
+checkTime : 审核时间
+applyTime : 申请时间
+appId : 审批人
+
+
+收藏表
+userId ：用户id
+repositoryId ：试剂库id
+medicinalId : 试剂Id
+createTime ： 创建时间
+
+用户权限表
+userId ：用户id
+rightId：权限id
