@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50536
 File Encoding         : 65001
 
-Date: 2014-05-05 17:08:26
+Date: 2014-05-06 14:11:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,7 +50,7 @@ CREATE TABLE `history` (
 -- Records of history
 -- ----------------------------
 INSERT INTO `history` VALUES ('1', '1', '1', null, '2014-05-05 16:35:48');
-INSERT INTO `history` VALUES ('2', '2', '1', null, '2014-05-05 16:37:06');
+INSERT INTO `history` VALUES ('2', '2', '1', null, '2014-05-06 14:07:18');
 
 -- ----------------------------
 -- Table structure for medicinal
@@ -136,7 +136,9 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '626306805@qq.com', '626306805', 'yuanhoujun', '13572459570', '2', null, '西安北池头', '西北大学', '物理所', '物理系', '计算机科学爱好者，喜欢编程，爬山，跑步，乒乓球等等\r<br/>', '/upload/1399255829535.jpg', '2014-05-05 16:43:39', '2014-05-05 10:07:27');
-INSERT INTO `user` VALUES ('2', 'xs', '44d610b3325b4aa08f32d925bc693149', '809113633@qq.com', '809113633', '张靓颖', '13572459571', '2', null, '陕西西安', '西工大', '化学研究所', '化学系', '一个漂亮女生', '/upload/1399278993211.jpg', '2014-05-05 16:36:21', '2014-05-05 11:16:57');
+INSERT INTO `user` VALUES ('2', 'xs', '44d610b3325b4aa08f32d925bc693149', '809113633@qq.com', '809113633', '张靓颖', '13572459571', '2', null, '陕西西安', '西工大', '化学研究所', '化学系', '一个漂亮女生', '/upload/1399278993211.jpg', '2014-05-06 13:57:31', '2014-05-05 11:16:57');
+INSERT INTO `user` VALUES ('3', 'admin1', 'e00cf25ad42683b3df678c61f42c6bda', null, null, null, null, '2', null, null, null, null, null, null, null, '2014-05-06 14:11:09', '2014-05-06 14:09:43');
+INSERT INTO `user` VALUES ('4', 'admin2', 'c84258e9c39059a89ab77d846ddab909', null, null, null, null, '2', null, null, null, null, null, null, null, '2014-05-06 14:11:17', '2014-05-06 14:10:12');
 
 -- ----------------------------
 -- Table structure for user_medicinal
@@ -152,13 +154,14 @@ CREATE TABLE `user_medicinal` (
   `applyNumber` float(10,0) DEFAULT NULL,
   `appId` bigint(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_medicinal
 -- ----------------------------
 INSERT INTO `user_medicinal` VALUES ('6', '2', '1', '2', '2014-05-05 11:17:15', '2014-05-05 11:17:15', '5', '1');
 INSERT INTO `user_medicinal` VALUES ('7', '2', '2', '1', '2014-05-05 11:22:55', '2014-05-05 11:22:55', '15', '1');
+INSERT INTO `user_medicinal` VALUES ('8', '2', '4', '3', '2014-05-06 14:01:35', '2014-05-06 14:01:35', '0', '1');
 
 -- ----------------------------
 -- Table structure for user_right
@@ -173,13 +176,15 @@ CREATE TABLE `user_right` (
   KEY `rightId` (`rightId`),
   CONSTRAINT `user_right_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
   CONSTRAINT `user_right_ibfk_2` FOREIGN KEY (`rightId`) REFERENCES `_right` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_right
 -- ----------------------------
 INSERT INTO `user_right` VALUES ('5', '1', '1');
 INSERT INTO `user_right` VALUES ('6', '2', '2');
+INSERT INTO `user_right` VALUES ('7', '3', '1');
+INSERT INTO `user_right` VALUES ('8', '4', '1');
 
 -- ----------------------------
 -- Table structure for _right
