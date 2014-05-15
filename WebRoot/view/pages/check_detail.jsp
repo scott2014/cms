@@ -15,7 +15,7 @@
 
 <script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
-<script type="text/javascript" src="<%=basePath %>/view/assets/create_shiji.js"></script>
+<script type="text/javascript" src="<%=basePath %>/view/assets/check_detail.js"></script>
 
 
 <title>无标题文档</title>
@@ -102,6 +102,15 @@
         			</td>
 				</tr>
 				
+				<s:if test="mVO.um.advice == @com.cms.model.constant.UserMedicinalConst@YES">
+					<tr bgcolor="#FFFFFF">
+						<td>申请人建议：</td>
+						<td align="left">
+							试剂余量不足，建议添加
+	        			</td>
+					</tr>
+				</s:if>
+				
 				<tr bgcolor="#FFFFFF">
 					<td colspan="2" align="center">
 						<div style="width: 200px;height: 20px;">
@@ -113,7 +122,7 @@
 				
 				<tr bgcolor="#FFFFFF">
 					<td colspan="2" align="center">
-						<input type="submit" value="确定"/>
+						<input type="button" value="确定" id="sub"/>
 					</td>
 				</tr>
 				

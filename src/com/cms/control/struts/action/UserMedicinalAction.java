@@ -74,6 +74,7 @@ public class UserMedicinalAction extends ActionSupport {
 		mVO.setMedicinal(m);
 		mVO.setRepository(r);
 		mVO.setUser(u);
+		mVO.setUm(um);
 		return "toCheck";
 	}
 

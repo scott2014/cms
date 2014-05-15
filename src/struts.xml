@@ -177,5 +177,9 @@
 			<result name="delete" type="json"/>
 		</action>
 		
+		<action name="userMedicinal" class="com.cms.control.ajax.action.UserMedicinalAction">
+			<result name="update" type="json"/>
+		</action>
+		
 	</package>
 </struts>    

@@ -13,6 +13,7 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cms.model.constant.Check;
+import com.cms.model.constant.UserMedicinalConst;
 import com.cms.model.entity.Medicinal;
 import com.cms.model.entity.Repository;
 import com.cms.model.entity.User;
@@ -292,6 +293,13 @@ public class MedicinalAction extends ActionSupport {
 		Medicinal m = this.medicinalService.findById(um.getMedicinalId());
 		um.setAppId(m.getUserId());
 		um.setCheckTime(new Date());
+		
+		if (m.getLeft() < applyNumber) {
+			um.setAdvice(UserMedicinalConst.YES);
+		} else {
+			um.setAdvice(UserMedicinalConst.NO);
+		}
+		
 		this.userMedicinalService.save(um);
 		
 		return "apply";

@@ -19,7 +19,10 @@ var shiji = {
 			}
 			
 			if (parseInt(number) > parseInt(total)) {
-				alert("申请试剂数量超过总量");
+				var ok = window.confirm("试剂总量不足，是否建议管理员添加");
+				if (ok) {
+					$("#form1").submit();
+				}
 				return;
 			}
 			

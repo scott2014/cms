@@ -92,7 +92,7 @@ CREATE TABLE `history` (
 
 LOCK TABLES `history` WRITE;
 /*!40000 ALTER TABLE `history` DISABLE KEYS */;
-INSERT INTO `history` VALUES (1,1,1,NULL,'2014-05-13 19:10:27'),(2,2,1,NULL,'2014-05-07 08:17:17');
+INSERT INTO `history` VALUES (1,1,1,NULL,'2014-05-15 23:41:58'),(2,2,1,NULL,'2014-05-07 08:17:17');
 /*!40000 ALTER TABLE `history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +129,7 @@ CREATE TABLE `medicinal` (
 
 LOCK TABLES `medicinal` WRITE;
 /*!40000 ALTER TABLE `medicinal` DISABLE KEYS */;
-INSERT INTO `medicinal` VALUES (1,'CH4','甲烷','jw01','无色无味气体\r<br/>试试换行','可以用作燃气\r<br/>试试换行','可以用作燃气\r<br/>试试换行','0.005g',1,'/upload/1399256159218.jpg','hx01','常温保存\r<br/>试试换行',1,'2014-05-05 10:15:59',10),(2,'C2H2','乙炔','yq01','无色无味气体','合成其它有机化合物','易燃，易爆','0.0005g/瓶',1,'/upload/1399256309223.jpg','yq01','常温保存',1,'2014-05-05 10:18:29',16),(4,'C2H6','乙烷','cc02','无色无味\r<br/>气体','我也不知道？\r<br/>可以合成其它有机物吧！','安全\r<br/>很安全','0.007g/袋',1,'/upload/1399278762766.jpg','cc02','气体\r<br/>气体\r<br/>气体',1,'2014-05-05 16:32:42',100);
+INSERT INTO `medicinal` VALUES (1,'CH4','甲烷','jw01','无色无味气体\r<br/>试试换行','可以用作燃气\r<br/>试试换行','可以用作燃气\r<br/>试试换行','0.005g',1,'/upload/1399256159218.jpg','hx01','常温保存\r<br/>试试换行',1,'2014-05-05 10:15:59',-6),(2,'C2H2','乙炔','yq01','无色无味气体','合成其它有机化合物','易燃，易爆','0.0005g/瓶',1,'/upload/1399256309223.jpg','yq01','常温保存',1,'2014-05-05 10:18:29',16),(4,'C2H6','乙烷','cc02','无色无味\r<br/>气体','我也不知道？\r<br/>可以合成其它有机物吧！','安全\r<br/>很安全','0.007g/袋',1,'/upload/1399278762766.jpg','cc02','气体\r<br/>气体\r<br/>气体',1,'2014-05-05 16:32:42',100);
 /*!40000 ALTER TABLE `medicinal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +202,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3','626306805@qq.com','626306805','yuanhoujun','13572459570',2,NULL,'西安北池头','西北大学','物理所','物理系','计算机科学爱好者，喜欢编程，爬山，跑步，乒乓球等等\r<br/>','/upload/1399255829535.jpg','2014-05-13 19:15:46','2014-05-05 10:07:27'),(2,'xs','44d610b3325b4aa08f32d925bc693149','809113633@qq.com','809113633','张靓颖','13572459571',2,NULL,'陕西西安','西工大','化学研究所','化学系','一个漂亮女生','/upload/1399278993211.jpg','2014-05-13 19:13:42','2014-05-05 11:16:57'),(3,'admin2','c84258e9c39059a89ab77d846ddab909',NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-07 07:53:00','2014-05-07 07:49:44'),(4,'admin3','32cacb2f994f6b42183a1300d9a3e8d6',NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-07 07:50:54');
+INSERT INTO `user` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3','626306805@qq.com','626306805','yuanhoujun','13572459570',2,NULL,'西安北池头','西北大学','物理所','物理系','计算机科学爱好者，喜欢编程，爬山，跑步，乒乓球等等\r<br/>','/upload/1399255829535.jpg','2014-05-15 23:41:33','2014-05-05 10:07:27'),(2,'xs','44d610b3325b4aa08f32d925bc693149','809113633@qq.com','809113633','张靓颖','13572459571',2,NULL,'陕西西安','西工大','化学研究所','化学系','一个漂亮女生','/upload/1399278993211.jpg','2014-05-15 23:33:32','2014-05-05 11:16:57'),(3,'admin2','c84258e9c39059a89ab77d846ddab909',NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-07 07:53:00','2014-05-07 07:49:44'),(4,'admin3','32cacb2f994f6b42183a1300d9a3e8d6',NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-07 07:50:54');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +224,7 @@ CREATE TABLE `user_medicinal` (
   `appId` bigint(64) DEFAULT NULL,
   `advice` int(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -233,7 +233,7 @@ CREATE TABLE `user_medicinal` (
 
 LOCK TABLES `user_medicinal` WRITE;
 /*!40000 ALTER TABLE `user_medicinal` DISABLE KEYS */;
-INSERT INTO `user_medicinal` VALUES (6,2,1,2,'2014-05-05 11:17:15','2014-05-05 11:17:15',5,1,NULL),(7,2,2,1,'2014-05-05 11:22:55','2014-05-05 11:22:55',15,1,NULL);
+INSERT INTO `user_medicinal` VALUES (6,2,1,2,'2014-05-05 11:17:15','2014-05-05 11:17:15',5,1,NULL),(7,2,2,1,'2014-05-05 11:22:55','2014-05-05 11:22:55',15,1,NULL),(8,2,1,3,'2014-05-15 20:09:08','2014-05-15 20:09:08',2,1,NULL),(9,2,1,2,'2014-05-15 22:32:01','2014-05-15 22:32:01',16,1,0),(10,2,2,3,'2014-05-15 23:33:48','2014-05-15 23:33:48',33,1,0);
 /*!40000 ALTER TABLE `user_medicinal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -275,4 +275,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-15  8:42:40
+-- Dump completed on 2014-05-15 23:45:29
