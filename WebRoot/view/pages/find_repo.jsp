@@ -56,7 +56,7 @@
 	<div id="pagecount"><s:property value='pageCount'/></div>
 	<div id="pagenum"><s:property value='pageNum'/></div>
 	<div id="totalcount"><s:property value='totalCount'/></div>
-	<div id="pagesize"><s:property value='totalCount'/></div>
+	<div id="pagesize"><s:property value='pageSize'/></div>
 </div>
 
 <table cellspacing="1" cellpadding="0" bgcolor="#1C80B7" width="98%" align="center" border="0" style="padding:3px">

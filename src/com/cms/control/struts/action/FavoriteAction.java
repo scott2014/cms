@@ -62,8 +62,8 @@ public class FavoriteAction extends ActionSupport {
 		
 		this.repos = this.favoriteService.findRepoByCondition(rpageSize, rpageNum,user.getId());
 		
-		this.mtotalCount = this.favoriteService.countMedByCondition(user.getId());
-		this.mpageCount = this.mtotalCount % mpageSize == 0 ? this.mtotalCount / mpageSize : this.mtotalCount / mpageSize + 1;
+	/*	this.mtotalCount = this.favoriteService.countMedByCondition(user.getId());
+		this.mpageCount = this.mtotalCount % mpageSize == 0 ? this.mtotalCount / mpageSize : this.mtotalCount / mpageSize + 1;*/
 		
 		this.ms = this.favoriteService.findMedByCondition(mpageSize, mpageNum,user.getId());
 		
@@ -165,4 +165,5 @@ public class FavoriteAction extends ActionSupport {
 	public void setMpageNum(int mpageNum) {
 		this.mpageNum = mpageNum;
 	}
+	
 }

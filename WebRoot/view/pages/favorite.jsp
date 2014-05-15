@@ -21,7 +21,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#rpagination").paginate({
+		$("#pagination").paginate({
 			count : parseInt($("#rpagecount").html().trim()),
 			start : parseInt($("#rpagenum").html().trim()),
 			display : parseInt($("#rpagesize").html().trim()),
@@ -49,7 +49,7 @@
 	<div id="rpagecount"><s:property value='rpageCount'/></div>
 	<div id="rpagenum"><s:property value='rpageNum'/></div>
 	<div id="rtotalcount"><s:property value='rtotalCount'/></div>
-	<div id="rpagesize"><s:property value='rpagesize'/></div>
+	<div id="rpagesize"><s:property value='rpageSize'/></div>
 </div>
 
 <table cellspacing="1" cellpadding="0" bgcolor="#1C80B7" width="98%" align="center" border="0" class="tablect" style="padding:3px">
@@ -67,53 +67,16 @@
  
  <s:iterator value="repos">
  <tr bgcolor="#FFFFFF">
- 	<td width="15%"><s:property value="repository.repoNo"/></td>
- 	<td width="20%">
+ 	<td><s:property value="repository.repoNo"/></td>
+ 	<td>
  		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='repository.id'/>">
  			<s:property value="repository.repoName"/>
  		</a>
  	</td>
- 	<td width="20%"><s:property value="repository.department"/></td>
- 	<td width="20%"><s:property value="user.username"/></td>
- 	<td width="23%">
+ 	<td><s:property value="repository.department"/></td>
+ 	<td><s:property value="user.username"/></td>
+ 	<td>
  		<a href="javascript:;" repo_id="<s:property value='repository.id'/>" del="ok">取消收藏</a>
- 	</td>
- </tr>
- </s:iterator>
- 
-  <tr bgcolor="#FFFFFF">
- 	<td colspan="5" >
- 		<div id="mypage">
- 			<div id="rpagination"></div>
- 		</div>
- 	</td>
- </tr>
- 
-<%--<tr bgcolor="#FFFFFF">
- 	<td colspan="5" class="head">
- 		收藏的试剂
- 	</td>
- </tr>
- <tr bgcolor="#1C80B7">
- 	<th width="15%">试剂图片</th>
- 	<th width="20%">试剂名称</th>
- 	<th width="20%">所属试剂库</th>
- 	<th width="20%">创建人</th>
- 	<th width="23%">操作</th>
- </tr>
- 
- <s:iterator value="ms" var="repo">
- <tr bgcolor="#FFFFFF">
- 	<td width="15%"><s:property value="#repo.repoNo"/></td>
- 	<td width="20%">
- 		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='#repo.repoId'/>">
- 			<s:property value="#repo.repoName"/>
- 		</a>
- 	</td>
- 	<td width="20%"><s:property value="#repo.department"/></td>
- 	<td width="20%"><s:property value="#repo.username"/></td>
- 	<td width="23%">
- 		<a href="javascript:;" repo_id="<s:property value='#repo.repoId'/>" del="ok">取消收藏</a>
  	</td>
  </tr>
  </s:iterator>
@@ -125,7 +88,7 @@
  		</div>
  	</td>
  </tr>
---%></tbody>
+</tbody>
  </table>
 </body>
 </html>

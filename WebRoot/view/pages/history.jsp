@@ -49,7 +49,7 @@
 	<div id="rpagecount"><s:property value='rpageCount'/></div>
 	<div id="rpagenum"><s:property value='rpageNum'/></div>
 	<div id="rtotalcount"><s:property value='rtotalCount'/></div>
-	<div id="rpagesize"><s:property value='rpagesize'/></div>
+	<div id="rpagesize"><s:property value='rpageSize'/></div>
 </div>
 
 <table cellspacing="1" cellpadding="0" bgcolor="#1C80B7" width="98%" align="center" border="0" class="tablect" style="padding:3px">
