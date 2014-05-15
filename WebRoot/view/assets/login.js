@@ -68,6 +68,9 @@ var login = {
 				} else {
 					$("#password_tip span").html(res.errorCode);
 				}
+			},
+			error : function(XmlHttpRequest,textStatus) {
+				alert("网络连接失败，错误码：" + textStatus);
 			}
 		});
 	},
