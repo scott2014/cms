@@ -18,6 +18,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	
+	<script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
+	
+	<script type="text/javascript" language="javascript">
+		location.href = getRootPath() + "/login/login.jsp";
+	</script>
   </head>
   
   <body>
