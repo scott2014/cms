@@ -85,6 +85,7 @@
  </tr>
  </s:iterator>
  
+ <s:if test="rtotalCount != 0">
   <tr bgcolor="#FFFFFF">
  	<td colspan="5" >
  		<div id="mypage">
@@ -92,40 +93,7 @@
  		</div>
  	</td>
  </tr>
- 
-<%--<tr bgcolor="#FFFFFF">
- 	<td colspan="5" class="head">
- 		查看过的试剂
- 	</td>
- </tr>
- <tr bgcolor="#1C80B7">
- 	<th width="15%">试剂图片</th>
- 	<th width="20%">试剂名称</th>
- 	<th width="20%">所属试剂库</th>
- 	<th width="20%">创建人</th>
- </tr>
- 
- <s:iterator value="ms" var="repo">
- <tr bgcolor="#FFFFFF">
- 	<td width="15%"><s:property value="#repo.repoNo"/></td>
- 	<td width="20%">
- 		<a href="<%=basePath %>/repository!showDetail?id=<s:property value='#repo.repoId'/>">
- 			<s:property value="#repo.repoName"/>
- 		</a>
- 	</td>
- 	<td width="20%"><s:property value="#repo.department"/></td>
- 	<td width="20%"><s:property value="#repo.username"/></td>
- </tr>
- </s:iterator>
- 
-  <tr bgcolor="#FFFFFF">
- 	<td colspan="5" >
- 		<div id="mypage">
- 			<div id="pagination"></div>
- 		</div>
- 	</td>
- </tr>
---%>
+ </s:if>
 
 </tbody>
  </table>

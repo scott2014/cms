@@ -81,6 +81,7 @@
  </tr>
  </s:iterator>
  
+ <s:if test="rtotalCount != 0">
   <tr bgcolor="#FFFFFF">
  	<td colspan="5" >
  		<div id="mypage">
@@ -88,6 +89,7 @@
  		</div>
  	</td>
  </tr>
+ </s:if>
 </tbody>
  </table>
 </body>

@@ -115,6 +115,8 @@
  	</s:else>
  </tr>
  </s:iterator>
+ 
+ <s:if test="totalCount > 0">
   <tr bgcolor="#FFFFFF">
  	<td colspan="6" >
  		<div id="mypage">
@@ -122,6 +124,7 @@
  		</div>
  	</td>
  </tr>
+ </s:if>
 </tbody>
  </table>
 </body>

@@ -3,6 +3,8 @@ package com.cms.model.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cms.model.constant.UserRight;
+import com.cms.model.entity.Right;
 import com.cms.model.entity.User;
 import com.cms.model.entity.UserMedicinal;
 
@@ -24,5 +26,8 @@ public interface UserDAO {
 	
 	public User checkUser(String username,String password);
 	
-	public List<User> findByRightCode(int rightCode);
+
+	public List<User> findByRightCode(int rightCode,int pageSize,int pageNum);
+	
+	public int countByRightCode(int rightCode);
 }

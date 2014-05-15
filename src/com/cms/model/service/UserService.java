@@ -38,9 +38,12 @@ public class UserService {
 		return this.userDAO.findById(id);
 	}
 	
-	@Transactional
-	public List<User> findRyRightCode(int rightCode) {
-		return this.userDAO.findByRightCode(rightCode);
+	public List<User> findByRightCode(int rightCode,int pageSize,int pageNum) {
+		return this.userDAO.findByRightCode(rightCode, pageSize, pageNum);
+	}
+	
+	public int countByRightCode(int rightCode) {
+		return this.userDAO.countByRightCode(rightCode);
 	}
 	
 	@Transactional

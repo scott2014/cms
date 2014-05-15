@@ -32,10 +32,8 @@
 			background_hover_color : "rgb(104, 186, 100)",
 			text_color : "#000000",
 			onChange:function(res) {
-					var key = $("input[name=keys]").val();
 					var pageNum = res;
-					var params = {key : key,pageNum:pageNum};
-					location.href = getRootPath() + "/repository!myrepo?key=" + key + "&pageNum=" + pageNum;
+					location.href = getRootPath() + "/user!mgr?&pageNum=" + pageNum;
 				}
 			}
 		);
@@ -50,7 +48,7 @@
 	<div id="pagecount"><s:property value='pageCount'/></div>
 	<div id="pagenum"><s:property value='pageNum'/></div>
 	<div id="totalcount"><s:property value='totalCount'/></div>
-	<div id="pagesize"><s:property value='totalCount'/></div>
+	<div id="pagesize"><s:property value='pageSize'/></div>
 </div>
 
 <table cellspacing="1" cellpadding="0" bgcolor="#1C80B7" width="98%" align="center" border="0" class="tablect" style="padding:3px">
@@ -98,6 +96,7 @@
   	</tr>
  </s:iterator>	
 
+<s:if test="totalCount > 0">
   <tr bgcolor="#FFFFFF">
  	<td colspan="5" >
  		<div id="mypage">
@@ -105,6 +104,7 @@
  		</div>
  	</td>
  </tr>
+ </s:if>
  
 </tbody>
 </table>

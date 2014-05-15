@@ -49,6 +49,11 @@ public class UserAction extends ActionSupport {
 	
 	private UserVO userVO = new UserVO();
 	
+	private int totalCount;
+	private int pageSize = 5;
+	private int pageCount = 0;
+	private int pageNum = 1;
+	
 	public String register() {
 		User user = new User();
 		user.setUsername(username);
@@ -80,7 +85,11 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String mgr() throws Exception {
-		this.users = this.userService.findRyRightCode(UserRight.STUDENT);
+		this.totalCount = this.userService.countByRightCode(UserRight.STUDENT);
+		
+		this.pageCount = this.totalCount % pageSize == 0 ? totalCount / pageSize : totalCount / pageSize + 1;
+		
+		this.users = this.userService.findByRightCode(UserRight.STUDENT, pageSize, pageNum);
 		return "mgr";
 	}
 	
@@ -233,4 +242,38 @@ public class UserAction extends ActionSupport {
 	public void setUserVO(UserVO userVO) {
 		this.userVO = userVO;
 	}
+
+	public int getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public int getPageCount() {
+		return pageCount;
+	}
+
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
+	}
+
+	public int getPageNum() {
+		return pageNum;
+	}
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+	
+	
 }

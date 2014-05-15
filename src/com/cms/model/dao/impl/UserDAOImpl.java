@@ -68,7 +68,7 @@ public class UserDAOImpl implements UserDAO {
 		return result != null && result.size() > 0 ? result.get(0) : null;
 	}
 	
-	public List<User> findByRightCode(int rightCode) {
+	public List<User> findByRightCode(int rightCode,int pageSize,int pageNum) {
 		List<User> users = this.userDAO.loadAll();
 		
 		List<User> result = new ArrayList<User>();
@@ -81,6 +81,32 @@ public class UserDAOImpl implements UserDAO {
 				}
 			}
 		}
-		return result;
+		
+		List<User> res = new ArrayList<User>();
+		if (result.size() > 0) {
+			int max = (pageNum - 1) * pageSize + pageSize > result.size() ? result.size() :  (pageNum - 1) * pageSize + pageSize;
+			for (int i=(pageNum - 1) * pageSize;i<max;i++) {
+				res.add(result.get(i));
+			}
+		}
+		
+		return res;
+	}
+	
+	public int countByRightCode(int rightCode) {
+		List<User> users = this.userDAO.loadAll();
+		
+		List<User> result = new ArrayList<User>();
+		
+		for (User user : users) {
+			List<Right> rights = user.getRights();
+			for (Right r : rights) {
+				if (r.getRightCode() == UserRight.STUDENT) {
+					result.add(user);
+				}
+			}
+		}
+		
+		return result.size();
 	}
 }
