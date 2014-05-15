@@ -20,6 +20,7 @@ public class UserMedicinal {
 	private Date applyTime;
 	private Float applyNumber;
 	private Long appId;
+	private Integer advice;
 	
 	@Id
 	@GeneratedValue
@@ -85,4 +86,14 @@ public class UserMedicinal {
 	public void setAppId(Long appId) {
 		this.appId = appId;
 	}
+	
+	@Column(name="advice",length=4)
+	public Integer getAdvice() {
+		return advice;
+	}
+	public void setAdvice(Integer advice) {
+		this.advice = advice;
+	}
+	
+	
 }
