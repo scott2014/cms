@@ -56,7 +56,7 @@ CREATE TABLE `favorite` (
   `medicinalId` bigint(64) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +83,7 @@ CREATE TABLE `history` (
   `medicinalId` bigint(64) DEFAULT NULL,
   `lastViewTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +92,7 @@ CREATE TABLE `history` (
 
 LOCK TABLES `history` WRITE;
 /*!40000 ALTER TABLE `history` DISABLE KEYS */;
-INSERT INTO `history` VALUES (1,1,1,NULL,'2014-05-07 07:49:15'),(2,2,1,NULL,'2014-05-05 16:37:06');
+INSERT INTO `history` VALUES (1,1,1,NULL,'2014-05-13 19:10:27'),(2,2,1,NULL,'2014-05-07 08:17:17');
 /*!40000 ALTER TABLE `history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +154,7 @@ CREATE TABLE `repository` (
   `fields` varchar(100) DEFAULT NULL,
   `advice` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,7 +193,7 @@ CREATE TABLE `user` (
   `lastLogin` datetime DEFAULT NULL,
   `registerTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,7 +202,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3','626306805@qq.com','626306805','yuanhoujun','13572459570',2,NULL,'西安北池头','西北大学','物理所','物理系','计算机科学爱好者，喜欢编程，爬山，跑步，乒乓球等等\r<br/>','/upload/1399255829535.jpg','2014-05-07 07:45:58','2014-05-05 10:07:27'),(2,'xs','44d610b3325b4aa08f32d925bc693149','809113633@qq.com','809113633','张靓颖','13572459571',2,NULL,'陕西西安','西工大','化学研究所','化学系','一个漂亮女生','/upload/1399278993211.jpg','2014-05-05 16:36:21','2014-05-05 11:16:57'),(3,'admin2','c84258e9c39059a89ab77d846ddab909',NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-07 07:53:00','2014-05-07 07:49:44'),(4,'admin3','32cacb2f994f6b42183a1300d9a3e8d6',NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-07 07:50:54');
+INSERT INTO `user` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3','626306805@qq.com','626306805','yuanhoujun','13572459570',2,NULL,'西安北池头','西北大学','物理所','物理系','计算机科学爱好者，喜欢编程，爬山，跑步，乒乓球等等\r<br/>','/upload/1399255829535.jpg','2014-05-13 19:15:46','2014-05-05 10:07:27'),(2,'xs','44d610b3325b4aa08f32d925bc693149','809113633@qq.com','809113633','张靓颖','13572459571',2,NULL,'陕西西安','西工大','化学研究所','化学系','一个漂亮女生','/upload/1399278993211.jpg','2014-05-13 19:13:42','2014-05-05 11:16:57'),(3,'admin2','c84258e9c39059a89ab77d846ddab909',NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-07 07:53:00','2014-05-07 07:49:44'),(4,'admin3','32cacb2f994f6b42183a1300d9a3e8d6',NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-07 07:50:54');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,6 +222,7 @@ CREATE TABLE `user_medicinal` (
   `applyTime` datetime DEFAULT NULL,
   `applyNumber` float(10,0) DEFAULT NULL,
   `appId` bigint(64) DEFAULT NULL,
+  `advice` int(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -232,7 +233,7 @@ CREATE TABLE `user_medicinal` (
 
 LOCK TABLES `user_medicinal` WRITE;
 /*!40000 ALTER TABLE `user_medicinal` DISABLE KEYS */;
-INSERT INTO `user_medicinal` VALUES (6,2,1,2,'2014-05-05 11:17:15','2014-05-05 11:17:15',5,1),(7,2,2,1,'2014-05-05 11:22:55','2014-05-05 11:22:55',15,1);
+INSERT INTO `user_medicinal` VALUES (6,2,1,2,'2014-05-05 11:17:15','2014-05-05 11:17:15',5,1,NULL),(7,2,2,1,'2014-05-05 11:22:55','2014-05-05 11:22:55',15,1,NULL);
 /*!40000 ALTER TABLE `user_medicinal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,4 +275,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-07  8:03:11
+-- Dump completed on 2014-05-15  8:42:40
