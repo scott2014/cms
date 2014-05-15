@@ -26,7 +26,7 @@
 			start : parseInt($("#rpagenum").html().trim()),
 			display : parseInt($("#rpagesize").html().trim()),
 			border : true,
-			background_color : "rgb(0, 204, 255)",
+			background_color : "#1C80B7",
 			text_hover_color : "#000",
 			background_hover_color : "rgb(104, 186, 100)",
 			text_color : "#000000",
