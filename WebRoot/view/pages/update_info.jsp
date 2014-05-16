@@ -50,6 +50,26 @@
 					<td> 邮箱：</td>
 					<td align="left">
 						 <input type="text" name="user.email" value="<s:property value='userVO.user.email'/>"/>
+						 <select name="suffix" style="height:26px;">
+						 	<option value="@163.com">
+						 		@163.com
+						 	</option>
+						 	<option value="@qq.com">
+						 		@qq.com
+						 	</option>
+						 	<option value="@126.com">
+						 		@126.com
+						 	</option>
+						 	<option value="@sina.com">
+						 		@sina.com
+						 	</option>
+						 	<option value="@sina.cn">
+						 		@sina.cn
+						 	</option>
+						 	<option value="@msn.cn">
+						 		@msn.cn
+						 	</option>
+						 </select>
         			</td>
         			<td align="left">
 					    <span></span>

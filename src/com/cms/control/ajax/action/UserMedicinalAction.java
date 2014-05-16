@@ -46,19 +46,21 @@ public class UserMedicinalAction extends ActionSupport {
 		float left = m.getLeft();
 		float applyNumber = um.getApplyNumber();
 		
-		if (applyNumber - left > 0) {
-			errorCode = "试剂存量不足，请先修改试剂存量";
-		} else {
-			um.setStatus(status);
-			
-			if (status == Check.APPROVED) {
+	
+		um.setStatus(status);
+		
+		if (status == Check.APPROVED) {
+			if (applyNumber - left > 0) {
+				errorCode = "试剂存量不足，请先修改试剂存量";
+				return "update";
+			} else {
 				m.setLeft(m.getLeft() - um.getApplyNumber());
 				this.medicinalService.update(m);
 			}
-			this.userMedicinalService.update(um);
-			
-			errorCode = "";
 		}
+		this.userMedicinalService.update(um);
+			
+		errorCode = "";
 		
 		return "update";
 	}

@@ -47,6 +47,8 @@ public class UserAction extends ActionSupport {
 	
 	private long id;
 	
+	private String suffix;
+	
 	private UserVO userVO = new UserVO();
 	
 	private int totalCount;
@@ -122,7 +124,7 @@ public class UserAction extends ActionSupport {
 		}
 		
 		u.setRealName(user.getRealName());
-		u.setEmail(user.getEmail());
+		u.setEmail(user.getEmail() + suffix);
 		u.setQq(user.getQq());
 		u.setPhone(user.getPhone());
 		u.setUniversity(user.getUniversity());
@@ -274,6 +276,15 @@ public class UserAction extends ActionSupport {
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
 	}
+
+	public String getSuffix() {
+		return suffix;
+	}
+
+	public void setSuffix(String suffix) {
+		this.suffix = suffix;
+	}
+	
 	
 	
 }
