@@ -15,7 +15,7 @@
 
 <script type="text/javascript" src="<%=basePath %>/view/assets/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/view/assets/base.js"></script>
-<script type="text/javascript" src="<%=basePath %>/view/assets/create_shiji.js"></script>
+<script type="text/javascript" src="<%=basePath %>/view/assets/update_info.js"></script>
 
 
 <title>无标题文档</title>
@@ -24,7 +24,7 @@
 <body>
 <div id="create_shiji">
 <form id="form1" name="form1" method="post" action="<%=basePath %>/user!updateInfo" enctype="multipart/form-data">
-<table cellspacing="0" cellpadding="0" bgcolor="#1C80B7" width="98%"
+<table cellspacing="1" cellpadding="0" bgcolor="#1C80B7" width="98%"
 			align="center" border="0" class="tablect" style="padding:3px">
 			<tbody>
 				<tr bgcolor="#FFFFFF">
@@ -70,6 +70,7 @@
 						 		@msn.cn
 						 	</option>
 						 </select>
+						 <span id="email_tip" style="color:red;"></span>
         			</td>
         			<td align="left">
 					    <span></span>
@@ -80,8 +81,9 @@
 					<td> QQ：</td>
 					<td align="left">
 						 <input type="text" name="user.qq" value="<s:property value='userVO.user.qq'/>"/>
+						 <span id="qq_tip" style="color: red;"></span>
         			</td>
-        			<td align="left">
+        			<td align="left" >
 					    <span></span>
 					</td>
 				</tr>
@@ -90,8 +92,9 @@
 					<td> 手机：</td>
 					<td align="left">
 						 <input type="text" name="user.phone" value="<s:property value='userVO.user.phone'/>"/>
+						 <span id="phone_tip" style="color: red;"></span>
         			</td>
-        			<td align="left">
+        			<td align="left" id="phone_tip">
 					    <span></span>
 					</td>
 				</tr>
@@ -148,8 +151,8 @@
 				
 				<tr bgcolor="#FFFFFF">
 					<td align="center" colspan="2">
-						<input type="submit" value="提交" style="width:60px;"/> 
-						<input type="reset" value="重置"  style="width:60px;"/>
+						<input type="button" value="提交" style="width:60px;" id="sub"/> 
+						<input type="button" value="重置"  style="width:60px;" id="reset"/>
         			</td>
 				</tr>
 			</tbody>
