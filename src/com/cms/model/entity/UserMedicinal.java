@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user_medicinal",catalog="cms")
-public class UserMedicinal {
+public class UserMedicinal implements java.io.Serializable {
 	
 	private long id;
 	private long userId;
