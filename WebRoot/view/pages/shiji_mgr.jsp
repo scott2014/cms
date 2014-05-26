@@ -34,7 +34,7 @@
 					var key = $("input[name=keys]").val();
 					var pageNum = res;
 					var params = {key : key,pageNum:pageNum};
-					location.href = getRootPath() + "/medicinal!loadMe?key=" + key + "&pageNum=" + pageNum;
+					location.href = getRootPath() + "/medicinal!loadMe?pageNum=" + pageNum;
 				}
 			}
 		);
